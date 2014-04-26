@@ -43,7 +43,8 @@ document.onload = function() {
 			// data
 			'data/elements.json',
 			// js
-			'js/libs/three.min.js',
+			// 'js/libs/three.min.js',
+			'js/mendeleev/models.js',
 			'js/mendeleev/app.js'
 			// images
 			// dmitri.IMAGES['smoke']	
@@ -56,14 +57,14 @@ document.onload = function() {
 				dmitri.paused = true;
 				cancelAnimationFrame(dmitri.animationID);
 				dmitri.keydown = [];
-				dmitri.soundtrack.volume = 0.15;
-				dmitri.app.update();
+				// dmitri.soundtrack.volume = 0.15;
+				// dmitri.app.update();
 			}
 			window.onfocus = function() {
 				dmitri.paused = false;
 				cancelAnimationFrame(dmitri.animationID);
-				dmitri.soundtrack.volume = 0.8;
-				dmitri.app.update();
+				// dmitri.soundtrack.volume = 0.8;
+				// dmitri.app.update();
 			}
 
 			// keyup/down

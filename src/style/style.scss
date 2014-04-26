@@ -10,10 +10,45 @@
 body {
 	// background: #222;
 	// color: blue;
+	// margin: 0;
+  // overflow: hidden;	
+  // overflow-x: hidden;
+  color: #ccc;
 }
 .toggle {
 	@include hover();
 }
-canvas {
+#main {
+}
+#header {
+	padding: 1rem;
+}
+h1 {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
+#model {
 	background: tomato;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+#footer {
+	// position: absolute;
+	// bottom: 0;
+	// left: 0;
+	display: none;
+	padding: 1em 1rem;
+	font-size: 0.75em;
+}
+#help {
+	display: none;
+}
+
+
+
+#atom {
+	position: relative;
 }
