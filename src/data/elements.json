@@ -1,0 +1,111 @@
+[
+	{
+		"number": 1,
+		"name": "Hydrogen",
+		"symbol": "H",
+		"weight": 1.007,
+		"protons": 1,
+		"neutrons": 0,
+		"electrons": 1
+	},
+	{
+		"number": 2,
+		"name": "Helium",
+		"symbol": "He",
+		"weight": 4.002,
+		"protons": 2,
+		"neutrons": 2,
+		"electrons": 2
+	},
+	{
+		"number": 3,
+		"name": "Lithium",
+		"symbol": "Li",
+		"weight": 6.941,
+		"protons": 3,
+		"neutrons": 3,
+		"electrons": 3
+	},
+	{
+		"number": 4,
+		"name": "Beryllium",
+		"symbol": "Be",
+		"weight": 9.012,
+		"protons": 4,
+		"neutrons": 5,
+		"electrons": 4
+	},
+	{
+		"number": 5,
+		"name": "Boron",
+		"symbol": "B",
+		"weight": 10.811,
+		"protons": 5,
+		"neutrons": 5,
+		"electrons": 5
+	},
+	{
+		"number": 6,
+		"name": "Carbon",
+		"symbol": "C",
+		"weight": 12.010,
+		"protons": 6,
+		"neutrons": 6,
+		"electrons": 6
+	},
+	{
+		"number": 7,
+		"name": "Nitrogen",
+		"symbol": "N",
+		"weight": 14.006,
+		"protons": 7,
+		"neutrons": 7,
+		"electrons": 7
+	},
+	{
+		"number": 8,
+		"name": "Oxygen",
+		"symbol": "O",
+		"weight": 15.999,
+		"protons": 8,
+		"neutrons": 7,
+		"electrons": 8
+	},
+	{
+		"number": 9,
+		"name": "Fluorine",
+		"symbol": "F",
+		"weight": 18.998,
+		"protons": 9,
+		"neutrons": 9,
+		"electrons": 9
+	},
+	{
+		"number": 10,
+		"name": "Neon",
+		"symbol": "Ne",
+		"weight": 20.179,
+		"protons": 10,
+		"neutrons": 10,
+		"electrons": 10
+	},
+	{
+		"number": 11,
+		"name": "Sodium",
+		"symbol": "Na",
+		"weight": 22.989,
+		"protons": 11,
+		"neutrons": 11,
+		"electrons": 11
+	},
+	{
+		"number": 12,
+		"name": "Magnesium",
+		"symbol": "Mg",
+		"weight": 24.305,
+		"protons": 12,
+		"neutrons": 12,
+		"electrons": 12
+	}
+
+]

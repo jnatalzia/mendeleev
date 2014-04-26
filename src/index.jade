@@ -1,0 +1,44 @@
+!!! 5
+head
+	title Mendeleev
+	meta(name="description", content="Mendeleev - Interactive atom viewer")
+	meta(charset="utf-8")
+	meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+	meta(name="viewport", content="width=device-width, initial-scale=1")
+	script(src="js/libs/modernizr.js")
+	link(rel="stylesheet", href="style/style.css")
+
+
+body#mendeleev
+	a(href="#main", class="assistive-text") Skip to main content
+	div.container
+		div#main
+			header#header
+				h1 Mendeleev
+			div#app
+				div#loader
+
+				section#atom
+					h2.t5#symbol C
+					h3.t6#name Carbon
+					p#number 12
+					p#weight 12.001
+					ul#electron-config
+						li 1
+					canvas#model
+				div#help
+					h2.t6 Controls
+					p Rotate around the camera with the mouse or swipes on mobile
+					p pinch to zoom
+					p tap to fade out GUI
+					form#got-it
+						label
+							span Got it
+							input(type="checkbox", value="got-it")
+				
+
+			footer#footer
+				h2 Luis Rosario - 2014
+
+	script(src="js/main.js")
+</html>
