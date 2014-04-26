@@ -7,40 +7,59 @@ dmitri.app = {
 	renderer: undefined,
 	scene: undefined,
 	camera: undefined,
+	cameraControls: undefined,
 	myobjects: [],
 	paused: false,
 	dt: 1/60,
-	controls: undefined,
-	cube: undefined,
+	step: 0,
+	atom: undefined,
 
 	init: function() {
+		// get data
 		dmitri.elements = elements;
 
 		this.setupThreeJS();
-		this.setupWorld();
+
+		// dmitri.atom.init(this.scene);
+		this.atom = dmitri.atom.build(dmitri.elements[0]);
 		this.update();
 	},
 
 	setupThreeJS: function() {
 
+
+		// get screen size and base everything off of that
+		var width = window.innerWidth;
+		document.querySelector('#atom-wrapper').style.height= width+'px';
+
+
+
+		// set renderer
+		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('#model')});
+		this.renderer.setSize( width, width );
+		this.renderer.setClearColor(0x111111, 1.0);
+		this.renderer.shadowMapEnabled = true;
+
+
 		// set scene
 		this.scene = new THREE.Scene();
 
 
-
 		// set camera
 		// this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-		this.camera = new THREE.PerspectiveCamera( 75, 320 / 320, 0.1, 1000 );
-		this.camera.position.z = 30;
+		this.camera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
 
-		// set renderer
-		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('#model')});
-		this.renderer.setSize( 320, 320 );
-		// this.renderer.setSize( window.innerWidth, window.innerHeight );
-		this.renderer.setClearColor(0x111111, 1.0);
-		// this.renderer.setClearColor(0x222222, 1.0);
-		// this.renderer.setClearColor(0xeeeeee, 1.0);
-		this.renderer.shadowMapEnabled = true;
+		this.camera.position.z = width*0.05;
+		if (width > 480) this.camera.position.z = width*0.025;
+
+		// this.cameraControls = new THREE.OrbitControls(this.camera);
+		// // this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector('#model'));
+		// // this.cameraControls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+		// // this.cameraControls.target.set( 0, 40, 0);
+		// this.cameraControls.maxDistance = 200;
+		// this.cameraControls.minDistance = 5;
+		// this.cameraControls.update();
+
 
 
 		// add subtle ambient lighting
@@ -58,61 +77,36 @@ dmitri.app = {
     // spotLight.lookAt(sphere);
     this.scene.add( spotLight );
 
-		// this.controls = new THREE.FirstPersonControls(this.camera);
-		// this.controls.movementSpeed = 100;
-		// this.controls.lookSpeed = 0.1;
-		// this.controls.autoForward = false;
 	},
 	
-	setupWorld: function() {
-
-		var models = dmitri.models;
-
-		/* making an atom */
-		// proton
-		var proton = new THREE.Mesh(models.proton.geometry, models.proton.material);
-		proton.receiveShadow = true;
-		// neutron
-		var neutron = new THREE.Mesh(models.neutron.geometry, models.neutron.material);
-		neutron.receiveShadow = true;
-		neutron.position.y = 1.5;
-		// electron
-		var electron = new THREE.Mesh(models.electron.geometry, models.electron.material);
-		electron.receiveShadow = true;
-		electron.position.y = 10;
-
-		this.scene.add(proton);
-		this.scene.add(neutron);
-		this.scene.add(electron);
-	},
-
-
-
 			
 			
-		update: function(){
-			// schedule next animation frame
-			app.animationID = requestAnimationFrame(this.update.bind(this));
-			
+	update: function(){
+		// schedule next animation frame
+		dmitri.animationID = requestAnimationFrame(this.update.bind(this));
+		
 		// PAUSED?
-		if (app.paused){
+		if (dmitri.paused){
 			this.drawPauseScreen();
 			return;
 		 }
 	
 		// UPDATE
-		// this.controls.update(this.dt);
-		
-			// this.cube.rotation.x += 0.0125;
-			// this.cube.rotation.y += 0.0125;
+		// this.controls.update();
+		// this.cameraControls.update();
+
+		this.step += 0.04;
+		for (var i = 0; i < this.atom.electrons.length; i++) {
+			this.atom.electrons[i].position.x = 0+( 10*(Math.cos(this.step)));
+			this.atom.electrons[i].position.y = 0 +( 10*(Math.sin(this.step)));			
+		};
+
+		// this.cube.rotation.x += 0.0125;
+		// this.cube.rotation.y += 0.0125;
 
 
 		// DRAW	
 		this.renderer.render(this.scene, this.camera);
-					// requestAnimationFrame(render);
-
-
-			// renderer.render(scene, camera);
 	},
 	
 
@@ -121,6 +115,18 @@ dmitri.app = {
 	
 	drawPauseScreen: function(){
 		// do something pause-like if you want
-	}
+	},
 
+	search: function(e) {
+		// console.log(e);
+		console.log(dmitri.search.value);
+		var search = dmitri.search.value;
+		for (var i = 0; i < dmitri.elements.length; i++) {
+			/* should probably do some regex here */
+			if (search == dmitri.elements[i].name.toLowerCase()) {
+				console.log('we have a match');
+				dmitri.atom.build(i);
+			}
+		};
+	}
 };

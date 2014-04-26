@@ -6,6 +6,34 @@
 @import "pieces/base";
 @import "pieces/typography";
 
+#atom-wrapper {
+	padding: 1rem;
+	position: relative;
+}
+#atom {
+	position: relative;
+}
+#symbol {
+	font-size: 3.25rem;
+	color: #ebebeb;
+	margin-bottom: 0.125rem;
+}
+#name {
+	color: darken(#ebebeb, 10%);
+	margin-bottom: 0.25rem;
+}
+#weight {
+	font-size: 0.875rem;
+}
+#electron-config {
+	position: absolute;
+	top: 0;
+	right: 0;
+	list-style: none;
+	li {
+		margin-bottom: 0.5rem;
+	}
+}
 
 body {
 	// background: #222;
@@ -15,6 +43,9 @@ body {
   // overflow-x: hidden;
   color: #ccc;
 }
+input {
+	margin-bottom: 0;
+}
 .toggle {
 	@include hover();
 }
@@ -22,10 +53,19 @@ body {
 }
 #header {
 	padding: 1rem;
+	@include flexbox();
+	h1, form {
+		@include flex(1);
+	}
 }
 h1 {
 	font-size: 0.75rem;
 	text-transform: uppercase;
+}
+
+
+#search {
+	text-align: right;
 }
 #model {
 	background: tomato;
@@ -39,16 +79,11 @@ h1 {
 	// position: absolute;
 	// bottom: 0;
 	// left: 0;
-	display: none;
 	padding: 1em 1rem;
 	font-size: 0.75em;
 }
 #help {
-	display: none;
 }
 
 
 
-#atom {
-	position: relative;
-}

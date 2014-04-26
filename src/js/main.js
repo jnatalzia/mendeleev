@@ -22,6 +22,10 @@ dmitri.KEYBOARD = {
 	"KEY_SPACE": 32
 };
 
+// key daemon array
+dmitri.keydown = [];
+
+dmitri.search = undefined;
 
 // properties of app
 dmitri.animationID = undefined;
@@ -29,9 +33,7 @@ dmitri.paused = false;
 
 dmitri.soundtrack = undefined;
 
-
-// key daemon array
-dmitri.keydown = [];
+dmitri.current = 0;
 
 
 document.onload = function() {
@@ -44,7 +46,9 @@ document.onload = function() {
 			'data/elements.json',
 			// js
 			// 'js/libs/three.min.js',
+			'js/libs/controls/OrbitControls.js',
 			'js/mendeleev/models.js',
+			'js/mendeleev/atom.js',
 			'js/mendeleev/app.js'
 			// images
 			// dmitri.IMAGES['smoke']	
@@ -88,6 +92,8 @@ document.onload = function() {
 			// 	console.log('pre-loaded sound: ', e.id, e.src);
 			// }
 				
+			dmitri.search = document.querySelector('#search input');
+			dmitri.search.onkeyup = dmitri.app.search;
 
 
 			/* start the app */

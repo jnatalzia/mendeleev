@@ -15,19 +15,26 @@ body#mendeleev
 		div#main
 			header#header
 				h1 Mendeleev
+				form#search
+					input(type="text", placeholder="Search element...")
 			div#app
 				div#loader
 
-				section#atom
-					h2.t5#symbol C
-					h3.t6#name Carbon
-					p#number 12
-					p#weight 12.001
-					ul#electron-config
-						li 1
+				div#atom-wrapper
+					section#atom
+						p#number 12
+						h2.t5#symbol C
+						h3.t6#name Carbon
+						p#weight 12.001
+						ul#electron-config
+							li 2
+							li 4
 					canvas#model
 						p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
 
+				div#other
+					h2 Things
+					p view another element
 				div#help
 					span.toggle#help-toggle &quest;
 					section#controls
