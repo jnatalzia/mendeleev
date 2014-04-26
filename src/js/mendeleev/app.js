@@ -20,8 +20,10 @@ dmitri.app = {
 
 		this.setupThreeJS();
 
-		// dmitri.atom.init(this.scene);
-		this.atom = dmitri.atom.build(dmitri.elements[0]);
+		this.atom = dmitri.atom;
+		this.atom.init(this.scene);
+		this.atom.build(dmitri.elements[0]);
+
 		this.update();
 	},
 
@@ -78,8 +80,7 @@ dmitri.app = {
     this.scene.add( spotLight );
 
 	},
-	
-			
+				
 			
 	update: function(){
 		// schedule next animation frame
@@ -125,7 +126,7 @@ dmitri.app = {
 			/* should probably do some regex here */
 			if (search == dmitri.elements[i].name.toLowerCase()) {
 				console.log('we have a match');
-				dmitri.atom.build(i);
+				this.atom.build(dmitri.elements[i]).bind(this);
 			}
 		};
 	}

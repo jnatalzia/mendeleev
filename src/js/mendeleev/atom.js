@@ -1,63 +1,80 @@
 'use strict';
 var dmitri = dmitri || {};
 
-dmitri.atom = function() {
-	
-	function atom(_obj) {
-		console.log('hello from: atom');
-	}
+dmitri.atom = {
 
-}();
-
-{
 	scene: undefined,
+
+	protons: [],
+	neutrons: [],
+	electrons: [],
 
 	init: function(_scene) {
 		this.scene = _scene;
-		// code
 	},
 
-	build: function(atomicNumber) {
-		console.log('build: '+ dmitri.elements[atomicNumber].name);
-
-		var atom = dmitri.elements[atomicNumber];
+	build: function(_atom) {
+		console.log('build: '+ _atom.name);
+		
 		var models = dmitri.models;
-		var build = {
-			protons: [],
-			neutrons: [],
-			electrons: []
-		};
 
 		/* making an atom */
-		for (var i = 0; i < atom.protons; i++) {
+		for (var i = 0; i < _atom.protons; i++) {
 			// proton
 			var proton = new THREE.Mesh(models.proton.geometry, models.proton.material);
 			proton.receiveShadow = true;
+			this.scene.add(proton);
 
-			build.protons.push(proton);
+			this.protons.push(proton);
 		};
 
-		for (var i = 0; i < atom.neutrons; i++) {
+		for (var i = 0; i < _atom.neutrons; i++) {
 			// neutron
 			var neutron = new THREE.Mesh(models.neutron.geometry, models.neutron.material);
 			neutron.receiveShadow = true;
 			neutron.position.y = 1.5;
-			build.neutrons.push(neutron);			
+			this.scene.add(neutron);
+
+			this.neutrons.push(neutron);			
 		};
 
-		for (var i = 0; i < atom.electrons; i++) {
+		for (var i = 0; i < _atom.electrons; i++) {
 			// electron
 			var electron = new THREE.Mesh(models.electron.geometry, models.electron.material);
 			electron.receiveShadow = true;
 			electron.position.y = 10;
-			build.electrons.push(electron);			
-		};
+			this.electrons.push(electron);			
 
-		console.dir(build);
-		return build;
+			this.scene.add(electron);
+		};
 	},
 
-	animate: function() {
+	render: function() {
+
+		// for (var i = 0; i < this.protons; i++) {
+		// 	// proton
+		// 	var proton = new THREE.Mesh(models.proton.geometry, models.proton.material);
+		// 	proton.receiveShadow = true;
+
+		// 	this.protons.push(proton);
+		// };
+
+		// for (var i = 0; i < this.neutrons; i++) {
+		// 	// neutron
+		// 	var neutron = new THREE.Mesh(models.neutron.geometry, models.neutron.material);
+		// 	neutron.receiveShadow = true;
+		// 	neutron.position.y = 1.5;
+		// 	this.neutrons.push(neutron);			
+		// };
+
+		// for (var i = 0; i < this.electrons; i++) {
+		// 	// electron
+		// 	var electron = new THREE.Mesh(models.electron.geometry, models.electron.material);
+		// 	electron.receiveShadow = true;
+		// 	electron.position.y = 10;
+		// 	this.electrons.push(electron);			
+		// };
 		
 	}
-}
+
+};
