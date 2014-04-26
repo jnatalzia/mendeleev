@@ -8,5 +8,12 @@
 
 
 body {
-  background: tomato;
+	// background: #222;
+	// color: blue;
+}
+.toggle {
+	@include hover();
+}
+canvas {
+	background: tomato;
 }

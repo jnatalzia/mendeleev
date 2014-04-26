@@ -9,7 +9,7 @@
 */
 
 var dmitri = dmitri || {};
-
+dmitri.data = undefined;
 
 
 // set app wide variables
@@ -22,9 +22,13 @@ dmitri.KEYBOARD = {
 	"KEY_SPACE": 32
 };
 
+
 // properties of app
 dmitri.animationID = undefined;
 dmitri.paused = false;
+
+dmitri.soundtrack = undefined;
+
 
 // key daemon array
 dmitri.keydown = [];
@@ -32,55 +36,61 @@ dmitri.keydown = [];
 
 document.onload = function() {
 	console.log('hey man. you\'ll be alright. you\'ll go far kid.');
-	// var queue = new createjs.LoadQueue(false);
-	// 		queue.on("fileload", handleFileLoad, this);
-	// 		queue.on("complete", complete, this);
-	// 		queue.loadFile("js/lib/three.min.js");
-	// 		queue.loadFile("js/lib/FirstPersonControls.js");
-	// 		queue.loadFile("js/city.js");
-	
-	// function handleFileLoad(e){
-	// 	console.log(e + " loaded");
-	// }
-	
-	// function handleComplete(e){
-	// 	dmitri.city.init();
-	// }
-	
-	// // when the loading is complete, this function will be called
- // function complete(){
-		
-	// 	// set up event handlers
-	// 	window.onblur = function(){
-	// 		dmitri.paused = true;
-	// 		cancelAnimationFrame(dmitri.animationID);
-	// 		dmitri.keydown = []; // clear key daemon
-	// 		// call update() so that our paused screen gets drawn
-	// 		dmitri.city.update();
-	// 	};
-		
-	// 	window.onfocus = function(){
-	// 		dmitri.paused = false;
-	// 		cancelAnimationFrame(dmitri.animationID);
-	// 		// start the animation back up
-	// 		dmitri.city.update();
-	// 	};
-		
-	// 	// event listeners
-	// 	window.addEventListener("keydown",function(e){
-	// 		console.log("keydown=" + e.keyCode);
-	// 		dmitri.keydown[e.keyCode] = true;
-	// 	});
+
+	// load da things
+	Modernizr.load({
+		load: [
+			// data
+			'data/elements.json',
+			// js
+			'js/libs/three.min.js',
+			'js/mendeleev/app.js'
+			// images
+			// dmitri.IMAGES['smoke']	
+		],
+
+		complete: function() {
 			
-	// 	window.addEventListener("keyup",function(e){
-	// 		console.log("keyup=" + e.keyCode);
-	// 		dmitri.keydown[e.keyCode] = false;
-	// 	});
-		
-		
-	// 	// start game
-	// 	dmitri.city.init();
-	// } // end complete
+			/* event handlers */
+			window.onblur = function() {
+				dmitri.paused = true;
+				cancelAnimationFrame(dmitri.animationID);
+				dmitri.keydown = [];
+				dmitri.soundtrack.volume = 0.15;
+				dmitri.app.update();
+			}
+			window.onfocus = function() {
+				dmitri.paused = false;
+				cancelAnimationFrame(dmitri.animationID);
+				dmitri.soundtrack.volume = 0.8;
+				dmitri.app.update();
+			}
+
+			// keyup/down
+			window.onkeydown = function(e) {
+				dmitri.keydown[e.keyCode] = true;
+			}
+			window.onkeyup = function(e) {
+				dmitri.keydown[e.keyCode] = false;
+			}
 
 
-}
+
+			/* sound stuff */
+
+			// createjs.Sound.alternateExtensions = ["mp3"];
+			// createjs.Sound.registerSound(dmitri.SOUNDS.introMusic);
+
+			// createjs.Sound.addEventListener("fileload", handleFileLoad);
+
+			// function handleFileLoad(e) {
+			// 	console.log('pre-loaded sound: ', e.id, e.src);
+			// }
+				
+
+
+			/* start the app */
+			dmitri.app.init();
+		}
+	});
+}();

@@ -26,19 +26,24 @@ body#mendeleev
 					ul#electron-config
 						li 1
 					canvas#model
+						p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
+
 				div#help
-					h2.t6 Controls
-					p Rotate around the camera with the mouse or swipes on mobile
-					p pinch to zoom
-					p tap to fade out GUI
-					form#got-it
-						label
-							span Got it
-							input(type="checkbox", value="got-it")
+					span.toggle#help-toggle &quest;
+					section#controls
+						h2.t6 Controls
+						p Rotate around the camera with the mouse or swipes on mobile
+						p pinch to zoom
+						p tap to fade out GUI
+						form#got-it
+							label
+								span Got it
+								input(type="checkbox", value="got-it")
 				
 
 			footer#footer
 				h2 Luis Rosario - 2014
+				p Made with Three.js, Modernizr, &amp; SASS
 
 	script(src="js/main.js")
 </html>
