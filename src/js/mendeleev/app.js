@@ -5,7 +5,7 @@ dmitri.app = function() {
 
 	var init = function() {
 		console.log('start app');
-		dmitri.data = elements;
+		dmitri.elements = elements;
 		console.log(dmitri);
 	}
 

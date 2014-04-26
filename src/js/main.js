@@ -9,7 +9,7 @@
 */
 
 var dmitri = dmitri || {};
-dmitri.data = undefined;
+dmitri.elements = undefined;
 
 
 // set app wide variables
