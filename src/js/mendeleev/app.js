@@ -13,6 +13,7 @@ dmitri.app = {
 	dt: 1/60,
 	step: 0,
 	atom: undefined,
+	table:undefined,
 
 	init: function() {
 		// get data
@@ -24,6 +25,9 @@ dmitri.app = {
 		this.atom = dmitri.atom;
 		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
 		this.atom.build(1); // hydrogen. build() uses atomic numbers
+
+		this.table = dmitri.table;
+		this.table.init();
 
 		this.update();
 	},
