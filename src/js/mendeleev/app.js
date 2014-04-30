@@ -23,7 +23,7 @@ dmitri.app = {
 
 		this.atom = dmitri.atom;
 		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
-		this.atom.build(11); // hydrogen. build() uses atomic numbers
+		this.atom.build(1); // hydrogen. build() uses atomic numbers
 
 		this.update();
 	},

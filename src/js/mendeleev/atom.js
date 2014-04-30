@@ -110,7 +110,7 @@ dmitri.atom = {
 	  	configs = 1;
 	  	text[0] = e.electrons; 
 	  }
-	  if (e.electrons <= 10) {
+	  if (e.electrons <= 10 && e.electrons > 2) {
 	  	configs = 2;
 	  	text[0] = '2';
 	  	text[1] = e.electrons - 2;
