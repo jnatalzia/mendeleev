@@ -18,11 +18,12 @@ dmitri.app = {
 		// get data
 		dmitri.elements = elements;
 
+
 		this.setupThreeJS();
 
 		this.atom = dmitri.atom;
-		this.atom.init(this.scene);
-		this.atom.build(dmitri.elements[0]);
+		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
+		this.atom.build(11); // hydrogen. build() uses atomic numbers
 
 		this.update();
 	},
@@ -47,36 +48,23 @@ dmitri.app = {
 		this.scene = new THREE.Scene();
 
 
-		// set camera
-		// this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		/* set camera */
 		this.camera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
-
+		// position
 		this.camera.position.z = width*0.05;
 		if (width > 480) this.camera.position.z = width*0.025;
-
-		// this.cameraControls = new THREE.OrbitControls(this.camera);
-		// // this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector('#model'));
-		// // this.cameraControls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
-		// // this.cameraControls.target.set( 0, 40, 0);
-		// this.cameraControls.maxDistance = 200;
-		// this.cameraControls.minDistance = 5;
-		// this.cameraControls.update();
 
 
 
 		// add subtle ambient lighting
     var ambientLight = new THREE.AmbientLight(0x0c0c0c);
-    // var ambientLight = new THREE.AmbientLight(0xebebeb);
-    // var ambientLight = new THREE.AmbientLight(0xc0c0c0);
-    // var ambientLight = new THREE.AmbientLight(0x606060);
-    this.scene.add(ambientLight);
-
     var spotLight = new THREE.SpotLight( 0xffffff );
-    // var spotLight = new THREE.SpotLight( 0xaaaaaa );
-    spotLight.position.y = 10;
-    spotLight.position.z = 30;
-    spotLight.castShadow = true;
+		    spotLight.position.y = 10;
+		    spotLight.position.z = 30;
+		    spotLight.castShadow = true;
     // spotLight.lookAt(sphere);
+
+    this.scene.add(ambientLight);    
     this.scene.add( spotLight );
 
 	},
@@ -100,10 +88,12 @@ dmitri.app = {
 		for (var i = 0; i < this.atom.electrons.length; i++) {
 			this.atom.electrons[i].position.x = 0+( 10*(Math.cos(this.step)));
 			this.atom.electrons[i].position.y = 0 +( 10*(Math.sin(this.step)));			
+			this.atom.electrons[i].rotation.x += 0.0125;
+			// this.atom.electrons[i].position.z = 0 +( 1*(Math.sin(this.step)));			
 		};
 
-		// this.cube.rotation.x += 0.0125;
-		// this.cube.rotation.y += 0.0125;
+		// this.atom.atom.rotation.y += 0.0125/4;
+		this.atom.atom.rotation.y += 0.0125/2;
 
 
 		// DRAW	
@@ -122,11 +112,17 @@ dmitri.app = {
 		// console.log(e);
 		console.log(dmitri.search.value);
 		var search = dmitri.search.value;
+
+		var self = this;
+
 		for (var i = 0; i < dmitri.elements.length; i++) {
 			/* should probably do some regex here */
 			if (search == dmitri.elements[i].name.toLowerCase()) {
-				console.log('we have a match');
-				this.atom.build(dmitri.elements[i]).bind(this);
+				console.log('we have a match');	
+				console.log(this);
+				console.log(self);
+				dmitri.app.atom.build(i, true);
+				// this.atom.build(i, raw).bind(this);
 			}
 		};
 	}

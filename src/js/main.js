@@ -58,15 +58,15 @@ document.onload = function() {
 			
 			/* event handlers */
 			window.onblur = function() {
-				dmitri.paused = true;
-				cancelAnimationFrame(dmitri.animationID);
+				// dmitri.paused = true;
+				// cancelAnimationFrame(dmitri.animationID);
 				dmitri.keydown = [];
 				// dmitri.soundtrack.volume = 0.15;
 				// dmitri.app.update();
 			}
 			window.onfocus = function() {
-				dmitri.paused = false;
-				cancelAnimationFrame(dmitri.animationID);
+				// dmitri.paused = false;
+				// cancelAnimationFrame(dmitri.animationID);
 				// dmitri.soundtrack.volume = 0.8;
 				// dmitri.app.update();
 			}
