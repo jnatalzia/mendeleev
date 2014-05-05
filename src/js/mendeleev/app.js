@@ -80,21 +80,7 @@ dmitri.app = {
 			return;
 		 }
 	
-		// UPDATE
-		// this.controls.update();
-		// this.cameraControls.update();
-
-		this.step += 0.04;
-		for (var i = 0; i < this.atom.electrons.length; i++) {
-			this.atom.electrons[i].position.x = 0+( 10*(Math.cos(this.step)));
-			this.atom.electrons[i].position.y = 0 +( 10*(Math.sin(this.step)));			
-			this.atom.electrons[i].rotation.x += 0.0125;
-			// this.atom.electrons[i].position.z = 0 +( 1*(Math.sin(this.step)));			
-		};
-
-		// this.atom.atom.rotation.y += 0.0125/4;
-		this.atom.atom.rotation.y += 0.0125/2;
-
+		this.atom.animate();
 
 		// DRAW	
 		this.renderer.render(this.scene, this.camera);

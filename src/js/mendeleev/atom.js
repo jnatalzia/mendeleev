@@ -19,6 +19,9 @@ dmitri.atom = {
 	neutrons: [],
 	electrons: [],
 
+	// for animation
+	step: 0,
+
 
 	init: function(_elements, _DOM, _scene) {
 		// get the Periodic table
@@ -130,32 +133,17 @@ dmitri.atom = {
 
 	},
 
-	render: function() {
 
-		// for (var i = 0; i < this.protons; i++) {
-		// 	// proton
-		// 	var proton = new THREE.Mesh(models.proton.geometry, models.proton.material);
-		// 	proton.receiveShadow = true;
+	animate: function() {
 
-		// 	this.protons.push(proton);
-		// };
+		this.step += 0.04;
 
-		// for (var i = 0; i < this.neutrons; i++) {
-		// 	// neutron
-		// 	var neutron = new THREE.Mesh(models.neutron.geometry, models.neutron.material);
-		// 	neutron.receiveShadow = true;
-		// 	neutron.position.y = 1.5;
-		// 	this.neutrons.push(neutron);			
-		// };
+		for (var i = 0; i < this.electrons.length; i++) {
+			this.electrons[i].position.x = 0+( 10*(Math.cos(this.step)));
+			this.electrons[i].position.y = 0 +( 10*(Math.sin(this.step)));			
+		};
 
-		// for (var i = 0; i < this.electrons; i++) {
-		// 	// electron
-		// 	var electron = new THREE.Mesh(models.electron.geometry, models.electron.material);
-		// 	electron.receiveShadow = true;
-		// 	electron.position.y = 10;
-		// 	this.electrons.push(electron);			
-		// };
-		
+		this.atom.rotation.y += 0.0125/2;
 	}
 
 };
