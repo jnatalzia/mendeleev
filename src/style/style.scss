@@ -6,6 +6,12 @@
 @import "pieces/base";
 @import "pieces/typography";
 
+//fonts
+@font-face {
+  font-family: 'RobotoLight';
+  src: url('../fonts/Roboto-Light.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
+
 #atom-wrapper {
 	padding: 1rem;
 	position: relative;

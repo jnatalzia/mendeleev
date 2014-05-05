@@ -5,6 +5,7 @@ dmitri.app = {
 
 	// variable properties
 	renderer: undefined,
+	tableRenderer:undefined,
 	//different scenes
 	scene: undefined,
 	atomScene:undefined,
@@ -43,13 +44,18 @@ dmitri.app = {
 
 
 		// get screen size and base everything off of that
-		var width = window.innerWidth;
+		var width = window.innerWidth, height = window.innerHeight;
 		document.querySelector('#atom-wrapper').style.height= width+'px';
 
 
 
 		// set renderer
 		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('#model')});
+		this.renderer.setSize( width, width );
+		this.renderer.setClearColor(0x111111, 1.0);
+		this.renderer.shadowMapEnabled = true;
+
+		this.tableRenderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('#model')});
 		this.renderer.setSize( width, width );
 		this.renderer.setClearColor(0x111111, 1.0);
 		this.renderer.shadowMapEnabled = true;
@@ -86,6 +92,8 @@ dmitri.app = {
 	update: function(){
 		// schedule next animation frame
 		dmitri.animationID = requestAnimationFrame(this.update.bind(this));
+
+		var renderer;
 		
 		// PAUSED?
 		if (dmitri.paused){
@@ -96,10 +104,13 @@ dmitri.app = {
 		 if (this.state == this.STATE_PERIODIC_TABLE)
 		 {
 		 	this.scene = this.tableScene;
+		 	renderer = this.tableRenderer;
+		 	
 		 }
 		 else
 		 {
 		 	this.scene = this.atomScene;
+		 	renderer = this.renderer;
 		 }
 	
 		// UPDATE
@@ -119,7 +130,7 @@ dmitri.app = {
 
 
 		// DRAW	
-		this.renderer.render(this.scene, this.camera);
+		renderer.render(this.scene, this.camera);
 	},
 	
 
