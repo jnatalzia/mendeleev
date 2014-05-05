@@ -11,11 +11,20 @@ dmitri.table = {
 		this.elements = dmitri.elements;
 
 		//test
-		this.makeElement(1);
+		this.makeElement(12);
 	},
-	makeElement:function(el_id)
+	makeElement:function(atomicNumber, raw)
 	{
 		//var spriteAlignment = THREE.SpriteAlignment.topLeft;
+
+		var e = this.elements[atomicNumber - 1];
+		if (raw) e = this.elements[atomicNumber];
+
+		//get element info
+		var name = e.name;
+		var number = atomicNumber;
+		var symbol = e.symbol;
+		var weight = e.weight;
 
 		var canvas = document.createElement("canvas");
 		var ctx = canvas.getContext("2d");
@@ -33,18 +42,18 @@ dmitri.table = {
 		ctx.fillStyle = '#62CF6E';
 		ctx.textBaseline = 'middle';
 		ctx.textAlign = "center";
-		ctx.fillText  ('He', canvas.width/2,canvas.height/2 - 20);
+		ctx.fillText  (symbol, canvas.width/2,canvas.height/2 - 20);
 
 		ctx.lineWidth = 10;
 		ctx.strokeRect(0,0,canvas.width,canvas.height);
 
 
 		ctx.font = '24px RobotoLight';
-		ctx.fillText  ('Helium', canvas.width/2,canvas.height/2 + 120);
+		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  ('01', canvas.width - 30, 30);
+		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
 
-		ctx.fillText("1.00784", canvas.width/2,canvas.height/2 + 150);
+		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 
 		var texture = new THREE.Texture(canvas) 
 		texture.needsUpdate = true;
