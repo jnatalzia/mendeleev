@@ -2,8 +2,10 @@
 var dmitri = dmitri || {};
 
 dmitri.table = {
-	init:function()
+	scene:undefined,
+	init:function(_scene)
 	{
 		console.log('working');
+		this.scene = _scene;
 	}
 };

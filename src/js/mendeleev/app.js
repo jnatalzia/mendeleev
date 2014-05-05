@@ -5,7 +5,10 @@ dmitri.app = {
 
 	// variable properties
 	renderer: undefined,
+	//different scenes
 	scene: undefined,
+	atomScene:undefined,
+	tableScene:undefined,
 	camera: undefined,
 	cameraControls: undefined,
 	myobjects: [],
@@ -14,6 +17,10 @@ dmitri.app = {
 	step: 0,
 	atom: undefined,
 	table:undefined,
+	//application states
+	state:0,
+	STATE_PERIODIC_TABLE:0,
+	STATE_ATOM_VIEW:1,
 
 	init: function() {
 		// get data
@@ -23,11 +30,11 @@ dmitri.app = {
 		this.setupThreeJS();
 
 		this.atom = dmitri.atom;
-		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
+		this.atom.init(elements, document.querySelector('#atom'), this.atomScene); // "elements" is from data/elements.json 
 		this.atom.build(1); // hydrogen. build() uses atomic numbers
 
 		this.table = dmitri.table;
-		this.table.init();
+		this.table.init(this.tableScene);
 
 		this.update();
 	},
@@ -49,7 +56,9 @@ dmitri.app = {
 
 
 		// set scene
-		this.scene = new THREE.Scene();
+		//this.scene = new THREE.Scene();
+		this.atomScene = new THREE.Scene();
+		this.tableScene = new THREE.Scene();
 
 
 		/* set camera */
@@ -68,8 +77,8 @@ dmitri.app = {
 		    spotLight.castShadow = true;
     // spotLight.lookAt(sphere);
 
-    this.scene.add(ambientLight);    
-    this.scene.add( spotLight );
+    this.atomScene.add(ambientLight);    
+    this.atomScene.add( spotLight );
 
 	},
 				
@@ -82,6 +91,15 @@ dmitri.app = {
 		if (dmitri.paused){
 			this.drawPauseScreen();
 			return;
+		 }
+
+		 if (this.state == this.STATE_PERIODIC_TABLE)
+		 {
+		 	this.scene = this.tableScene;
+		 }
+		 else
+		 {
+		 	this.scene = this.atomScene;
 		 }
 	
 		// UPDATE
