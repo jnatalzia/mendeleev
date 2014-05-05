@@ -37,7 +37,7 @@ dmitri.current = 0;
 
 
 document.onload = function() {
-	console.log('hey man. you\'ll be alright. you\'ll go far kid.');
+	console.log("hey man. you\'ll be alright. you\'ll go far kid.");
 
 	// load da things
 	Modernizr.load({
@@ -49,7 +49,8 @@ document.onload = function() {
 			'js/libs/controls/OrbitControls.js',
 			'js/mendeleev/models.js',
 			'js/mendeleev/atom.js',
-			'js/mendeleev/app.js'
+			'js/mendeleev/app.js',
+			'js/mendeleev/table.js'
 			// images
 			// dmitri.IMAGES['smoke']	
 		],
