@@ -24,7 +24,7 @@ dmitri.app = {
 
 		this.atom = dmitri.atom;
 		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
-		this.atom.build(2); // hydrogen. build() uses atomic numbers
+		this.atom.build(1); // hydrogen. build() uses atomic numbers
 
 		this.createParticles();
 
@@ -82,9 +82,10 @@ dmitri.app = {
 		/* set camera */
 		this.camera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
 		// position
-		this.camera.position.z = width*0.05;
-		if (width > 480) this.camera.position.z = width*0.025;
-		// this.camera.position.z = 150;
+		// this.camera.position.z = width*0.05;
+		// if (width > 480) this.camera.position.z = width*0.025;
+		this.camera.position.z = width*0.1;
+		if (width > 480) this.camera.position.z = width*0.035;
 
 
 

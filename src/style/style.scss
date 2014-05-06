@@ -6,15 +6,26 @@
 @import "pieces/base";
 @import "pieces/typography";
 
-// .wrapper {
-// 	width: 90%;
-// 	margin: 0 auto;
-// 	@include mq(netbook) {width: 80%; }
-// }
-#app {
-	@include mq(netbook) {width: 80%; }
-	margin: 0 auto;
 
+#app {
+	margin: 0 auto;
+	@include mq(netbook) {
+		width: 90%;
+		@include flexbox();
+		// align-items: flex-end;
+	}
+}
+
+
+@include mq(netbook) {
+	#controls {
+		padding-left: 2rem;
+		@include flex(1);
+		li {
+			list-style: none;
+			margin-bottom: 0.65rem;
+		}
+	}
 }
 
 
@@ -48,15 +59,7 @@
 	}
 }
 
-body {
-	// background: #222;
-	// color: blue;
-	// margin: 0;
-  // overflow: hidden;	
-  // overflow-x: hidden;
-  // color: #ccc;
-}
-input {
+p, input {
 	margin-bottom: 0;
 }
 .toggle {

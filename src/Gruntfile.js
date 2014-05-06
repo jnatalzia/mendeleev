@@ -64,9 +64,9 @@ module.exports = function(grunt) {
       // font: {
       //   files: [{expand: true, cwd: 'style/fonts', src:['**'], dest: buildFolder+'style/fonts'}]
       // },
-      // assets: {
-      //   files : [{expand: true, cwd: 'assets', src: ['**'], dest: buildFolder+'assets'}]
-      // },
+      img: {
+        files : [{expand: true, cwd: 'img', src: ['**'], dest: buildFolder+'img'}]
+      },
       data: {
         files : [{expand: true, cwd: 'data', src: ['**'], dest: buildFolder+'data'}]
       },
@@ -95,10 +95,10 @@ module.exports = function(grunt) {
         files: ['*.jade'],
         tasks: ['jade:index']
       },
-      // assets: {
-      //   files: ['assets/*.*', 'assets/**/*.*'],
-      //   tasks: ['copy:assets']
-      // },
+      img: {
+        files: ['img/*.*', 'img/**/*.*'],
+        tasks: ['copy:img']
+      },
       data: {
         files: ['data/*.*'],
         tasks: ['copy:data']
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
   grunt.registerTask('debug', function() {
     grunt.task.run([
       'compass:build',
-      // 'copy:font',
+      'copy:img',
       'copy:data',
       'copy:js',
       'jade:index',
