@@ -23,7 +23,7 @@ var elements = [
 		"symbol": "Li",
 		"weight": 6.941,
 		"protons": 3,
-		"neutrons": 3,
+		"neutrons": 4,
 		"electrons": 3
 	},
 	{

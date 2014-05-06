@@ -12,14 +12,14 @@ head
 body#mendeleev
 	a(href="#main", class="assistive-text") Skip to main content
 	div.container
-		div#main
-			header#header
-				h1 Mendeleev
-				form#search
-					input(type="text", placeholder="Search element...")
-			div#app
-				div#loader
+		header#header
+			h1 Mendeleev
+			form#search
+				input(type="text", placeholder="Search element...")
 
+		div#main
+			div#loader
+			div#app
 				div#atom-wrapper
 					section#atom
 						p#number
@@ -29,25 +29,25 @@ body#mendeleev
 						ul#electron-config
 					canvas#model
 						p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
-
-				div#other
+				div#info
 					h2 Things
 					p view another element
-				div#help
-					span.toggle#help-toggle &quest;
-					section#controls
-						h2.t6 Controls
-						p Rotate around the camera with the mouse or swipes on mobile
-						p pinch to zoom
-						p tap to fade out GUI
-						form#got-it
-							label
-								span Got it
-								input(type="checkbox", value="got-it")
-				
 
-			footer#footer
-				h2 Luis Rosario - 2014
+			div#help.wrapper
+				span.toggle#help-toggle &quest;
+				section#controls
+					h2.t6 Controls
+					p Rotate around the camera with the mouse or swipes on mobile
+					p pinch to zoom
+					p tap to fade out GUI
+					form#got-it
+						label
+							span Got it
+							input(type="checkbox", value="got-it")
+			
+
+			footer#footer.wrapper
+				h2 Joe Natalzia &amp; Luis Rosario - 2014
 				p Made with Three.js, Modernizr, &amp; SASS
 
 	script(src="js/libs/three.min.js")

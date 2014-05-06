@@ -37,7 +37,9 @@ dmitri.app = {
 
 		// get screen size and base everything off of that
 		var width = window.innerWidth;
+		if (width > 540) width = 540;
 		document.querySelector('#atom-wrapper').style.height= width+'px';
+		document.querySelector('#atom-wrapper').style.width= width+'px';
 
 
 
@@ -99,20 +101,12 @@ dmitri.app = {
 	},
 
 	search: function(e) {
-		// console.log(e);
-		console.log(dmitri.search.value);
 		var search = dmitri.search.value;
-
-		var self = this;
 
 		for (var i = 0; i < dmitri.elements.length; i++) {
 			/* should probably do some regex here */
 			if (search == dmitri.elements[i].name.toLowerCase()) {
-				console.log('we have a match');	
-				console.log(this);
-				console.log(self);
 				dmitri.app.atom.build(i, true);
-				// this.atom.build(i, raw).bind(this);
 			}
 		};
 	}

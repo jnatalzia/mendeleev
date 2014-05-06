@@ -6,6 +6,17 @@
 @import "pieces/base";
 @import "pieces/typography";
 
+// .wrapper {
+// 	width: 90%;
+// 	margin: 0 auto;
+// 	@include mq(netbook) {width: 80%; }
+// }
+#app {
+	@include mq(netbook) {width: 80%; }
+	margin: 0 auto;
+}
+
+
 #atom-wrapper {
 	padding: 1rem;
 	position: relative;
@@ -76,9 +87,6 @@ h1 {
 }
 
 #footer {
-	// position: absolute;
-	// bottom: 0;
-	// left: 0;
 	padding: 1em 1rem;
 	font-size: 0.75em;
 }

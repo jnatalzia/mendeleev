@@ -36,7 +36,6 @@ dmitri.atom = {
 		
 		// set scene
 		this.scene = _scene;
-		console.dir(this.hud);
 	},
 
 	build: function(atomicNumber, raw) {
@@ -44,8 +43,8 @@ dmitri.atom = {
 		var e = this.elements[atomicNumber - 1];		// adjust for actual array number
 		if (raw) e = this.elements[atomicNumber];		// unless 'raw' mode
 
-		console.log('build: '+ e.name);
-		console.log(e);
+		// console.log('build: '+ e.name);
+		// console.log(e);
 		
 		this.makeModel(e);
 		this.makeHUD(e);
@@ -53,11 +52,20 @@ dmitri.atom = {
 
 
 	makeModel: function(e) {
+		// reset things
+		this.scene.remove(this.atom);
+		this.protons = [];
+		this.neutrons = [];
+		this.electrons = [];
+
 		this.atom = new THREE.Object3D();
 		var models = dmitri.models;	// make our life easier
 
 
 		/* making an atom */
+
+		// determine inner geometry
+		// 1. made up of protons and neutrons
 		for (var i = 0; i < e.protons; i++) {
 			// proton
 			var proton = new THREE.Mesh(models.proton.geometry, models.proton.material);
@@ -71,11 +79,21 @@ dmitri.atom = {
 			// neutron
 			var neutron = new THREE.Mesh(models.neutron.geometry, models.neutron.material);
 			neutron.receiveShadow = true;
-			neutron.position.y = 1.5;
 			this.atom.add(neutron);
 
 			this.neutrons.push(neutron);			
 		};
+
+		// 2. determine geometric shape
+		// protons + neutrons = geometric shape
+		var points = this.protons.length + this.neutrons.length;
+		console.log(points);
+
+		// make a geometric shape with that many points
+
+		// place protons/neutrons at points of the shape
+
+
 
 		for (var i = 0; i < e.electrons; i++) {
 			// electron
@@ -144,6 +162,7 @@ dmitri.atom = {
 		};
 
 		this.atom.rotation.y += 0.0125/2;
+		// this.atom.rotation.x += 0.0125/2;
 	}
 
 };
