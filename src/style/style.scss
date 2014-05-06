@@ -14,6 +14,7 @@
 #app {
 	@include mq(netbook) {width: 80%; }
 	margin: 0 auto;
+
 }
 
 
@@ -22,6 +23,7 @@
 	position: relative;
 }
 #atom {
+  color: #ccc;
 	position: relative;
 }
 #symbol {
@@ -52,7 +54,7 @@ body {
 	// margin: 0;
   // overflow: hidden;	
   // overflow-x: hidden;
-  color: #ccc;
+  // color: #ccc;
 }
 input {
 	margin-bottom: 0;

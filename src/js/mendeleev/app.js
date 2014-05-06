@@ -24,13 +24,38 @@ dmitri.app = {
 
 		this.atom = dmitri.atom;
 		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
-		this.atom.build(1); // hydrogen. build() uses atomic numbers
+		this.atom.build(2); // hydrogen. build() uses atomic numbers
+
+		this.createParticles();
+
 
 		this.table = dmitri.table;
 		this.table.init();
 
 		this.update();
 	},
+
+
+
+
+
+  createParticles: function() {
+    var material = new THREE.ParticleBasicMaterial();
+
+    for (var x = -5; x < 5; x++) {
+      for (var y = -5; y < 5; y++) {
+        var particle = new THREE.Particle(material);
+        particle.position.set(x * 10, y * 10, 0);
+        this.scene.add(particle);
+      }
+    }
+  },
+
+
+
+
+
+
 
 	setupThreeJS: function() {
 
@@ -59,6 +84,7 @@ dmitri.app = {
 		// position
 		this.camera.position.z = width*0.05;
 		if (width > 480) this.camera.position.z = width*0.025;
+		// this.camera.position.z = 150;
 
 
 

@@ -29,11 +29,28 @@ body#mendeleev
 						ul#electron-config
 					canvas#model
 						p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
-				div#info
-					h2 Things
-					p view another element
-
-			div#help.wrapper
+				section#controls
+					h2 View
+					div
+						ul
+							li Animated
+							li Bohr Diagram
+					div
+						p Highlight:
+						ul
+							li
+								label
+									input(type="checkbox", value="hi-protons")
+									span Protons
+							li
+								label
+									input(type="checkbox", value="hi-neutrons")
+									span Neutrons
+							li
+								label
+									input(type="checkbox", value="hi-electrons")
+									span Electrons
+			//-div#help.wrapper
 				span.toggle#help-toggle &quest;
 				section#controls
 					h2.t6 Controls
@@ -46,9 +63,9 @@ body#mendeleev
 							input(type="checkbox", value="got-it")
 			
 
-			footer#footer.wrapper
-				h2 Joe Natalzia &amp; Luis Rosario - 2014
-				p Made with Three.js, Modernizr, &amp; SASS
+		footer#footer
+			h2 Joe Natalzia &amp; Luis Rosario - 2014
+			p Made with Three.js, Modernizr, &amp; SASS
 
 	script(src="js/libs/three.min.js")
 	script(src="js/main.js")

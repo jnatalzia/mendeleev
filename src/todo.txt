@@ -1,0 +1,19 @@
+electrons should have a trail
+√ protons + neutrons should "vibrate"
+should have a subtle texture
+
+view options:
+Bohr diagram
+Animated
+List (when activated it lays out the atoms in rows)
+
+
+Highlight:
+protons
+
+
+zoom in and rotate around atom
+
+add sound
+ethereal sound
+whoosing sound to atoms?..

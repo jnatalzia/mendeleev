@@ -47,6 +47,7 @@ document.onload = function() {
 			// js
 			// 'js/libs/three.min.js',
 			'js/libs/controls/OrbitControls.js',
+			'js/mendeleev/particles.js',
 			'js/mendeleev/models.js',
 			'js/mendeleev/atom.js',
 			'js/mendeleev/app.js',

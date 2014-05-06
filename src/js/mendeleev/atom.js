@@ -17,7 +17,7 @@ dmitri.atom = {
 	atom: undefined, // the 3D group
 	protons: [],
 	neutrons: [],
-	electrons: [],
+	electrons: [], trails: [],
 
 	// for animation
 	step: 0,
@@ -63,12 +63,18 @@ dmitri.atom = {
 
 
 		/* making an atom */
+		this.createNucleus(e);
+		this.createElectrons(e);
 
-		// determine inner geometry
+		this.scene.add(this.atom);
+	},
+
+	createNucleus: function(e) {
+
 		// 1. made up of protons and neutrons
 		for (var i = 0; i < e.protons; i++) {
 			// proton
-			var proton = new THREE.Mesh(models.proton.geometry, models.proton.material);
+			var proton = new THREE.Mesh(dmitri.models.proton.geometry, dmitri.models.proton.material);
 			proton.receiveShadow = true;
 			this.atom.add(proton);
 
@@ -77,7 +83,7 @@ dmitri.atom = {
 
 		for (var i = 0; i < e.neutrons; i++) {
 			// neutron
-			var neutron = new THREE.Mesh(models.neutron.geometry, models.neutron.material);
+			var neutron = new THREE.Mesh(dmitri.models.neutron.geometry, dmitri.models.neutron.material);
 			neutron.receiveShadow = true;
 			this.atom.add(neutron);
 
@@ -90,23 +96,44 @@ dmitri.atom = {
 		console.log(points);
 
 		// make a geometric shape with that many points
-
 		// place protons/neutrons at points of the shape
+	},
 
 
+	createElectrons: function(e) {
 
 		for (var i = 0; i < e.electrons; i++) {
 			// electron
-			var electron = new THREE.Mesh(models.electron.geometry, models.electron.material);
+			var electron = new THREE.Mesh(dmitri.models.electron.geometry, dmitri.models.electron.material);
 			electron.receiveShadow = true;
 			electron.position.y = 10;
-			this.electrons.push(electron);			
+			if (i == 1) electron.position.y = -10;
+			this.electrons.push(electron);
 
 			this.atom.add(electron);
 		};
 
 
-		this.scene.add(this.atom);
+		// create trail
+		var trail = new dmitri.particle();
+		// this.trails.push(trail);
+		// console.log(this.trails);
+
+	// game.enemies = []; // empty enemies from previous chamber
+	// 	// make new enemies
+	// 	for (var i = 0; i < _settings.enemies.length; i++) {
+	// 																	// x, y, pattern, range (in game.units), {stats}
+	// 		// game.enemies.push(new game.Enemy(x, y, 0, 4, obj)); // health, speed, strength
+	// 		game.enemies.push(new game.Enemy(
+	// 			_settings.enemies[i].x, 
+	// 			_settings.enemies[i].y,
+	// 			_settings.enemies[i].pattern,
+	// 			_settings.enemies[i].range,
+	// 			_settings.enemies[i].stats
+	// 			));
+
+	// 	};
+
 	},
 
 
@@ -158,11 +185,31 @@ dmitri.atom = {
 
 		for (var i = 0; i < this.electrons.length; i++) {
 			this.electrons[i].position.x = 0+( 10*(Math.cos(this.step)));
-			this.electrons[i].position.y = 0 +( 10*(Math.sin(this.step)));			
+			this.electrons[i].position.y = 0 +( 10*(Math.sin(this.step)));
 		};
 
+
+		// vibrate nucleus
+		// var rate = 1;
+		// for (var i = 0; i < this.protons.length; i++) {
+			
+		// 	this.protons[i].position.x = rate*(Math.sin(this.step));
+		// 	this.protons[i].position.y = rate*(Math.cos(this.step));
+		// 	this.protons[i].position.z = rate*(Math.sin(this.step));
+		// 	// this.protons[i].position.x = Math.random() * rate;
+		// 	// this.protons[i].position.y = Math.random() * rate;
+		// 	// this.protons[i].position.z = Math.random() * rate;
+		// };
+
+		// for (var i = 0; i < this.neutrons.length; i++) {
+		// 	this.neutrons[i].position.x = Math.random() * rate;
+		// 	this.neutrons[i].position.y = Math.random() * rate;
+		// 	// this.neutrons[i].position.z = Math.random() * rate;
+		// };
+
+
+
 		this.atom.rotation.y += 0.0125/2;
-		// this.atom.rotation.x += 0.0125/2;
 	}
 
 };
