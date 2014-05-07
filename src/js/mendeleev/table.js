@@ -43,12 +43,20 @@ dmitri.table = {
 	doMousedown:function(e)
 	{
     	var projector = new THREE.Projector();
-    	var camera = dmitri.app.camera;
+    	var camera = dmitri.app.tableCamera;
         var tube;
 
-        event.preventDefault();
+        e.preventDefault();
 
-        var vector = new THREE.Vector3(( event.clientX / window.innerWidth ) * 2 - 1, -( event.clientY / window.innerHeight ) * 2 + 1, 0.5);
+        //console.log(e.clientX)
+
+
+        //var vector = new THREE.Vector3(( e.clientX  /  window.innerWidth ) * 2 - 1, -( e.clientY / window.innerHeight ) * 2 + 1, 0.5);
+        var canvas = document.querySelector("#table");
+
+        var offset = canvas.getBoundingClientRect();
+
+        var vector = new THREE.Vector3(( (e.clientX - offset.left) / canvas.width ) * 2 - 1, -( (e.clientY - offset.top) / canvas.height ) * 2 + 1, 0.5);
         projector.unprojectVector(vector, camera);
 
         var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
@@ -100,6 +108,7 @@ dmitri.table = {
              	{
              		//call that function
              		dmitri.app.updateAtom(e.atomicNumber,true);
+             		e.isHighlighted = false;
              	}
                  e.material = self.createNormalMaterial(e.atomicNumber,true);
              } 

@@ -39,6 +39,10 @@
 	padding: 1rem;
 	position: relative;
 }
+#table-wrapper {
+	padding: 1rem;
+	position: relative;
+}
 #atom {
   color: #ccc;
 	position: relative;
@@ -89,7 +93,7 @@ h1 {
 #search {
 	text-align: right;
 }
-#model {
+#model, #table {
 	background: tomato;
 	position: absolute;
 	top: 0;

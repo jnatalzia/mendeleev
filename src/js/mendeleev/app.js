@@ -4,12 +4,14 @@ var dmitri = dmitri || {};
 dmitri.app = {
 
 	// variable properties
-	renderer: undefined,
+	atomRenderer: undefined,
+	tableRenderer:undefined,
 	//different scenes
 	scene: undefined,
 	atomScene:undefined,
 	tableScene:undefined,
 	camera: undefined,
+	tableCamera:undefined,
 	cameraControls: undefined,
 	myobjects: [],
 	paused: false,
@@ -70,16 +72,25 @@ dmitri.app = {
 		if (width > 540) width = 540;
 		document.querySelector('#atom-wrapper').style.height= width+'px';
 		document.querySelector('#atom-wrapper').style.width= width+'px';
+
+		document.querySelector('#table-wrapper').style.height= width+'px';
+		document.querySelector('#table-wrapper').style.width= width+'px';
 		//set canvas size
 		var canvas = document.querySelector('#model');
+		var tablecanvas = document.querySelector('#table');
 
 
 
 		// set renderer
-		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas});
-		this.renderer.setSize( width, width );
-		this.renderer.setClearColor(0x111111, 1.0);
-		this.renderer.shadowMapEnabled = true;
+		this.atomRenderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas});
+		this.atomRenderer.setSize( width, width );
+		this.atomRenderer.setClearColor(0x111111, 1.0);
+		this.atomRenderer.shadowMapEnabled = true;
+
+		this.tableRenderer = new THREE.WebGLRenderer({antialias: true, canvas: tablecanvas});
+		this.tableRenderer.setSize( width, width );
+		this.tableRenderer.setClearColor(0x111111, 1.0);
+		this.tableRenderer.shadowMapEnabled = true;
 
 
 		// set scene
@@ -94,10 +105,17 @@ dmitri.app = {
 		// this.camera.position.z = width*0.05;
 		// if (width > 480) this.camera.position.z = width*0.025;
 		this.camera.position.z = width*0.1;
+
+		this.tableCamera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
+		// position
+		// this.camera.position.z = width*0.05;
+		// if (width > 480) this.camera.position.z = width*0.025;
+		this.tableCamera.position.z = width*0.1;
+
 		// if (width > 480) this.camera.position.z = width*0.035;
 		if (width > 480) this.camera.position.z = width*0.05;
 
-		this.cameraControls = new THREE.OrbitControls(this.camera);
+		this.cameraControls = new THREE.OrbitControls(this.tableCamera);
 
 
 
@@ -131,7 +149,7 @@ dmitri.app = {
 	{
 		var atomicNumber = raw ? number + 1 : number;
 		this.atom.build(atomicNumber);
-		this.state = this.STATE_ATOM_VIEW;
+		//this.state = this.STATE_ATOM_VIEW;
 	},
 				
 			
@@ -144,24 +162,12 @@ dmitri.app = {
 			this.drawPauseScreen();
 			return;
 		 }
-
-		 // if (this.state == this.STATE_PERIODIC_TABLE)
-		 // {
-		 // 	this.scene = this.tableScene;
-		 // 	//renderer = this.tableRenderer;
-		 	
-		 // }
-		 // else
-		 // {
-		 // 	this.scene = this.atomScene;
-		 // 	//renderer = this.renderer;
-		 // }
-	 	this.scene = this.atomScene;
-	
+		
 		this.atom.animate();
 
 		// DRAW	
-		this.renderer.render(this.scene, this.camera);
+		this.atomRenderer.render(this.atomScene, this.camera);
+		this.tableRenderer.render(this.tableScene, this.tableCamera)
 	},
 	
 
