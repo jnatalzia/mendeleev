@@ -194,7 +194,7 @@ dmitri.atom = {
 			// geometry.rotation.y = 45;
 			var circle = new THREE.Line(geometry, material);
 			if (i == 2) circle.rotation.x = -0.5*Math.PI;
-			// this.atom.add(circle);
+			 this.atom.add(circle);
     };
 
 	},
