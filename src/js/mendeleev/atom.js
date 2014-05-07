@@ -18,7 +18,8 @@ dmitri.atom = {
 	nucleus: undefined,
 	protons: [],
 	neutrons: [],
-	electrons: [], trails: [],
+	electrons: [], 
+	shells: undefined,
 	particleSystem: undefined,
 
 	// for animation
@@ -106,7 +107,7 @@ dmitri.atom = {
 		// combine protons + neutrons into single array
 		var group = [];
 
-		// fringe case: hydrogen is the only one without neutrons
+		// fringe case: hydrogen is the only one without a neutron
 		if (this.neutrons.length == 0) group.push(this.protons[0]);
 		else {
 			for (var i = 0; i < this.neutrons.length; i++) {
@@ -140,12 +141,14 @@ dmitri.atom = {
 				if (counter > limit - 1) {
 					counter = 0;
 					y += r;
+					this.nucleus.position.y -= y / 2;
+					// this.nucleus.position.y -= y / 2;
 				}
 			};
 
 			// center the nucleus
-			this.nucleus.position.y -= (r * y) / 2;
-			this.nucleus.position.z += (r * y) / 2;
+			// this.nucleus.position.y -= (r * y) / 2;
+			// this.nucleus.position.z += (r * y) / 2;
 		};
 
 
@@ -155,6 +158,9 @@ dmitri.atom = {
 
 	createElectrons: function(e) {
 
+		var radius = 10;
+
+		// create electrons
 		for (var i = 0; i < e.electrons; i++) {
 			// electron
 			var electron = new THREE.Mesh(dmitri.models.electron.geometry, dmitri.models.electron.material);
@@ -164,28 +170,33 @@ dmitri.atom = {
 			electron.position.y = 10;
 			
 			this.electrons.push(electron);
-			this.atom.add(electron);
+			this.atom.add(electron);			
 		};
 
 
-		this.createElectronShells();
-	},
+		// determine amount of electron shell
+		this.shells = 1;
+		if (this.electrons.length > 2) {
+			if (this.electrons.length === 3) this.shells = 2;
+			this.shells += Math.floor(this.electrons.length/4);
+		};
 
-	createElectronShells: function() {
-
-		// create trail
-		// ===================================
 		
+		// add eletrons to shells
+    var material = new THREE.LineBasicMaterial( { color: 0x000066 } );
 
-		var radius = 10,
-    segments = 64,
-    material = new THREE.LineBasicMaterial( { color: 0x000066 } ),
-    geometry = new THREE.CircleGeometry( radius, segments );
+    for (var i = 1; i < this.shells+1; i++) {
+    	var size = radius * i;
+	    var geometry = new THREE.CircleGeometry(size, 32);
 
-		// Remove center vertex
-		geometry.vertices.shift();
+			// Remove center vertex
+			geometry.vertices.shift();
+			// geometry.rotation.y = 45;
+			var circle = new THREE.Line(geometry, material);
+			if (i == 2) circle.rotation.x = -0.5*Math.PI;
+			// this.atom.add(circle);
+    };
 
-		this.atom.add( new THREE.Line( geometry, material ) );
 	},
 
 
@@ -247,11 +258,21 @@ dmitri.atom = {
 				this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
 				this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
 			}
-			// if (i == 2) {
-			// 	var nd = d + d/2;
-			// 	this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step)));
-			// 	this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step)));
-			// }
+			if (i == 2) {
+				var nd = d + d;
+				this.electrons[i].position.x = 0 +( nd*(Math.cos(this.step-0.02)));
+				this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
+			}
+			if (i == 3) {
+				var nd = d + d;
+				this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
+				this.electrons[i].position.z = 0 +( -nd*(Math.sin(this.step-0.02)));
+			}
+			if (i == 4) {
+				var nd = d + d;
+				this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
+				this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
+			}
 		};
 
 

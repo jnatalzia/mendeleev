@@ -12,6 +12,6 @@ dmitri.models = {
 	},
 	electron: {
 		geometry: new THREE.SphereGeometry( 0.3, 32, 32 ),
-		material: new THREE.MeshLambertMaterial( {color: 0x4444ff} )
+		material: new THREE.MeshLambertMaterial( {color: 0xaaaaff} )
 	}
 };
