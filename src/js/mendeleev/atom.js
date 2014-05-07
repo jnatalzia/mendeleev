@@ -104,61 +104,49 @@ dmitri.atom = {
 		// 2. determine geometric shape
 		// ----------------------------
 		// combine protons + neutrons into single array
-		// alternating as much as posssible
 		var group = [];
 
-		for (var i = 0; i < this.protons.length; i++) {
-			group.push(this.protons[i]);
-			group.push(this.neutrons[i]);
+		// fringe case: hydrogen is the only one without neutrons
+		if (this.neutrons.length == 0) group.push(this.protons[0]);
+		else {
+			for (var i = 0; i < this.neutrons.length; i++) {
+				// push protons and neutrons to temporary group
+				if (this.protons[i]) 
+					group.push(this.protons[i]);
+				group.push(this.neutrons[i]);
+			};
+
+			// position the protons + neutrons
+			var counter = 0; // an index
+			var y = 0;	// position
+			var limit;	// 4 or 5 per row
+
+			if (group.length%2 == 0) limit = 4;
+			else limit = 5;
+
+			var r = group[0].geometry.radius;
+
+			for (var i = 0; i < group.length; i++) {
+				if (counter == 0) group[i].position.x = r;
+				if (counter == 1) group[i].position.z = r;
+				if (counter == 2) group[i].position.x = -r;
+				if (counter == 3) group[i].position.z = -r;
+				if (counter == 4) group[i].position.x = 0;
+
+				group[i].position.y = y;
+
+				// incrase counter
+				counter++;
+				if (counter > limit - 1) {
+					counter = 0;
+					y += r;
+				}
+			};
+
+			// center the nucleus
+			this.nucleus.position.y -= (r * y) / 2;
+			this.nucleus.position.z += (r * y) / 2;
 		};
-
-
-		
-
-		// there are often more neutrons than protons
-		var difference = this.neutrons.length - this.protons.length;
-		if (difference > 0) {
-			for (var i = 0; i < difference; i++) {
-				group.push(this.neutrons[this.protons.length + i]);
-			};			
-		}
-
-
-		// position the protons + neutrons
-		var counter = 0; // an index
-		var y = 0;	// position
-		var limit;	// 4 or 5 per row
-
-		if (group.length%2 == 0)
-			limit = 4;
-		else
-			limit = 5;
-
-		var r = group[0].geometry.radius;
-
-		for (var i = 0; i < group.length; i++) {
-			
-			if (counter == 0) group[i].position.x = r;
-			if (counter == 1) group[i].position.z = r;
-			if (counter == 2) group[i].position.x = -r;
-			if (counter == 3) group[i].position.z = -r;
-			if (counter == 4) group[i].position.z = 0;
-
-			group[i].position.y = y;
-
-			// incrase counter
-			counter++;
-			if (counter > limit - 1) {
-				counter = 0;
-				y += r;
-			}
-		};
-
-
-		// center the nucleus
-		this.nucleus.position.x -= (r * y) / 2;
-		this.nucleus.position.z += (r * y) / 2;
-
 
 
 		this.atom.add(this.nucleus);
@@ -171,93 +159,33 @@ dmitri.atom = {
 			// electron
 			var electron = new THREE.Mesh(dmitri.models.electron.geometry, dmitri.models.electron.material);
 			electron.receiveShadow = true;
+
+			// TEMP
+			electron.position.y = 10;
 			
 			this.electrons.push(electron);
 			this.atom.add(electron);
 		};
 
 
+		this.createElectronShells();
+	},
+
+	createElectronShells: function() {
+
 		// create trail
 		// ===================================
 		
-		// create the particle variables
-		var particleCount = 20;
-		var particles = new THREE.Geometry();
-		var pMaterial = new THREE.ParticleBasicMaterial({
-			color: 0xFFFFFF,
-			size: 1,
-			map: THREE.ImageUtils.loadTexture(
-				"../../img/particle.png"
-			),
-			blending: THREE.AdditiveBlending,
-			transparent: true
-		});
 
+		var radius = 10,
+    segments = 64,
+    material = new THREE.LineBasicMaterial( { color: 0x000066 } ),
+    geometry = new THREE.CircleGeometry( radius, segments );
 
-		// now create the individual particles
-		var rad = 0; 
-		for (var p = 0; p < particleCount; p++) {
+		// Remove center vertex
+		geometry.vertices.shift();
 
-			// position in an arc
-		  var pX = 10*(Math.cos(rad)),
-		      pY = 10*(Math.sin(rad)),
-		      pZ = 0;
-		  
-		  rad += 0.04;
-			
-		  var particle = new THREE.Vertex(
-				new THREE.Vector3(pX, pY, pZ)
-			);
-
-			particle.velocity = new THREE.Vector3(
-			  0,              // x
-			  -Math.random(), // y: random vel
-			  0);             // z
-
-		  // add it to the geometry
-		  particles.vertices.push(particle);
-		}
-
-		// // create the particle system
-		this.particleSystem = new THREE.ParticleSystem(
-		    particles,
-		    pMaterial);
-
-		// also update the particle system to
-		// sort the particles which enables
-		// the behaviour we want
-		this.particleSystem.sortParticles = true;
-
-
-		// // add it to the scene
-		this.scene.add(this.particleSystem);
-
-
-
-
-
-
-
-		// var trail = new dmitri.particle();
-
-		// this.trails.push(trail);
-		// console.log(this.trails);
-
-	// game.enemies = []; // empty enemies from previous chamber
-	// 	// make new enemies
-	// 	for (var i = 0; i < _settings.enemies.length; i++) {
-	// 																	// x, y, pattern, range (in game.units), {stats}
-	// 		// game.enemies.push(new game.Enemy(x, y, 0, 4, obj)); // health, speed, strength
-	// 		game.enemies.push(new game.Enemy(
-	// 			_settings.enemies[i].x, 
-	// 			_settings.enemies[i].y,
-	// 			_settings.enemies[i].pattern,
-	// 			_settings.enemies[i].range,
-	// 			_settings.enemies[i].stats
-	// 			));
-
-	// 	};
-
+		this.atom.add( new THREE.Line( geometry, material ) );
 	},
 
 
@@ -312,77 +240,31 @@ dmitri.atom = {
 		for (var i = 0; i < this.electrons.length; i++) {
 			this.electrons[i].position.x = 0 +( d*(Math.cos(this.step)));
 			this.electrons[i].position.y = 0 +( d*(Math.sin(this.step)));
+			
+			// this.particleSystem.rotation.z += 0.08;
+
 			if (i == 1) {
 				this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
 				this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
 			}
-			if (i == 2) {
-				var nd = d + d/2;
-				this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step)));
-				this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step)));
-			}
+			// if (i == 2) {
+			// 	var nd = d + d/2;
+			// 	this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step)));
+			// 	this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step)));
+			// }
 		};
-
-		this.nucleus.rotation.x += 0.125;
-		// this.nucleus.rotation.z += 0.125;
-		this.nucleus.rotation.y += 0.125;
-		
-
-		this.particleSystem.rotation.x += 0.0125;
-
-		// var pCount = particleCount;
-		// while (pCount--) {
-
-		//   // get the particle
-		//   var particle =
-		//     particles.vertices[pCount];
-
-		//   // check if we need to reset
-		//   if (particle.position.y < -200) {
-		//     particle.position.y = 200;
-		//     particle.velocity.y = 0;
-		//   }
-
-		//   // update the velocity with
-		//   // a splat of randomniz
-		//   particle.velocity.y -= Math.random() * .1;
-
-		//   // and the position
-		//   particle.position.addSelf(
-		//     particle.velocity);
-		// }
-
-		// // flag to the particle system
-		// // that we've changed its vertices.
-		// particleSystem.geometry.__dirtyVertices = true;
-
-
-
-
 
 
 		
 		// vibrate nucleus
-		// var rate = 1;
-		// for (var i = 0; i < this.protons.length; i++) {
-			
-		// 	this.protons[i].position.x = rate*(Math.sin(this.step));
-		// 	this.protons[i].position.y = rate*(Math.cos(this.step));
-		// 	this.protons[i].position.z = rate*(Math.sin(this.step));
-		// 	// this.protons[i].position.x = Math.random() * rate;
-		// 	// this.protons[i].position.y = Math.random() * rate;
-		// 	// this.protons[i].position.z = Math.random() * rate;
-		// };
-
-		// for (var i = 0; i < this.neutrons.length; i++) {
-		// 	this.neutrons[i].position.x = Math.random() * rate;
-		// 	this.neutrons[i].position.y = Math.random() * rate;
-		// 	// this.neutrons[i].position.z = Math.random() * rate;
-		// };
+		var rate = 0.1125;
+		this.nucleus.position.x = Math.random() * rate;
+		this.nucleus.position.y = Math.random() * rate;
 
 
 
-		this.atom.rotation.y += 0.0125/2;
+		this.atom.rotation.y += 0.025/2;
+		this.atom.rotation.x += 0.025;
 	}
 
 };

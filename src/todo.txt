@@ -1,4 +1,4 @@
-electrons should have a trail
+√ electrons should have a trail
 √ protons + neutrons should "vibrate"
 should have a subtle texture
 
