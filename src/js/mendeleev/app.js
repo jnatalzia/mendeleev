@@ -5,7 +5,10 @@ dmitri.app = {
 
 	// variable properties
 	renderer: undefined,
+	//different scenes
 	scene: undefined,
+	atomScene:undefined,
+	tableScene:undefined,
 	camera: undefined,
 	cameraControls: undefined,
 	myobjects: [],
@@ -14,6 +17,10 @@ dmitri.app = {
 	step: 0,
 	atom: undefined,
 	table:undefined,
+	//application states
+	state:0,
+	STATE_PERIODIC_TABLE:0,
+	STATE_ATOM_VIEW:1,
 
 	init: function() {
 		// get data
@@ -28,9 +35,8 @@ dmitri.app = {
 
 		this.createParticles();
 
-
 		this.table = dmitri.table;
-		this.table.init();
+		this.table.init(this.tableScene);
 
 		this.update();
 	},
@@ -65,28 +71,35 @@ dmitri.app = {
 		if (width > 540) width = 540;
 		document.querySelector('#atom-wrapper').style.height= width+'px';
 		document.querySelector('#atom-wrapper').style.width= width+'px';
+		//set canvas size
+		var canvas = document.querySelector('#model');
 
 
 
 		// set renderer
-		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: document.querySelector('#model')});
-		this.renderer.setSize( width, width );
+		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas});
+		this.renderer.setSize( width, height );
 		this.renderer.setClearColor(0x111111, 1.0);
 		this.renderer.shadowMapEnabled = true;
 
 
 		// set scene
-		this.scene = new THREE.Scene();
+		//this.scene = new THREE.Scene();
+		this.atomScene = new THREE.Scene();
+		this.tableScene = new THREE.Scene();
 
 
 		/* set camera */
-		this.camera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
+		this.camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
 		// position
 		// this.camera.position.z = width*0.05;
 		// if (width > 480) this.camera.position.z = width*0.025;
 		this.camera.position.z = width*0.1;
 		// if (width > 480) this.camera.position.z = width*0.035;
 		if (width > 480) this.camera.position.z = width*0.05;
+
+		this.cameraControls = new THREE.OrbitControls(this.camera);
+		//controls.addEventListener( 'change', render );
 
 
 
@@ -98,9 +111,16 @@ dmitri.app = {
 		    spotLight.castShadow = true;
     // spotLight.lookAt(sphere);
 
-    this.scene.add(ambientLight);    
-    this.scene.add( spotLight );
+    this.atomScene.add(ambientLight);    
+    this.atomScene.add( spotLight );
 
+	},
+
+	updateAtom: function(number,raw)
+	{
+		var atomicNumber = raw ? number + 1 : number;
+		this.atom.build(atomicNumber);
+		this.state = this.STATE_ATOM_VIEW;
 	},
 				
 			
@@ -112,6 +132,18 @@ dmitri.app = {
 		if (dmitri.paused){
 			this.drawPauseScreen();
 			return;
+		 }
+
+		 if (this.state == this.STATE_PERIODIC_TABLE)
+		 {
+		 	this.scene = this.tableScene;
+		 	//renderer = this.tableRenderer;
+		 	
+		 }
+		 else
+		 {
+		 	this.scene = this.atomScene;
+		 	//renderer = this.renderer;
 		 }
 	
 		this.atom.animate();
@@ -137,5 +169,19 @@ dmitri.app = {
 				dmitri.app.atom.build(i, true);
 			}
 		};
-	}
+	},
+	doMousedown: function(event) {
+			if (this.state == this.STATE_PERIODIC_TABLE)
+			{
+				this.table.doMousedown(event);
+			}
+        },
+    doMouseup: function(e)
+    {
+    	if (this.state == this.STATE_PERIODIC_TABLE)
+		{
+			this.table.doMouseup(e);
+		}
+
+    }
 };

@@ -72,6 +72,9 @@ module.exports = function(grunt) {
       },
       js: {
         files : [{expand: true, cwd: 'js', src: ['**'], dest: buildFolder+'js'}]
+      },
+      fonts:{
+        files : [{expand: true, cwd: 'fonts', src: ['**'], dest: buildFolder+'fonts'}]
       }
     },
 

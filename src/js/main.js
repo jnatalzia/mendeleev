@@ -80,6 +80,14 @@ document.onload = function() {
 			window.onkeyup = function(e) {
 				dmitri.keydown[e.keyCode] = false;
 			}
+			window.onmousedown = function(e)
+			{
+				dmitri.app.doMousedown(e);
+			}
+			window.onmouseup = function(e)
+			{
+				dmitri.app.doMouseup(e);
+			}
 
 
 
