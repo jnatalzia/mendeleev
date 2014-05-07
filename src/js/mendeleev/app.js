@@ -30,7 +30,7 @@ dmitri.app = {
 		this.setupThreeJS();
 
 		this.atom = dmitri.atom;
-		this.atom.init(elements, document.querySelector('#atom'), this.scene); // "elements" is from data/elements.json 
+		this.atom.init(elements, document.querySelector('#atom'), this.atomScene); // "elements" is from data/elements.json 
 		this.atom.build(3); // hydrogen. build() uses atomic numbers
 
 		this.createParticles();
@@ -52,7 +52,7 @@ dmitri.app = {
       for (var y = -5; y < 5; y++) {
         var particle = new THREE.Particle(material);
         particle.position.set(x * 10, y * 10, 0);
-        this.scene.add(particle);
+        this.atomScene.add(particle);
       }
     }
   },
@@ -78,7 +78,7 @@ dmitri.app = {
 
 		// set renderer
 		this.renderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas});
-		this.renderer.setSize( width, height );
+		this.renderer.setSize( width, width );
 		this.renderer.setClearColor(0x111111, 1.0);
 		this.renderer.shadowMapEnabled = true;
 
@@ -90,7 +90,7 @@ dmitri.app = {
 
 
 		/* set camera */
-		this.camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
+		this.camera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
 		// position
 		// this.camera.position.z = width*0.05;
 		// if (width > 480) this.camera.position.z = width*0.025;
