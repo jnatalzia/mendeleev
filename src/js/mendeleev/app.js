@@ -31,12 +31,12 @@ dmitri.app = {
 
 		this.atom = dmitri.atom;
 		this.atom.init(elements, document.querySelector('#atom'), this.atomScene); // "elements" is from data/elements.json 
-		this.atom.build(3); // hydrogen. build() uses atomic numbers
+		this.atom.build(4); // hydrogen. build() uses atomic numbers
 
 		this.createParticles();
 
-		this.table = dmitri.table;
-		this.table.init(this.tableScene);
+		// this.table = dmitri.table;
+		// this.table.init(this.tableScene);
 
 		this.update();
 	},
@@ -56,7 +56,6 @@ dmitri.app = {
       }
     }
   },
-
 
 
 
@@ -99,20 +98,32 @@ dmitri.app = {
 		if (width > 480) this.camera.position.z = width*0.05;
 
 		this.cameraControls = new THREE.OrbitControls(this.camera);
-		//controls.addEventListener( 'change', render );
 
 
 
 		// add subtle ambient lighting
-    var ambientLight = new THREE.AmbientLight(0x0c0c0c);
+    var ambientLight = new THREE.AmbientLight(0x222222);
+    // var ambientLight = new THREE.AmbientLight(0x0c0c0c);
     var spotLight = new THREE.SpotLight( 0xffffff );
 		    spotLight.position.y = 10;
 		    spotLight.position.z = 30;
 		    spotLight.castShadow = true;
-    // spotLight.lookAt(sphere);
+    spotLight.lookAt(this.atomScene);
+		var spotLight2 = new THREE.SpotLight( 0xffffff );
+		    spotLight2.position.y = 10;
+		    spotLight2.position.z = -30;
+		    spotLight2.castShadow = true;
+    spotLight2.lookAt(this.atomScene);
+		var spotLight3 = new THREE.SpotLight( 0xffffff );
+		    spotLight3.position.y = -10;
+		    spotLight3.position.z = 30;
+		    spotLight3.castShadow = true;
+    spotLight3.lookAt(this.atomScene);
 
     this.atomScene.add(ambientLight);    
-    this.atomScene.add( spotLight );
+    this.atomScene.add(spotLight);
+    this.atomScene.add(spotLight2);
+    // this.atomScene.add( spotLight3 );
 
 	},
 
@@ -134,17 +145,18 @@ dmitri.app = {
 			return;
 		 }
 
-		 if (this.state == this.STATE_PERIODIC_TABLE)
-		 {
-		 	this.scene = this.tableScene;
-		 	//renderer = this.tableRenderer;
+		 // if (this.state == this.STATE_PERIODIC_TABLE)
+		 // {
+		 // 	this.scene = this.tableScene;
+		 // 	//renderer = this.tableRenderer;
 		 	
-		 }
-		 else
-		 {
-		 	this.scene = this.atomScene;
-		 	//renderer = this.renderer;
-		 }
+		 // }
+		 // else
+		 // {
+		 // 	this.scene = this.atomScene;
+		 // 	//renderer = this.renderer;
+		 // }
+	 	this.scene = this.atomScene;
 	
 		this.atom.animate();
 

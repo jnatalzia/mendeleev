@@ -38,14 +38,6 @@ dmitri.particle = function() {
 
 	p.animate = function() {	
 
-		var dt = 1/60;
-
-		if (this.direction == 'up') this.position.y -= this.speed * dt;
-		if (this.direction == 'down') this.position.y += this.speed * dt;
-
-		if (this.direction == 'right') this.position.x += this.speed * dt;
-		if (this.direction == 'left') this.position.x -= this.speed * dt;
-
 	};
 
 

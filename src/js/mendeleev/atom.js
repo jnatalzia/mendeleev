@@ -166,8 +166,13 @@ dmitri.atom = {
 			var electron = new THREE.Mesh(dmitri.models.electron.geometry, dmitri.models.electron.material);
 			electron.receiveShadow = true;
 
-			// TEMP
-			electron.position.y = 10;
+			if (i == 0) electron.position.y = 10;
+			// if (i == 1) electron.position.y = -10;
+
+			// if (i == 2) electron.position.y = 20;
+			// if (i == 3) electron.position.y = -20;
+			// if (i == 4) electron.position.z = 20;
+			// if (i == 5) electron.position.z = -10;
 			
 			this.electrons.push(electron);
 			this.atom.add(electron);			
@@ -193,8 +198,8 @@ dmitri.atom = {
 			geometry.vertices.shift();
 			// geometry.rotation.y = 45;
 			var circle = new THREE.Line(geometry, material);
-			if (i == 2) circle.rotation.x = -0.5*Math.PI;
-			// this.atom.add(circle);
+			// if (i == 2) circle.rotation.x = -0.5*Math.PI;
+			this.atom.add(circle);
     };
 
 	},
@@ -248,32 +253,34 @@ dmitri.atom = {
 		this.step += 0.08;
 
 		var d = 10;
-		for (var i = 0; i < this.electrons.length; i++) {
-			this.electrons[i].position.x = 0 +( d*(Math.cos(this.step)));
-			this.electrons[i].position.y = 0 +( d*(Math.sin(this.step)));
+		// for (var i = 0; i < this.electrons.length; i++) {
+		// 	this.electrons[i].position.x = 0 +( d*(Math.cos(this.step)));
+		// 	this.electrons[i].position.y = 0 +( d*(Math.sin(this.step)));
 			
-			// this.particleSystem.rotation.z += 0.08;
+		// 	// this.particleSystem.rotation.z += 0.08;
 
-			if (i == 1) {
-				this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
-				this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
-			}
-			if (i == 2) {
-				var nd = d + d;
-				this.electrons[i].position.x = 0 +( nd*(Math.cos(this.step-0.02)));
-				this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
-			}
-			if (i == 3) {
-				var nd = d + d;
-				this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
-				this.electrons[i].position.z = 0 +( -nd*(Math.sin(this.step-0.02)));
-			}
-			if (i == 4) {
-				var nd = d + d;
-				this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
-				this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
-			}
-		};
+		// 	if (i == 1) {
+		// 		this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
+		// 		this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
+		// 	}
+
+		// 	if (i == 2) {
+		// 		var nd = d + d;
+		// 		this.electrons[i].position.x = 0 +( nd*(Math.cos(this.step-0.02)));
+		// 		this.electrons[i].position.y = 0 +( nd*(Math.sin(this.step-0.02)));
+		// 	}
+
+		// 	if (i == 3) {
+		// 		var nd = d + d;
+		// 		this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
+		// 		this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step-0.02)));
+		// 	}
+		// 	if (i == 4) {
+		// 		var nd = d + d;
+		// 		this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
+		// 		this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
+		// 	}
+		// };
 
 
 		
@@ -284,8 +291,8 @@ dmitri.atom = {
 
 
 
-		this.atom.rotation.y += 0.025/2;
-		this.atom.rotation.x += 0.025;
+		// this.atom.rotation.y += 0.025/2;
+		// this.atom.rotation.x += 0.025;
 	}
 
 };
