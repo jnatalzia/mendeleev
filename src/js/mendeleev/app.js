@@ -187,19 +187,18 @@ dmitri.app = {
 				dmitri.app.atom.build(i, true);
 			}
 		};
-	},
-	doMousedown: function(event) {
-			if (this.state == this.STATE_PERIODIC_TABLE)
-			{
-				this.table.doMousedown(event);
-			}
-        },
-    doMouseup: function(e)
-    {
-    	if (this.state == this.STATE_PERIODIC_TABLE)
-		{
-			this.table.doMouseup(e);
-		}
-
-    }
+	}
+	// doMousedown: function(event) {
+	// 	if (this.state == this.STATE_PERIODIC_TABLE)
+	// 	{
+	// 		this.table.doMousedown(event);
+	// 	}
+ //  },
+ //  doMouseup: function(e)
+ //  {
+ //  	if (this.state == this.STATE_PERIODIC_TABLE)
+	// 	{
+	// 	this.table.doMouseup(e);
+	// 	}
+ //  }
 };
