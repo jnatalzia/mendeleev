@@ -35,6 +35,9 @@ dmitri.soundtrack = undefined;
 
 dmitri.current = 0;
 
+dmitri.view = {};
+dmitri.view.bohr = false; // view mode
+
 
 document.onload = function() {
 	console.log("hey man. you\'ll be alright. you\'ll go far kid.");
@@ -82,11 +85,11 @@ document.onload = function() {
 			}
 			window.onmousedown = function(e)
 			{
-				dmitri.app.doMousedown(e);
+				// dmitri.app.doMousedown(e);
 			}
 			window.onmouseup = function(e)
 			{
-				dmitri.app.doMouseup(e);
+				// dmitri.app.doMouseup(e);
 			}
 
 
@@ -102,8 +105,13 @@ document.onload = function() {
 			// 	console.log('pre-loaded sound: ', e.id, e.src);
 			// }
 				
-			// dmitri.search = document.querySelector('#search input');
-			// dmitri.search.onkeyup = dmitri.app.search;
+			dmitri.search = document.querySelector('#search input');
+			dmitri.search.onkeyup = dmitri.app.search;
+
+			dmitri.bohr = document.querySelector('#bohr');
+			dmitri.bohr.onchange = function() {
+				if (dmitri.bohr.checked) dmitri.view.bohr = true;
+			};
 
 
 			/* start the app */

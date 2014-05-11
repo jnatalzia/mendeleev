@@ -30,25 +30,17 @@ body#mendeleev
 					h3.t6#name
 					p#weight
 					ul#electron-config
-					form#search
-						input(type="text", placeholder="Search element...")
 
 
 				section#controls
 					h2 View
 					div
-						ul
-							li
-								label 
-									input(type="radio", value="animated")
-									span Animated
-							li
-								label 
-									input(type="radio", value="bohr")
-									span Bohr Diagram
+						label
+							input#bohr(type="checkbox", name="view", value="bohr")
+							span Bohr Diagram
 					div
-						p Highlight:
-						ul
+						//-p Highlight:
+						//-ul
 							li
 								label
 									input(type="checkbox", value="hi-protons")
@@ -68,6 +60,9 @@ body#mendeleev
 							label
 								span Got it
 								input(type="checkbox", value="got-it")
+
+				form#search
+					input(type="text", placeholder="Search element...")
 
 
 

@@ -151,6 +151,7 @@ module.exports = function(grunt) {
       'copy:img',
       'copy:data',
       'copy:js',
+      'copy:fonts',
       'jade:index',
     ]);
   });
