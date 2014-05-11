@@ -10,28 +10,30 @@ head
 
 
 body#mendeleev
-	a(href="#main", class="assistive-text") Skip to main content
 	div.container
 		header#header
 			h1 Mendeleev
-			form#search
-				input(type="text", placeholder="Search element...")
 
-		div#main
-			div#loader
-			div#app
-				div#atom-wrapper
-					section#atom
-						p#number
-						h2.t5#symbol
-						h3.t6#name
-						p#weight
-						ul#electron-config
-					canvas#model
-						p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
-				div#table-wrapper
-					canvas#table
-						p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
+		div#app
+			div#table-wrapper.canvas-wrapper
+				canvas#table
+					p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
+
+			div#atom-wrapper.canvas-wrapper
+				canvas#model
+					p Hey, you should get a newer browser. Download Firefox or Chrome to see a cool 3D model here
+
+			div#controls-wrapper
+				section#atom
+					p#number
+					h2.t5#symbol
+					h3.t6#name
+					p#weight
+					ul#electron-config
+					form#search
+						input(type="text", placeholder="Search element...")
+
+
 				section#controls
 					h2 View
 					div
@@ -66,12 +68,11 @@ body#mendeleev
 							label
 								span Got it
 								input(type="checkbox", value="got-it")
-			
+
+
 
 		footer#footer
-			p
-				strong Joe Natalzia &amp; Luis Rosario - 2014
-			p Made with Three.js, Modernizr, &amp; SASS
+			p Joe Natalzia &amp; Luis Rosario - 2014
 
 	script(src="js/libs/three.min.js")
 	script(src="js/main.js")

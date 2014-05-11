@@ -102,8 +102,8 @@ document.onload = function() {
 			// 	console.log('pre-loaded sound: ', e.id, e.src);
 			// }
 				
-			dmitri.search = document.querySelector('#search input');
-			dmitri.search.onkeyup = dmitri.app.search;
+			// dmitri.search = document.querySelector('#search input');
+			// dmitri.search.onkeyup = dmitri.app.search;
 
 
 			/* start the app */

@@ -7,26 +7,44 @@
 @import "pieces/typography";
 
 
+body {
+	background: darken(#00f, 46%);
+	color: #ebebeb;
+	margin: 0;
+	overflow: hidden;
+}
+canvas {
+	background: transparent;
+}
+
 #app {
-	margin: 0 auto;
-	@include mq(netbook) {
-		width: 90%;
-		// @include flexbox();
-		// align-items: flex-end;
-	}
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+}
+.canvas-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1rem;
+	margin-bottom: 3rem;
 }
 
 
-@include mq(netbook) {
-	#controls {
-		padding-left: 2rem;
-		@include flex(1);
-		li {
-			list-style: none;
-			margin-bottom: 0.65rem;
-		}
-	}
+#controls-wrapper {
+	display: none;
 }
+// @include mq(netbook) {
+// 	#controls {
+// 		padding-left: 2rem;
+// 		@include flex(1);
+// 		li {
+// 			list-style: none;
+// 			margin-bottom: 0.65rem;
+// 		}
+// 	}
+// }
 
 
 //fonts
@@ -35,14 +53,6 @@
   src: url('../fonts/Roboto-Light.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
-#atom-wrapper {
-	padding: 1rem;
-	position: relative;
-}
-#table-wrapper {
-	padding: 1rem;
-	position: relative;
-}
 #atom {
   color: #ccc;
 	position: relative;
@@ -75,36 +85,44 @@ p, input {
 .toggle {
 	@include hover();
 }
-#main {
-}
+
 #header {
 	padding: 1rem;
-	@include flexbox();
-	h1, form {
-		@include flex(1);
+	position: absolute;
+	top: 0;
+	width: 100%;
+	h1 {
+		font-size: 0.75rem;
+		text-transform: uppercase;
 	}
 }
-h1 {
-	font-size: 0.75rem;
-	text-transform: uppercase;
+
+#footer {
+	padding: 1em 1rem;
+	font-size: 0.75em;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: right;
+}
+
+#header, #footer {
+	z-index: 10;
 }
 
 
 #search {
-	text-align: right;
+	// text-align: right;
 }
 #model, #table {
-	background: tomato;
+	// background: tomato;
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: -1;
 }
 
-#footer {
-	padding: 1em 1rem;
-	font-size: 0.75em;
-}
+
 #help {
 }
 

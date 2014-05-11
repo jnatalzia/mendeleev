@@ -31,14 +31,14 @@ dmitri.app = {
 
 		this.setupThreeJS();
 
+		this.table = dmitri.table;
+		this.table.init(this.tableScene);
+
+
 		this.atom = dmitri.atom;
 		this.atom.init(elements, document.querySelector('#atom'), this.atomScene); // "elements" is from data/elements.json 
-		this.atom.build(4); // hydrogen. build() uses atomic numbers
+		this.atom.build(1); // hydrogen. build() uses atomic numbers
 
-		this.createParticles();
-
-		// this.table = dmitri.table;
-		// this.table.init(this.tableScene);
 
 		this.update();
 	},
@@ -47,17 +47,17 @@ dmitri.app = {
 
 
 
-  createParticles: function() {
-    var material = new THREE.ParticleBasicMaterial();
+  // createParticles: function() {
+  //   var material = new THREE.ParticleBasicMaterial();
 
-    for (var x = -5; x < 5; x++) {
-      for (var y = -5; y < 5; y++) {
-        var particle = new THREE.Particle(material);
-        particle.position.set(x * 10, y * 10, 0);
-        this.atomScene.add(particle);
-      }
-    }
-  },
+  //   for (var x = -5; x < 5; x++) {
+  //     for (var y = -5; y < 5; y++) {
+  //       var particle = new THREE.Particle(material);
+  //       particle.position.set(x * 10, y * 10, 0);
+  //       this.atomScene.add(particle);
+  //     }
+  //   }
+  // },
 
 
 
@@ -69,13 +69,13 @@ dmitri.app = {
 
 		// get screen size and base everything off of that
 		var width = window.innerWidth;
-		if (width > 540) width = 540;
-		document.querySelector('#atom-wrapper').style.height= width+'px';
-		document.querySelector('#atom-wrapper').style.width= width+'px';
+		// if (width > 540) width = 540;
+		// document.querySelector('#atom-wrapper').style.height= width+'px';
+		// document.querySelector('#atom-wrapper').style.width= width+'px';
 
-		document.querySelector('#table-wrapper').style.height= width+'px';
-		document.querySelector('#table-wrapper').style.width= width+'px';
-		//set canvas size
+		// document.querySelector('#table-wrapper').style.height= width+'px';
+		// document.querySelector('#table-wrapper').style.width= width+'px';
+		// //set canvas size
 		var canvas = document.querySelector('#model');
 		var tablecanvas = document.querySelector('#table');
 
@@ -83,24 +83,33 @@ dmitri.app = {
 
 		// set renderer
 		this.atomRenderer = new THREE.WebGLRenderer({antialias: true, canvas: canvas});
-		this.atomRenderer.setSize( width, width );
-		this.atomRenderer.setClearColor(0x111111, 1.0);
+		this.atomRenderer.setSize( window.innerWidth, window.innerHeight );
+		this.atomRenderer.setClearColor(0x000014, 1.0);
 		this.atomRenderer.shadowMapEnabled = true;
 
 		this.tableRenderer = new THREE.WebGLRenderer({antialias: true, canvas: tablecanvas});
-		this.tableRenderer.setSize( width, width );
-		this.tableRenderer.setClearColor(0x111111, 1.0);
+		this.tableRenderer.setSize( window.innerWidth, window.innerHeight );
+		this.tableRenderer.setClearColor(0x000014, 1.0);
 		this.tableRenderer.shadowMapEnabled = true;
+
+
+
+
+
+
+
 
 
 		// set scene
 		//this.scene = new THREE.Scene();
 		this.atomScene = new THREE.Scene();
+		this.atomScene.fog = new THREE.FogExp2(0x9db3b5, 0.002);
+
 		this.tableScene = new THREE.Scene();
 
 
 		/* set camera */
-		this.camera = new THREE.PerspectiveCamera( 75, width / width, 0.1, 1000 );
+		this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		// position
 		// this.camera.position.z = width*0.05;
 		// if (width > 480) this.camera.position.z = width*0.025;
