@@ -69,6 +69,7 @@ dmitri.atom = {
 		this.protons = [];
 		this.neutrons = [];
 		this.electrons = [];
+		this.bohrTweenReady = false;	
 	},
 
 
@@ -115,51 +116,26 @@ dmitri.atom = {
 		// 2. determine geometric shape
 		// ----------------------------
 		// combine protons + neutrons into single array
-		var group = [];
+		var nucleusGroup = [];
 
 		// fringe case: hydrogen is the only one without a neutron
-		if (this.neutrons.length == 0) group.push(this.protons[0]);
+		if (this.neutrons.length == 0) nucleusGroup.push(this.protons[0]);
 		else {
 			for (var i = 0; i < this.neutrons.length; i++) {
-				// push protons and neutrons to temporary group
+				// push protons and neutrons to temporary nucleusGroup
 				if (this.protons[i]) 
-					group.push(this.protons[i]);
-				group.push(this.neutrons[i]);
+					nucleusGroup.push(this.protons[i]);
+				nucleusGroup.push(this.neutrons[i]);
 			};
-
-			// position the protons + neutrons
-			var counter = 0; // an index
-			var y = 0;	// position
-			var limit;	// 4 or 5 per row
-
-			if (group.length%2 == 0) limit = 4;
-			else limit = 5;
-
-			var r = group[0].geometry.radius;
-
-			for (var i = 0; i < group.length; i++) {
-				if (counter == 0) group[i].position.x = r;
-				if (counter == 1) group[i].position.z = r;
-				if (counter == 2) group[i].position.x = -r;
-				if (counter == 3) group[i].position.z = -r;
-				if (counter == 4) group[i].position.x = 0;
-
-				group[i].position.y = y;
-
-				// incrase counter
-				counter++;
-				if (counter > limit - 1) {
-					counter = 0;
-					y += r;
-					this.nucleus.position.y -= y / 2;
-					// this.nucleus.position.y -= y / 2;
-				}
-			};
-
-			// center the nucleus
-			// this.nucleus.position.y -= (r * y) / 2;
-			// this.nucleus.position.z += (r * y) / 2;
 		};
+
+		// position the protons + neutrons
+		for (var i = 0; i < nucleusGroup.length; i++) {
+			nucleusGroup[i].position.x = e.nucleus[i].x;
+			nucleusGroup[i].position.y = e.nucleus[i].y;
+			nucleusGroup[i].position.z = e.nucleus[i].z;
+		};
+
 
 
 		this.atom.add(this.nucleus);
@@ -188,10 +164,9 @@ dmitri.atom = {
 		var radius = 10;
     var material = new THREE.LineBasicMaterial( { color: 0x000066 } );
 
-    for (var i = 0; i < e.shells; i++) {
+    for (var i = 1; i < e.shells.length+1; i++) {
     	
-    	// var size = radius * i;
-    	var size = (i == 0) ? radius : radius * i; // size = radius * shell, if i is 0 radius is 10
+    	var size = radius * i;
 	    var geometry = new THREE.CircleGeometry(size, 32);
 
 			// Remove center vertex
@@ -199,6 +174,9 @@ dmitri.atom = {
 			
 			var circle = new THREE.Line(geometry, material);
 			this.orbitals.push(circle);
+
+			if (dmitri.orbits.checked) this.addOrbitals();
+
     };
 
 	},
@@ -256,24 +234,19 @@ dmitri.atom = {
 
 		for (var i = 0; i < this.electrons.length; i++) {
 
-			var position = {x: this.electrons[i].position.x, y: this.electrons[i].position.y, z: this.electrons[i].position.z};
-			var target = { x : 0, y: this.electrons[i].userData._y, z: 0 };
-
-			var e = this.electrons[i];
+			var position = this.electrons[i].position;
+			var target = dmitri.models.shells[i]; // Bohr position set in models.js
 			
-			new TWEEN.Tween( e.position )
-				// .delay( 1000 )
+			new TWEEN.Tween( position )
 				.easing( TWEEN.Easing.Circular.In )
 				.to( target, 400 )
 				.start();
-
 		};
 
 		// reset atom rotation
-		console.log(this.atom.rotation);
 		new TWEEN.Tween( this.atom.rotation )
 				// .delay( 1000 )
-				.easing( TWEEN.Easing.Circular.In )
+				.easing( TWEEN.Easing.Quadratic.Out )
 				.to( {x: 0, y: 0, z: 0}, 400 )
 				.start();
 
@@ -289,7 +262,7 @@ dmitri.atom = {
 			// tween to statc position
 			if (!this.bohrTweenReady) {
 				this.prepBohrTweens();
-				this.createOrbitals();
+				this.step = 0; // reset this
 			}
 			else TWEEN.update();
 
@@ -302,30 +275,30 @@ dmitri.atom = {
 
 			var d = 10;
 			for (var i = 0; i < this.electrons.length; i++) {
-				this.electrons[i].position.x = 0 +( d*(Math.cos(this.step)));
-				this.electrons[i].position.y = 0 +( d*(Math.sin(this.step)));
+				this.electrons[i].position.x = d*(Math.cos(this.step));
+				this.electrons[i].position.y = d*(Math.sin(this.step));
 				
 
 				if (i == 1) {
-					this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
-					this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
+					this.electrons[i].position.x = -d*(Math.cos(this.step));
+					this.electrons[i].position.y = -d*(Math.sin(this.step));
 				}
 
 				if (i == 2) {
 					var nd = d + d;
-					this.electrons[i].position.x = 0 +( nd*(Math.cos(this.step-0.02)));
-					this.electrons[i].position.y = 0 +( nd*(Math.sin(this.step-0.02)));
+					this.electrons[i].position.x = nd*(Math.cos(this.step-0.02));
+					this.electrons[i].position.y = nd*(Math.sin(this.step-0.02));
 				}
 
 				if (i == 3) {
 					var nd = d + d;
-					this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
-					this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step-0.02)));
+					this.electrons[i].position.x = -nd*(Math.cos(this.step-0.02));
+					this.electrons[i].position.y = -nd*(Math.sin(this.step-0.02));
 				}
 				if (i == 4) {
 					var nd = d + d;
-					this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
-					this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
+					this.electrons[i].position.x = -nd*(Math.cos(this.step-0.02));
+					this.electrons[i].position.z = nd*(Math.sin(this.step-0.02));
 				}
 			}; // en for loop
 

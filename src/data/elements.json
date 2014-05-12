@@ -6,6 +6,9 @@ var elements = [
 		"weight": 1.007,
 		"protons": 1,
 		"neutrons": 0,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 1,
 		"shells": [1]
 	},
@@ -16,6 +19,12 @@ var elements = [
 		"weight": 4.002,
 		"protons": 2,
 		"neutrons": 2,
+		"nucleus": [
+			{"x": 0, "y": 1, "z": 0},
+			{"x": 1, "y": 0, "z": 0},
+			{"x": 0, "y": -1, "z": 0},
+			{"x": -1, "y": 0, "z": 0},
+		],
 		"electrons": 2,
 		"shells": [2]
 	},
@@ -26,6 +35,15 @@ var elements = [
 		"weight": 6.941,
 		"protons": 3,
 		"neutrons": 4,
+		"nucleus": [
+			{"x": 0, "y": 1, "z": 0},
+			{"x": 1, "y": 0, "z": 0},
+			{"x": 0, "y": -1, "z": 0},
+			{"x": -1, "y": 0, "z": 0},
+			{"x": 0, "y": 0, "z": 1},
+			{"x": 0, "y": 0, "z": 0},
+			{"x": 0, "y": 0, "z": -1},
+		],
 		"electrons": 3,
 		"shells": [2, 1]
 	},
@@ -36,6 +54,9 @@ var elements = [
 		"weight": 9.012,
 		"protons": 4,
 		"neutrons": 5,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 4,
 		"shells": [2, 2]
 	},
@@ -46,6 +67,9 @@ var elements = [
 		"weight": 10.811,
 		"protons": 5,
 		"neutrons": 5,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 5,
 		"shells": [2, 3]
 	},
@@ -56,6 +80,9 @@ var elements = [
 		"weight": 12.010,
 		"protons": 6,
 		"neutrons": 6,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 6,
 		"shells": [2, 4]
 	},
@@ -66,6 +93,9 @@ var elements = [
 		"weight": 14.006,
 		"protons": 7,
 		"neutrons": 7,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 7,
 		"shells": [2, 5]
 	},
@@ -76,6 +106,9 @@ var elements = [
 		"weight": 15.999,
 		"protons": 8,
 		"neutrons": 7,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 8,
 		"shells": [2, 6]
 	},
@@ -86,6 +119,9 @@ var elements = [
 		"weight": 18.998,
 		"protons": 9,
 		"neutrons": 9,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 9,
 		"shells": [2, 7]
 	},
@@ -96,6 +132,9 @@ var elements = [
 		"weight": 20.179,
 		"protons": 10,
 		"neutrons": 10,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 10,
 		"shells": [2, 8]
 	},
@@ -106,6 +145,9 @@ var elements = [
 		"weight": 22.989,
 		"protons": 11,
 		"neutrons": 11,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 11,
 		"shells": [2, 8, 1]
 	},
@@ -116,6 +158,9 @@ var elements = [
 		"weight": 24.305,
 		"protons": 12,
 		"neutrons": 12,
+		"nucleus": [
+			{"x": 0, "y": 0, "z": 0},
+		],
 		"electrons": 12,
 		"shells": [2, 8, 2]
 	}
