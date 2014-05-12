@@ -74,29 +74,11 @@ dmitri.table = {
         if (intersects.length > 0) {
             var o = intersects[0].object;
 
-            console.log(o.atomicNumber);
+            //console.log(o.atomicNumber);
 
             o.material = this.createHighlightedMaterial(o.atomicNumber,true);
 
             o.isHighlighted = true;
-
-            /*var newMat = new THREE.MeshBasicMaterial({color: 0xff0000});
-
-            intersects[ 0 ].object.material = newMat;
-            intersects[ 0 ].object.material.transparent = true;
-            intersects[ 0 ].object.material.opacity = 0.5;
-
-            var points = [];
-            var origin = raycaster.ray.origin.clone();
-            console.log(origin);
-            points.push(new THREE.Vector3(-30, 39.8, 30));
-            points.push(intersects[0].point);
-
-
-            var mat = new THREE.MeshBasicMaterial({color: 0xff0000, transparent: true, opacity: 0.6});
-            var tubeGeometry = new THREE.TubeGeometry(new THREE.SplineCurve3(points), 60, 0.001);
-
-            if (tube) scene.remove(tube);*/
         }
 	},
 	doMouseup: function(e)
