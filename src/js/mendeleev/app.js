@@ -103,23 +103,15 @@ dmitri.app = {
 		/* set camera */
 		this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		// position
-		// this.camera.position.z = width*0.05;
-		// if (width > 480) this.camera.position.z = width*0.025;
 		this.camera.position.z = window.innerWidth/20;
 
 		this.tableCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 		this.tableCamera.position.x = 50;
 		this.tableCamera.position.z = 50;
 		this.tableCamera.position.y = -10;
-		// position
-		 //this.camera.position.z = width*0.05;
-		// if (width > 480) this.camera.position.z = width*0.025;
 
 		this.tableCamera.position.z = window.innerWidth*0.1;
-		this.camera.position.z = 0;
-
-		// if (width > 480) this.camera.position.z = width*0.035;
-		// if (width > 480) this.camera.position.z = width*0.05;
+		// this.camera.position.z = 0;
 
 		// this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector("#atom-wrapper"));
 		this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
