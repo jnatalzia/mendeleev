@@ -180,25 +180,27 @@ dmitri.atom = {
 			if (i == 0) electron.userData._y = radius;
 			if (i == 1) electron.userData._y = -radius;
 
+			// shell 1
+			if (i == 2) {};
+
 			this.electrons.push(electron);
 			this.atom.add(electron);		
 		};
 
-
+		
 		// determine amount of electron shells
 		this.shells = 1;
-		// if (this.electrons.length > 2) {
-		// 	if (this.electrons.length === 3) this.shells = 2; // fringe case: lithium
-		// 	this.shells += Math.floor(this.electrons.length/4);
-		// };
+		if (this.electrons.length > 2) {
+			if (this.electrons.length === 3) this.shells = 2; // fringe case: lithium
+			this.shells += Math.floor(this.electrons.length/4);
+		};
 		// console.log(this.shells);
 
-		
-			
+
+	},
 
 
-
-
+	createOrbitals: function() {
 		// add eletrons to shells
     var material = new THREE.LineBasicMaterial( { color: 0x000066 } );
 
@@ -212,9 +214,8 @@ dmitri.atom = {
 			var circle = new THREE.Line(geometry, material);
 			// if (i == 2) circle.rotation.x = -0.5*Math.PI;
 			this.orbitals.push(circle);
-			this.atom.add(circle);
+			// this.atom.add(circle);
     };
-
 	},
 
 
@@ -271,24 +272,34 @@ dmitri.atom = {
 			
 			new TWEEN.Tween( e.position )
 				// .delay( 1000 )
-				.easing( TWEEN.Easing.Exponential.In )
-				.to( target, 800 )
+				.easing( TWEEN.Easing.Circular.In )
+				.to( target, 400 )
 				.start();
 
 		};
+
+		// reset atom rotation
+		console.log(this.atom.rotation);
+		new TWEEN.Tween( this.atom.rotation )
+				// .delay( 1000 )
+				.easing( TWEEN.Easing.Circular.In )
+				.to( {x: 0, y: 0, z: 0}, 400 )
+				.start();
+
 		this.bohrTweenReady = true;
 	},
 
-	// tweensBackToPosition: function() {
-	// 	console.log('hello from:');
-	// },
+
 
 	animate: function() {
 
 
 		if(this.bohr) {
 			// tween to statc position
-			if (!this.bohrTweenReady) this.prepBohrTweens();
+			if (!this.bohrTweenReady) {
+				this.prepBohrTweens();
+				this.createOrbitals();
+			}
 			else TWEEN.update();
 
 		} else {
@@ -325,7 +336,17 @@ dmitri.atom = {
 					this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
 					this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
 				}
-			};
+			}; // en for loop
+
+
+			// vibrate nucleus
+			var rate = 0.1125;
+			this.nucleus.position.x = Math.random() * rate;
+			this.nucleus.position.y = Math.random() * rate;
+
+
+			this.atom.rotation.y += 0.025/2;
+			this.atom.rotation.x += 0.025;
 
 		}
 
@@ -333,15 +354,9 @@ dmitri.atom = {
 
 
 		
-		// vibrate nucleus
-		// var rate = 0.1125;
-		// this.nucleus.position.x = Math.random() * rate;
-		// this.nucleus.position.y = Math.random() * rate;
 
 
 
-		// this.atom.rotation.y += 0.025/2;
-		// this.atom.rotation.x += 0.025;
 	}
 
 };
