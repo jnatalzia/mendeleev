@@ -39,10 +39,7 @@ dmitri.app = {
 		this.atom.init(elements, document.querySelector('#atom'), this.atomScene); // "elements" is from data/elements.json 
 		this.atom.build(1); // hydrogen. build() uses atomic numbers
 
-		this.createParticles();
-
-		this.table = dmitri.table;
-		this.table.init(this.tableScene);
+		//this.createParticles();
 
 		this.update();
 	},
