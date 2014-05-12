@@ -3,7 +3,7 @@ var dmitri = dmitri || {};
 dmitri.utilities = {
 
 	getNormalizedVector: function (v1){
-		var mag = getMagnitude(v1);
+		var mag = this.getMagnitude(v1);
 		return{
 			x:v1.x/mag,
 			y:v1.y/mag
@@ -18,7 +18,7 @@ dmitri.utilities = {
 	},
 	angleFromPointToPoint:function (p1,p2)
 	{
-		var sub = getSubtractedVector(p1,p2);
+		var sub = this.getSubtractedVector(p1,p2);
 
 		var angle = Math.atan2(sub.y,sub.x);
 
@@ -32,7 +32,7 @@ dmitri.utilities = {
 
 		return angle;
 	},
-	getScaledVector:function (v1,scalar){}
+	getScaledVector:function (v1,scalar){
 		return {
 			x:v1.x*scalar,
 			y:v1.y*scalar
@@ -51,5 +51,20 @@ dmitri.utilities = {
 		else if (value > stop1) value = stop1;
 	
 		return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
+	},
+	isCloseToDestination:function (pos,dest)
+	{
+		//console.log(pos+ ", " + dest);
+
+		var sub = this.getSubtractedVector(pos,dest);
+		var mag = this.getMagnitude(sub);
+		if (mag <= .5)
+		{
+			return true;
+		}
+		else return false;
+	},
+	getMagnitude:function (v1){
+		return Math.sqrt((v1.x*v1.x)+(v1.y*v1.y));
 	}
 };

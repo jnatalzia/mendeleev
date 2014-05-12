@@ -52,7 +52,8 @@ document.onload = function() {
 			'js/mendeleev/atom.js',
 			'js/mendeleev/app.js',
 			'js/mendeleev/table.js',
-			//'js/mendeleev/utilities,js'
+			//'js/mendeleev/test,js'
+			'js/mendeleev/utilities.js'
 			// images
 			// dmitri.IMAGES['smoke']	
 		],
