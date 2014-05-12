@@ -39,10 +39,36 @@ dmitri.table = {
 		var sprite = new THREE.Sprite( spriteMaterial );
 
 		sprite.scale.set(5,7,1.0);
-		sprite.position.set(position.x,position.y,position.z);
+		sprite.destination = position;
+		sprite.isMoving = true;
+		sprite.position.set(0,0,0);
 		sprite.atomicNumber = atomicNumber;
 
 		this.scene.add(sprite);
+	},
+	update:function()
+	{
+		this.scene.traverse(function(e) { 
+         if (e instanceof THREE.Sprite ) { 
+             //move it
+             if (dmitri.utilities.isCloseToDestination(e.position,e.destination))
+             {
+             	e.isMoving = false;
+             }
+             else
+             	e.isMoving = true;
+
+             if (e.isMoving)
+             {
+             	var idealVec = dmitri.utilities.getSubtractedVector(e.position,e.destination);
+             	idealVec = dmitri.utilities.getNormalizedVector(idealVec);
+             	idealVec = dmitri.utilities.getScaledVector(idealVec,1);
+
+             	e.position.set(e.position.x+idealVec.x,e.position.y+idealVec.y,e.position.z);
+             }
+         } 
+        }); 
+
 	},
 	doMousedown:function(e)
 	{
@@ -94,6 +120,10 @@ dmitri.table = {
              	{
              		//call that function
              		dmitri.app.updateAtom(e.atomicNumber,true);
+
+             		document.querySelector(".front-canvas").className = "";
+             		document.querySelector("#model").className = "front-canvas";
+
              		e.isHighlighted = false;
              	}
                  e.material = self.createNormalMaterial(e.atomicNumber,true);

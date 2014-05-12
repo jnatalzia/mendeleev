@@ -40,6 +40,8 @@ dmitri.app = {
 		this.atom.build(1); // hydrogen. build() uses atomic numbers
 
 		//this.createParticles();
+		//set up front-canvas
+		document.querySelector("#table").className = "front-canvas";
 
 		this.update();
 	},
@@ -166,6 +168,7 @@ dmitri.app = {
 		 }
 		
 		this.atom.animate();
+		this.table.update();
 
 		// DRAW	
 		this.atomRenderer.render(this.atomScene, this.camera);
