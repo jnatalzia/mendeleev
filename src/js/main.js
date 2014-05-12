@@ -35,9 +35,6 @@ dmitri.soundtrack = undefined;
 
 dmitri.current = 0;
 
-dmitri.view = {};
-dmitri.view.bohr = false; // view mode
-
 
 document.onload = function() {
 	console.log("hey man. you\'ll be alright. you\'ll go far kid.");
@@ -105,13 +102,25 @@ document.onload = function() {
 			// 	console.log('pre-loaded sound: ', e.id, e.src);
 			// }
 				
+
+			// search for an atom
 			dmitri.search = document.querySelector('#search input');
 			dmitri.search.onkeyup = dmitri.app.search;
 
+
+			// show Bohr atomic model
 			dmitri.bohr = document.querySelector('#bohr');
 			dmitri.bohr.onchange = function() {
-				if (dmitri.bohr.checked) dmitri.view.bohr = true;
+				if (dmitri.bohr.checked) dmitri.atom.bohr = true;
+				else dmitri.atom.bohr = false;
 			};
+
+			// show orbits
+			dmitri.orbits = document.querySelector('#show-orbits');
+			dmitri.orbits.onchange = function() {
+				if (dmitri.orbits.checked) dmitri.atom.orbits = true;
+				else dmitri.atom.orbits = false;
+			}
 
 
 			/* start the app */

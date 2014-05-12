@@ -20,10 +20,20 @@ dmitri.atom = {
 	neutrons: [],
 	electrons: [], 
 	shells: undefined,
-	particleSystem: undefined,
+	orbitals: [],
+	bohrTweenReady: false,
+	returnTweenReady: false,
+	tweens: [],
 
 	// for animation
 	step: 0,
+
+
+	// for viewing
+	bohr: false,
+	orbits: false,
+
+
 
 
 	init: function(_elements, _DOM, _scene) {
@@ -166,27 +176,29 @@ dmitri.atom = {
 			var electron = new THREE.Mesh(dmitri.models.electron.geometry, dmitri.models.electron.material);
 			electron.receiveShadow = true;
 
-			if (i == 0) electron.position.y = 10;
-			// if (i == 1) electron.position.y = -10;
+			// store Bohr position
+			if (i == 0) electron.userData._y = radius;
+			if (i == 1) electron.userData._y = -radius;
 
-			// if (i == 2) electron.position.y = 20;
-			// if (i == 3) electron.position.y = -20;
-			// if (i == 4) electron.position.z = 20;
-			// if (i == 5) electron.position.z = -10;
-			
 			this.electrons.push(electron);
-			this.atom.add(electron);			
+			this.atom.add(electron);		
 		};
 
 
-		// determine amount of electron shell
+		// determine amount of electron shells
 		this.shells = 1;
-		if (this.electrons.length > 2) {
-			if (this.electrons.length === 3) this.shells = 2;
-			this.shells += Math.floor(this.electrons.length/4);
-		};
+		// if (this.electrons.length > 2) {
+		// 	if (this.electrons.length === 3) this.shells = 2; // fringe case: lithium
+		// 	this.shells += Math.floor(this.electrons.length/4);
+		// };
+		// console.log(this.shells);
 
 		
+			
+
+
+
+
 		// add eletrons to shells
     var material = new THREE.LineBasicMaterial( { color: 0x000066 } );
 
@@ -199,6 +211,7 @@ dmitri.atom = {
 			// geometry.rotation.y = 45;
 			var circle = new THREE.Line(geometry, material);
 			// if (i == 2) circle.rotation.x = -0.5*Math.PI;
+			this.orbitals.push(circle);
 			this.atom.add(circle);
     };
 
@@ -247,47 +260,83 @@ dmitri.atom = {
 	},
 
 
+	prepBohrTweens: function() {
+
+		for (var i = 0; i < this.electrons.length; i++) {
+
+			var position = {x: this.electrons[i].position.x, y: this.electrons[i].position.y, z: this.electrons[i].position.z};
+			var target = { x : 0, y: this.electrons[i].userData._y, z: 0 };
+
+			var e = this.electrons[i];
+			
+			new TWEEN.Tween( e.position )
+				// .delay( 1000 )
+				.easing( TWEEN.Easing.Exponential.In )
+				.to( target, 800 )
+				.start();
+
+		};
+		this.bohrTweenReady = true;
+	},
+
+	// tweensBackToPosition: function() {
+	// 	console.log('hello from:');
+	// },
+
 	animate: function() {
 
-		// this.step += 0.04;
-		this.step += 0.08;
 
-		var d = 10;
-		// for (var i = 0; i < this.electrons.length; i++) {
-		// 	this.electrons[i].position.x = 0 +( d*(Math.cos(this.step)));
-		// 	this.electrons[i].position.y = 0 +( d*(Math.sin(this.step)));
-			
-		// 	// this.particleSystem.rotation.z += 0.08;
+		if(this.bohr) {
+			// tween to statc position
+			if (!this.bohrTweenReady) this.prepBohrTweens();
+			else TWEEN.update();
 
-		// 	if (i == 1) {
-		// 		this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
-		// 		this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
-		// 	}
+		} else {
+			// reset 
+			this.bohrTweenReady = false;
 
-		// 	if (i == 2) {
-		// 		var nd = d + d;
-		// 		this.electrons[i].position.x = 0 +( nd*(Math.cos(this.step-0.02)));
-		// 		this.electrons[i].position.y = 0 +( nd*(Math.sin(this.step-0.02)));
-		// 	}
+			// this.step += 0.04;
+			this.step += 0.08;
 
-		// 	if (i == 3) {
-		// 		var nd = d + d;
-		// 		this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
-		// 		this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step-0.02)));
-		// 	}
-		// 	if (i == 4) {
-		// 		var nd = d + d;
-		// 		this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
-		// 		this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
-		// 	}
-		// };
+			var d = 10;
+			for (var i = 0; i < this.electrons.length; i++) {
+				this.electrons[i].position.x = 0 +( d*(Math.cos(this.step)));
+				this.electrons[i].position.y = 0 +( d*(Math.sin(this.step)));
+				
+
+				if (i == 1) {
+					this.electrons[i].position.x = 0 +( -d*(Math.cos(this.step)));
+					this.electrons[i].position.y = 0 +( -d*(Math.sin(this.step)));
+				}
+
+				if (i == 2) {
+					var nd = d + d;
+					this.electrons[i].position.x = 0 +( nd*(Math.cos(this.step-0.02)));
+					this.electrons[i].position.y = 0 +( nd*(Math.sin(this.step-0.02)));
+				}
+
+				if (i == 3) {
+					var nd = d + d;
+					this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
+					this.electrons[i].position.y = 0 +( -nd*(Math.sin(this.step-0.02)));
+				}
+				if (i == 4) {
+					var nd = d + d;
+					this.electrons[i].position.x = 0 +( -nd*(Math.cos(this.step-0.02)));
+					this.electrons[i].position.z = 0 +( nd*(Math.sin(this.step-0.02)));
+				}
+			};
+
+		}
+
+
 
 
 		
 		// vibrate nucleus
-		var rate = 0.1125;
-		this.nucleus.position.x = Math.random() * rate;
-		this.nucleus.position.y = Math.random() * rate;
+		// var rate = 0.1125;
+		// this.nucleus.position.x = Math.random() * rate;
+		// this.nucleus.position.y = Math.random() * rate;
 
 
 

@@ -25,6 +25,22 @@ canvas {
 	background: transparent;
 }
 
+li input[type="checkbox"] {
+	margin: 0 1rem 0 0;
+}
+#controls {
+	h2, ul {
+		margin-bottom: 1rem;
+	}
+	li {
+		list-style: none;
+		margin-bottom: 0.5rem;
+	}
+	div li {
+		font-style: italic;
+	}
+}
+
 #app {
 	position: absolute;
 	top: 0;

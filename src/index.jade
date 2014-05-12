@@ -34,28 +34,20 @@ body#mendeleev
 
 				section#controls
 					h2 View
+					ul
+						li
+							label
+								input#bohr(type="checkbox", name="view", value="bohr")
+								span Bohr Diagram
+						li
+							label
+								input#show-orbits(type="checkbox", name="view", value="orbitals")
+								span Show orbitals
 					div
-						label
-							input#bohr(type="checkbox", name="view", value="bohr")
-							span Bohr Diagram
-					div
-						//-p Highlight:
-						//-ul
-							li
-								label
-									input(type="checkbox", value="hi-protons")
-									span Protons
-							li
-								label
-									input(type="checkbox", value="hi-neutrons")
-									span Neutrons
-							li
-								label
-									input(type="checkbox", value="hi-electrons")
-									span Electrons
-						p Rotate around the camera with the mouse or swipes on mobile
-						p pinch to zoom
-						p tap to fade out GUI
+						ul
+							li Rotate around the camera with the mouse or swipes on mobile
+							li pinch to zoom
+							li tap to fade out GUI
 						form#got-it
 							label
 								span Got it
@@ -70,5 +62,6 @@ body#mendeleev
 			p Joe Natalzia &amp; Luis Rosario - 2014
 
 	script(src="js/libs/three.min.js")
+	script(src="js/libs/tween.min.js")
 	script(src="js/main.js")
 </html>
