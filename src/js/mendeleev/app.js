@@ -112,7 +112,7 @@ dmitri.app = {
 		this.tableCamera.position.z = 50;
 		this.tableCamera.position.y = -10;
 
-		this.tableCamera.position.z = window.innerWidth*0.1;
+		//this.tableCamera.position.z = window.innerWidth*0.1;
 		// this.camera.position.z = 0;
 
 		// this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector("#atom-wrapper"));

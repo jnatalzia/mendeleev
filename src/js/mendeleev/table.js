@@ -41,7 +41,11 @@ dmitri.table = {
 		sprite.scale.set(5,7,1.0);
 		sprite.destination = position;
 		sprite.isMoving = true;
-		sprite.position.set(0,0,0);
+
+		var randX = Math.floor(Math.random() * 100) + 0;
+		var randY = Math.floor(Math.random() * 100) + 0;
+
+		sprite.position.set(randX,randY,0);
 		sprite.atomicNumber = atomicNumber;
 
 		this.scene.add(sprite);
@@ -60,9 +64,18 @@ dmitri.table = {
 
              if (e.isMoving)
              {
+             	var maxSpeed = 1;
+
              	var idealVec = dmitri.utilities.getSubtractedVector(e.position,e.destination);
+
+             	var dist = dmitri.utilities.getMagnitude(idealVec);
+
              	idealVec = dmitri.utilities.getNormalizedVector(idealVec);
-             	idealVec = dmitri.utilities.getScaledVector(idealVec,1);
+
+             	//console.log(dist/80);
+             	var speed = dist/50 * maxSpeed;
+
+             	idealVec = dmitri.utilities.getScaledVector(idealVec,speed);
 
              	e.position.set(e.position.x+idealVec.x,e.position.y+idealVec.y,e.position.z);
              }

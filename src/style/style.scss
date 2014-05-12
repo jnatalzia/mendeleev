@@ -66,6 +66,7 @@ li input[type="checkbox"] {
 #controls {
 	line-height: 1.4;
 	max-width: 15rem;
+
 }
 input[type="text"] {
 	background: #111;
@@ -157,6 +158,40 @@ p, input {
 
 
 #help {
+}
+
+#key-wrapper
+{
+	position:absolute;
+	width:650px;
+	/*border:1px solid #fff;*/
+	left:50%;
+	margin-left:-325px;
+	z-index:10;
+	top:10px
+}
+#key-wrapper ul
+{
+	list-style-type:none;
+}
+#key-wrapper ul li
+{
+	float:left;
+	padding:5px 10px 5px 10px;
+}
+#key-wrapper ul li div
+{
+	float:left;
+}
+.color-box
+{
+	width:20px;
+	height:20px;
+	background-color:#fff;
+}
+.color-label
+{
+	margin-left:10px;	
 }
 
 
