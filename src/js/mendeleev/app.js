@@ -124,6 +124,7 @@ dmitri.app = {
 		// if (width > 480) this.camera.position.z = width*0.035;
 		if (width > 480) this.camera.position.z = width*0.05;
 
+		// this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector("#atom-wrapper"));
 		this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
 
 

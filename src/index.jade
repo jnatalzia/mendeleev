@@ -34,7 +34,7 @@ body#mendeleev
 
 				section#controls
 					h2 View
-					ul
+					ul#controls-list
 						li
 							label
 								input#bohr(type="checkbox", name="view", value="bohr")
@@ -43,6 +43,10 @@ body#mendeleev
 							label
 								input#show-orbits(type="checkbox", name="view", value="orbitals")
 								span Show orbitals
+						li
+							label
+								input#vibrate-nucleus(type="checkbox", name="view", value="vibrate", checked)
+								span Vibrate nucleus
 					div
 						ul
 							li Rotate around the camera with the mouse or swipes on mobile

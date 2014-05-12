@@ -33,7 +33,6 @@ li input[type="checkbox"] {
 		margin-bottom: 1rem;
 	}
 	li {
-		list-style: none;
 		margin-bottom: 0.5rem;
 	}
 	div li {
@@ -41,6 +40,9 @@ li input[type="checkbox"] {
 	}
 }
 
+#controls-list {
+	list-style: none;
+}
 #app {
 	position: absolute;
 	top: 0;

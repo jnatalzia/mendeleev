@@ -19,7 +19,6 @@ dmitri.atom = {
 	protons: [],
 	neutrons: [],
 	electrons: [], 
-	shells: undefined,
 	orbitals: [],
 	bohrTweenReady: false,
 	returnTweenReady: false,
@@ -32,6 +31,7 @@ dmitri.atom = {
 	// for viewing
 	bohr: false,
 	orbits: false,
+	vibrate: true,
 
 
 
@@ -168,54 +168,45 @@ dmitri.atom = {
 
 	createElectrons: function(e) {
 
-		var radius = 10;
-
 		// create electrons
+		// Bohr position is given in models.js
 		for (var i = 0; i < e.electrons; i++) {
 			// electron
 			var electron = new THREE.Mesh(dmitri.models.electron.geometry, dmitri.models.electron.material);
 			electron.receiveShadow = true;
-
-			// store Bohr position
-			if (i == 0) electron.userData._y = radius;
-			if (i == 1) electron.userData._y = -radius;
-
-			// shell 1
-			if (i == 2) {};
-
 			this.electrons.push(electron);
 			this.atom.add(electron);		
 		};
 
-		
-		// determine amount of electron shells
-		this.shells = 1;
-		if (this.electrons.length > 2) {
-			if (this.electrons.length === 3) this.shells = 2; // fringe case: lithium
-			this.shells += Math.floor(this.electrons.length/4);
-		};
-		// console.log(this.shells);
-
-
+		this.createOrbitals(e);
 	},
 
 
-	createOrbitals: function() {
-		// add eletrons to shells
+	createOrbitals: function(e) {
+
+		// create circle for each shell
+		var radius = 10;
     var material = new THREE.LineBasicMaterial( { color: 0x000066 } );
 
-    for (var i = 1; i < this.shells+1; i++) {
-    	var size = radius * i;
+    for (var i = 0; i < e.shells; i++) {
+    	
+    	// var size = radius * i;
+    	var size = (i == 0) ? radius : radius * i; // size = radius * shell, if i is 0 radius is 10
 	    var geometry = new THREE.CircleGeometry(size, 32);
 
 			// Remove center vertex
 			geometry.vertices.shift();
-			// geometry.rotation.y = 45;
+			
 			var circle = new THREE.Line(geometry, material);
-			// if (i == 2) circle.rotation.x = -0.5*Math.PI;
 			this.orbitals.push(circle);
-			// this.atom.add(circle);
     };
+
+	},
+	addOrbitals: function() {
+		for (var i = 0; i < this.orbitals.length; i++) this.atom.add(this.orbitals[i]);
+	},
+	removeOrbitals: function() {
+		for (var i = 0; i < this.orbitals.length; i++) this.atom.remove(this.orbitals[i]);
 	},
 
 
@@ -339,12 +330,6 @@ dmitri.atom = {
 			}; // en for loop
 
 
-			// vibrate nucleus
-			var rate = 0.1125;
-			this.nucleus.position.x = Math.random() * rate;
-			this.nucleus.position.y = Math.random() * rate;
-
-
 			this.atom.rotation.y += 0.025/2;
 			this.atom.rotation.x += 0.025;
 
@@ -352,7 +337,13 @@ dmitri.atom = {
 
 
 
+		if (this.vibrate) {
+			// vibrate nucleus
+			var rate = 0.1125;
+			this.nucleus.position.x = Math.random() * rate;
+			this.nucleus.position.y = Math.random() * rate;
 
+		}
 		
 
 

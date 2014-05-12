@@ -118,8 +118,15 @@ document.onload = function() {
 			// show orbits
 			dmitri.orbits = document.querySelector('#show-orbits');
 			dmitri.orbits.onchange = function() {
-				if (dmitri.orbits.checked) dmitri.atom.orbits = true;
-				else dmitri.atom.orbits = false;
+				if (dmitri.orbits.checked) dmitri.atom.addOrbitals();
+				else dmitri.atom.removeOrbitals();
+			}
+
+			// vibrate nucleus
+			dmitri.vibrate = document.querySelector('#vibrate-nucleus');
+			dmitri.vibrate.onchange = function() {
+				if (dmitri.vibrate.checked) dmitri.atom.vibrate = true;
+				else dmitri.atom.vibrate = false;
 			}
 
 
