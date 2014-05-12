@@ -54,7 +54,8 @@ document.onload = function() {
 			'js/mendeleev/models.js',
 			'js/mendeleev/atom.js',
 			'js/mendeleev/app.js',
-			'js/mendeleev/table.js'
+			'js/mendeleev/table.js',
+			//'js/mendeleev/utilities,js'
 			// images
 			// dmitri.IMAGES['smoke']	
 		],
@@ -85,11 +86,11 @@ document.onload = function() {
 			}
 			window.onmousedown = function(e)
 			{
-				// dmitri.app.doMousedown(e);
+				dmitri.app.doMousedown(e);
 			}
 			window.onmouseup = function(e)
 			{
-				// dmitri.app.doMouseup(e);
+				dmitri.app.doMouseup(e);
 			}
 
 

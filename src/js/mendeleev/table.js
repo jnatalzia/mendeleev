@@ -15,11 +15,15 @@ dmitri.table = {
 		//test
 		for (var i =0; i < this.elements.length; i++)
 		{
-			var x = ((i%this.numCols)-3)*6;
-			
-			var y = Math.floor(i/this.numCols) * -10;
+			var row = this.elements[i].position.row - 1;
+			var col = this.elements[i].position.col - 1;
 
-			var z = Math.floor(Math.random() * 5);
+			var x = (6*col);
+			
+			var y = row * -8;
+
+			//var z = Math.floor(Math.random() * 3);
+			var z = 0;
 
 
 			var pos = {x:x,y:y,z:z};
@@ -46,7 +50,7 @@ dmitri.table = {
     	var camera = dmitri.app.tableCamera;
         var tube;
 
-        e.preventDefault();
+        //e.preventDefault();
 
         //console.log(e.clientX)
 

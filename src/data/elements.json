@@ -6,7 +6,11 @@ var elements = [
 		"weight": 1.007,
 		"protons": 1,
 		"neutrons": 0,
-		"electrons": 1
+		"electrons": 1,
+		"position":{
+			"row":1,
+			"col":1
+		}
 	},
 	{
 		"number": 2,
@@ -15,7 +19,11 @@ var elements = [
 		"weight": 4.002,
 		"protons": 2,
 		"neutrons": 2,
-		"electrons": 2
+		"electrons": 2,
+		"position":{
+			"row":1,
+			"col":19
+		}
 	},
 	{
 		"number": 3,
@@ -24,7 +32,11 @@ var elements = [
 		"weight": 6.941,
 		"protons": 3,
 		"neutrons": 4,
-		"electrons": 3
+		"electrons": 3,
+		"position":{
+			"row":2,
+			"col":1
+		}
 	},
 	{
 		"number": 4,
@@ -33,7 +45,11 @@ var elements = [
 		"weight": 9.012,
 		"protons": 4,
 		"neutrons": 5,
-		"electrons": 4
+		"electrons": 4,
+		"position":{
+			"row":2,
+			"col":2
+		}
 	},
 	{
 		"number": 5,
@@ -42,7 +58,11 @@ var elements = [
 		"weight": 10.811,
 		"protons": 5,
 		"neutrons": 5,
-		"electrons": 5
+		"electrons": 5,
+		"position":{
+			"row":2,
+			"col":14
+		}
 	},
 	{
 		"number": 6,
@@ -51,7 +71,11 @@ var elements = [
 		"weight": 12.010,
 		"protons": 6,
 		"neutrons": 6,
-		"electrons": 6
+		"electrons": 6,
+		"position":{
+			"row":2,
+			"col":15
+		}
 	},
 	{
 		"number": 7,
@@ -60,7 +84,11 @@ var elements = [
 		"weight": 14.006,
 		"protons": 7,
 		"neutrons": 7,
-		"electrons": 7
+		"electrons": 7,
+		"position":{
+			"row":2,
+			"col":16
+		}
 	},
 	{
 		"number": 8,
@@ -69,7 +97,11 @@ var elements = [
 		"weight": 15.999,
 		"protons": 8,
 		"neutrons": 7,
-		"electrons": 8
+		"electrons": 8,
+		"position":{
+			"row":2,
+			"col":17
+		}
 	},
 	{
 		"number": 9,
@@ -78,7 +110,11 @@ var elements = [
 		"weight": 18.998,
 		"protons": 9,
 		"neutrons": 9,
-		"electrons": 9
+		"electrons": 9,
+		"position":{
+			"row":2,
+			"col":18
+		}
 	},
 	{
 		"number": 10,
@@ -87,7 +123,11 @@ var elements = [
 		"weight": 20.179,
 		"protons": 10,
 		"neutrons": 10,
-		"electrons": 10
+		"electrons": 10,
+		"position":{
+			"row":2,
+			"col":19
+		}
 	},
 	{
 		"number": 11,
@@ -96,7 +136,11 @@ var elements = [
 		"weight": 22.989,
 		"protons": 11,
 		"neutrons": 11,
-		"electrons": 11
+		"electrons": 11,
+		"position":{
+			"row":3,
+			"col":1
+		}
 	},
 	{
 		"number": 12,
@@ -105,7 +149,11 @@ var elements = [
 		"weight": 24.305,
 		"protons": 12,
 		"neutrons": 12,
-		"electrons": 12
+		"electrons": 12,
+		"position":{
+			"row":3,
+			"col":2
+		}
 	}
 
 ]

@@ -117,15 +117,23 @@ dmitri.app = {
 		this.camera.position.z = width*0.1;
 
 		this.tableCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+		this.tableCamera.position.x = 50;
+		this.tableCamera.position.z = 50;
+		this.tableCamera.position.y = -10;
 		// position
-		// this.camera.position.z = width*0.05;
+		 //this.camera.position.z = width*0.05;
 		// if (width > 480) this.camera.position.z = width*0.025;
-		this.tableCamera.position.z = width*0.1;
+		this.camera.position.z = 0;
+		//this.tableCamera.position.z = width*0.1;
 
 		// if (width > 480) this.camera.position.z = width*0.035;
 		if (width > 480) this.camera.position.z = width*0.05;
 
 		this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
+		
+		/*this.cameraControls.target.x = this.tableCamera.position.x;
+		this.cameraControls.target.y = this.tableCamera.position.y;
+		this.cameraControls.target.z = this.tableCamera.position.z;*/
 
 
 		// add subtle ambient lighting
@@ -196,18 +204,18 @@ dmitri.app = {
 				dmitri.app.atom.build(i, true);
 			}
 		};
-	}
-	// doMousedown: function(event) {
-	// 	if (this.state == this.STATE_PERIODIC_TABLE)
-	// 	{
-	// 		this.table.doMousedown(event);
-	// 	}
- //  },
- //  doMouseup: function(e)
- //  {
- //  	if (this.state == this.STATE_PERIODIC_TABLE)
-	// 	{
-	// 	this.table.doMouseup(e);
-	// 	}
- //  }
+	},
+	 doMousedown: function(event) {
+	 	if (this.state == this.STATE_PERIODIC_TABLE)
+	 	{
+			this.table.doMousedown(event);
+	 	}
+   },
+   doMouseup: function(e)
+   {
+   	if (this.state == this.STATE_PERIODIC_TABLE)
+		{
+	 	this.table.doMouseup(e);
+	 	}
+  	}
 };
