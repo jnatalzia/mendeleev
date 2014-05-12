@@ -67,15 +67,6 @@ dmitri.app = {
 	setupThreeJS: function() {
 
 
-		// get screen size and base everything off of that
-		var width = window.innerWidth;
-		// if (width > 540) width = 540;
-		// document.querySelector('#atom-wrapper').style.height= width+'px';
-		// document.querySelector('#atom-wrapper').style.width= width+'px';
-
-		// document.querySelector('#table-wrapper').style.height= width+'px';
-		// document.querySelector('#table-wrapper').style.width= width+'px';
-		// //set canvas size
 		var canvas = document.querySelector('#model');
 		var tablecanvas = document.querySelector('#table');
 
