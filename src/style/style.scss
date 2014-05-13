@@ -29,6 +29,9 @@ li input[type="checkbox"] {
 	margin: 0 1rem 0 0;
 }
 #controls {
+	h2 {
+		font-size: 0.875rem;
+	}
 	h2, ul {
 		margin-bottom: 1rem;
 	}
@@ -75,9 +78,12 @@ input[type="text"] {
 	padding: 0.35rem;
 	font-size: 0.875rem;
 	margin: 1rem 0;
-	@include transition(color, 0.3s);
+	opacity: 0.6;
+	// @include transition(color, 0.3s);
+	@include transition(opacity, 0.3s);
 	&:focus {
 		color: #ebebeb;
+		opacity: 1;
 	}
 }
 
@@ -85,15 +91,22 @@ input[type="text"] {
 #atom {
   color: #ccc;
 	position: relative;
+	max-width: 8rem;
+	margin-bottom: rem;
+	border: 1px solid;
+	padding: 1rem 1rem 1.5rem;
+}
+#number {
+	margin-bottom:  1.5rem;
 }
 #symbol {
 	font-size: 3.25rem;
 	color: #ebebeb;
-	margin-bottom: 0.125rem;
+	margin-bottom: 0.5rem;
 }
 #name {
 	color: darken(#ebebeb, 10%);
-	margin-bottom: 0.25rem;
+	margin-bottom: 0.5rem;
 }
 #weight {
 	font-size: 0.875rem;
@@ -123,6 +136,7 @@ p, input {
 	h1 {
 		font-size: 0.75rem;
 		text-transform: uppercase;
+		font-weight: bold;
 	}
 }
 
