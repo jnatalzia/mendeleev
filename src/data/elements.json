@@ -36,7 +36,7 @@ var elements = [
 		"electrons": 2,
 		"position":{
 			"row":1,
-			"col":19
+			"col":18
 		},
 		"type":"noble-gas"
 	},
@@ -117,7 +117,7 @@ var elements = [
 		"electrons": 5,
 		"position":{
 			"row":2,
-			"col":14
+			"col":13
 		},
 		"type":"metalloid"
 	},
@@ -147,7 +147,7 @@ var elements = [
 		"electrons": 6,
 		"position":{
 			"row":2,
-			"col":15
+			"col":14
 		},
 		"type":"other-non-metal"
 	},
@@ -179,7 +179,7 @@ var elements = [
 		"electrons": 7,
 		"position":{
 			"row":2,
-			"col":16
+			"col":15
 		},
 		"type":"other-non-metal"
 	},
@@ -213,7 +213,7 @@ var elements = [
 		"electrons": 8,
 		"position":{
 			"row":2,
-			"col":17
+			"col":16
 		},
 		"type":"other-non-metal"
 	},
@@ -250,7 +250,7 @@ var elements = [
 		"electrons": 9,
 		"position":{
 			"row":2,
-			"col":18
+			"col":17
 		},
 		"type":"halogen"
 	},
@@ -288,7 +288,7 @@ var elements = [
 		"electrons": 10,
 		"position":{
 			"row":2,
-			"col":19
+			"col":18
 		},
 		"type":"noble-gas"
 	},
@@ -391,10 +391,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":3,
+         "col":13
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":14,
@@ -412,10 +412,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":3,
+         "col":14
       },
-      "type":"transition-metal"
+      "type":"metalloid"
    },
    {
       "number":15,
@@ -433,10 +433,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+        "row":3,
+         "col":15
       },
-      "type":"transition-metal"
+      "type":"other-non-metal"
    },
    {
       "number":16,
@@ -454,10 +454,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":3,
+         "col":16
       },
-      "type":"transition-metal"
+      "type":"other-non-metal"
    },
    {
       "number":17,
@@ -475,10 +475,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":3,
+         "col":17
       },
-      "type":"transition-metal"
+      "type":"halogen"
    },
    {
       "number":18,
@@ -496,10 +496,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":3,
+         "col":18
       },
-      "type":"transition-metal"
+      "type":"noble-gas"
    },
    {
       "number":19,
@@ -517,10 +517,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":1
       },
-      "type":"transition-metal"
+      "type":"alkali-metal"
    },
    {
       "number":20,
@@ -538,10 +538,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":2
       },
-      "type":"transition-metal"
+      "type":"alkaline-earth-metal"
    },
    {
       "number":21,
@@ -559,8 +559,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":3
       },
       "type":"transition-metal"
    },
@@ -580,8 +580,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":4
       },
       "type":"transition-metal"
    },
@@ -601,8 +601,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":5
       },
       "type":"transition-metal"
    },
@@ -622,8 +622,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":6
       },
       "type":"transition-metal"
    },
@@ -643,8 +643,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":7
       },
       "type":"transition-metal"
    },
@@ -664,8 +664,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":8
       },
       "type":"transition-metal"
    },
@@ -685,8 +685,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":9
       },
       "type":"transition-metal"
    },
@@ -706,8 +706,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":10
       },
       "type":"transition-metal"
    },
@@ -727,8 +727,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":11
       },
       "type":"transition-metal"
    },
@@ -748,8 +748,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":12
       },
       "type":"transition-metal"
    },
@@ -769,10 +769,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":13
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":32,
@@ -790,10 +790,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":14
       },
-      "type":"transition-metal"
+      "type":"metalloid"
    },
    {
       "number":33,
@@ -811,10 +811,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":15
       },
-      "type":"transition-metal"
+      "type":"metalloid"
    },
    {
       "number":34,
@@ -832,10 +832,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":16
       },
-      "type":"transition-metal"
+      "type":"other-non-metal"
    },
    {
       "number":35,
@@ -853,10 +853,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":17
       },
-      "type":"transition-metal"
+      "type":"halogen"
    },
    {
       "number":36,
@@ -874,10 +874,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":4,
+         "col":18
       },
-      "type":"transition-metal"
+      "type":"noble-gas"
    },
    {
       "number":37,
@@ -895,10 +895,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":1
       },
-      "type":"transition-metal"
+      "type":"alkali-metal"
    },
    {
       "number":38,
@@ -916,10 +916,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":2
       },
-      "type":"transition-metal"
+      "type":"alkaline-earth-metal"
    },
    {
       "number":39,
@@ -937,8 +937,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":3
       },
       "type":"transition-metal"
    },
@@ -958,8 +958,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":4
       },
       "type":"transition-metal"
    },
@@ -979,8 +979,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":5
       },
       "type":"transition-metal"
    },
@@ -1000,8 +1000,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":6
       },
       "type":"transition-metal"
    },
@@ -1021,8 +1021,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":7
       },
       "type":"transition-metal"
    },
@@ -1042,8 +1042,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":8
       },
       "type":"transition-metal"
    },
@@ -1063,8 +1063,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+        "row":5,
+         "col":9
       },
       "type":"transition-metal"
    },
@@ -1084,8 +1084,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":10
       },
       "type":"transition-metal"
    },
@@ -1105,8 +1105,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":11
       },
       "type":"transition-metal"
    },
@@ -1126,8 +1126,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":12
       },
       "type":"transition-metal"
    },
@@ -1147,10 +1147,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":13
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":50,
@@ -1168,10 +1168,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":14
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":51,
@@ -1189,10 +1189,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":15
       },
-      "type":"transition-metal"
+      "type":"metalloid"
    },
    {
       "number":52,
@@ -1210,10 +1210,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":16
       },
-      "type":"transition-metal"
+      "type":"metalloid"
    },
    {
       "number":53,
@@ -1231,10 +1231,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":17
       },
-      "type":"transition-metal"
+      "type":"halogen"
    },
    {
       "number":54,
@@ -1252,10 +1252,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":5,
+         "col":18
       },
-      "type":"transition-metal"
+      "type":"noble-gas"
    },
    {
       "number":55,
@@ -1273,10 +1273,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":1
       },
-      "type":"transition-metal"
+      "type":"alkali-metal"
    },
    {
       "number":56,
@@ -1294,325 +1294,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":2
       },
-      "type":"transition-metal"
-   },
-   {
-      "number":57,
-      "name":"Lanthanum",
-      "symbol":"La",
-      "weight":138.9055,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":58,
-      "name":"Cerium",
-      "symbol":"Ce",
-      "weight":140.115,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":59,
-      "name":"Praseodymium",
-      "symbol":"Pr",
-      "weight":140.90765,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":60,
-      "name":"Neodymium",
-      "symbol":"Nd",
-      "weight":144.24,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":61,
-      "name":"Promethium",
-      "symbol":"Pm",
-      "weight":144.9127,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":62,
-      "name":"Samarium",
-      "symbol":"Sm",
-      "weight":150.36,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":63,
-      "name":"Europium",
-      "symbol":"Eu",
-      "weight":151.965,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":64,
-      "name":"Gadolinium",
-      "symbol":"Gd",
-      "weight":157.25,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":65,
-      "name":"Terbium",
-      "symbol":"Tb",
-      "weight":158.92534,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":66,
-      "name":"Dysprosium",
-      "symbol":"Dy",
-      "weight":162.5,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":67,
-      "name":"Holmium",
-      "symbol":"Ho",
-      "weight":164.93032,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":68,
-      "name":"Erbium",
-      "symbol":"Er",
-      "weight":167.26,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":69,
-      "name":"Thulium",
-      "symbol":"Tm",
-      "weight":168.93421,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":70,
-      "name":"Ytterbium",
-      "symbol":"Yb",
-      "weight":173.04,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":71,
-      "name":"Lutetium",
-      "symbol":"Lu",
-      "weight":174.967,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
+      "type":"alkaline-earth-metal"
    },
    {
       "number":72,
@@ -1630,8 +1315,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":4
       },
       "type":"transition-metal"
    },
@@ -1651,8 +1336,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":5
       },
       "type":"transition-metal"
    },
@@ -1672,8 +1357,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":6
       },
       "type":"transition-metal"
    },
@@ -1693,8 +1378,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":7
       },
       "type":"transition-metal"
    },
@@ -1714,8 +1399,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":8
       },
       "type":"transition-metal"
    },
@@ -1735,8 +1420,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":9
       },
       "type":"transition-metal"
    },
@@ -1756,8 +1441,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":10
       },
       "type":"transition-metal"
    },
@@ -1777,8 +1462,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":11
       },
       "type":"transition-metal"
    },
@@ -1798,8 +1483,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":12
       },
       "type":"transition-metal"
    },
@@ -1819,10 +1504,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":13
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":82,
@@ -1840,10 +1525,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":14
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":83,
@@ -1861,10 +1546,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":15
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":84,
@@ -1882,10 +1567,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":16
       },
-      "type":"transition-metal"
+      "type":"metalloid"
    },
    {
       "number":85,
@@ -1903,10 +1588,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":17
       },
-      "type":"transition-metal"
+      "type":"halogen"
    },
    {
       "number":86,
@@ -1924,10 +1609,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":6,
+         "col":18
       },
-      "type":"transition-metal"
+      "type":"noble-gas"
    },
    {
       "number":87,
@@ -1945,10 +1630,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":1
       },
-      "type":"transition-metal"
+      "type":"alkali-metal"
    },
    {
       "number":88,
@@ -1966,325 +1651,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":2
       },
-      "type":"transition-metal"
-   },
-   {
-      "number":89,
-      "name":"Actinium",
-      "symbol":"Ac",
-      "weight":227.0278,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":90,
-      "name":"Thorium",
-      "symbol":"Th",
-      "weight":232.0381,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":91,
-      "name":"Protactinium",
-      "symbol":"Pa",
-      "weight":231.03588,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":92,
-      "name":"Uranium",
-      "symbol":"U",
-      "weight":238.0289,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":93,
-      "name":"Neptunium",
-      "symbol":"Np",
-      "weight":237.048,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":94,
-      "name":"Plutonium",
-      "symbol":"Pu",
-      "weight":244.0642,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":95,
-      "name":"Americium",
-      "symbol":"Am",
-      "weight":243.0614,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":96,
-      "name":"Curium",
-      "symbol":"Cm",
-      "weight":247.0703,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":97,
-      "name":"Berkelium",
-      "symbol":"Bk",
-      "weight":247.0703,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":98,
-      "name":"Californium",
-      "symbol":"Cf",
-      "weight":251.0796,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":99,
-      "name":"Einsteinium",
-      "symbol":"Es",
-      "weight":252.083,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":100,
-      "name":"Fermium",
-      "symbol":"Fm",
-      "weight":257.0951,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":101,
-      "name":"Mendelevium",
-      "symbol":"Md",
-      "weight":258.1,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":102,
-      "name":"Nobelium",
-      "symbol":"No",
-      "weight":259.1009,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
-   },
-   {
-      "number":103,
-      "name":"Lawrencium",
-      "symbol":"Lr",
-      "weight":262.11,
-      "protons":1,
-      "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
-      "electrons":1,
-      "position":{
-         "row":1,
-         "col":19
-      },
-      "type":"transition-metal"
+      "type":"alkaline-earth-metal"
    },
    {
       "number":104,
@@ -2304,8 +1674,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":4
       },
       "type":"transition-metal"
    },
@@ -2327,8 +1697,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":5
       },
       "type":"transition-metal"
    },
@@ -2350,8 +1720,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":6
       },
       "type":"transition-metal"
    },
@@ -2373,8 +1743,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":7
       },
       "type":"transition-metal"
    },
@@ -2396,8 +1766,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":8
       },
       "type":"transition-metal"
    },
@@ -2419,8 +1789,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":9
       },
       "type":"transition-metal"
    },
@@ -2442,8 +1812,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":10
       },
       "type":"transition-metal"
    },
@@ -2465,8 +1835,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":11
       },
       "type":"transition-metal"
    },
@@ -2488,8 +1858,8 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":12
       },
       "type":"transition-metal"
    },
@@ -2509,10 +1879,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":13
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":114,
@@ -2532,10 +1902,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":14
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":115,
@@ -2553,10 +1923,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":15
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":116,
@@ -2574,10 +1944,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":16
       },
-      "type":"transition-metal"
+      "type":"post-transition-metal"
    },
    {
       "number":117,
@@ -2595,10 +1965,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":17
       },
-      "type":"transition-metal"
+      "type":"halogen"
    },
    {
       "number":118,
@@ -2616,10 +1986,10 @@ var elements = [
       ],
       "electrons":1,
       "position":{
-         "row":1,
-         "col":19
+         "row":7,
+         "col":18
       },
-      "type":"transition-metal"
+      "type":"noble-gas"
    }
 
 ]

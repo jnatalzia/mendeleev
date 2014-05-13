@@ -179,6 +179,11 @@ p, input {
 	float:left;
 	padding:5px 10px 5px 10px;
 	cursor:pointer;
+	opacity:.5;
+}
+#key-wrapper ul li:hover
+{
+	opacity:1;
 }
 #key-wrapper ul li div
 {

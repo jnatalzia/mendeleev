@@ -71,7 +71,10 @@ dmitri.table = {
              	var type = self.elements[e.atomicNumber].type;
 
              	if (type == eltype)
-                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+             	{
+             		//e.material = self.createNormalMaterial(e.atomicNumber,true);
+             	}
+                 
              	else
              	 e.material = self.createBlankMaterial(e.atomicNumber,true);
              } 
