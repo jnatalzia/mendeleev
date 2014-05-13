@@ -91,7 +91,51 @@ document.onload = function() {
 				dmitri.app.doMouseup(e);
 			}
 
+			//mouseover for top bar
+			//if possilbe do this a better way
+			//iteration over elements of querySelectorAll was resulting in a return of 'noble-gas' everytime
 
+			document.querySelector("li[data-id='alkali-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('alkali-metal');
+			});
+			document.querySelector("li[data-id='alkaline-earth-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('alkaline-earth-metal');
+			});
+			document.querySelector("li[data-id='alkali-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('alkali-metal');
+			});
+			document.querySelector("li[data-id='transition-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('transition-metal');
+			});
+			document.querySelector("li[data-id='post-transition-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('post-transition-metal');
+			});
+			document.querySelector("li[data-id='alkali-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('alkali-metal');
+			});
+			document.querySelector("li[data-id='metalloid']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('metalloid');
+			});
+			document.querySelector("li[data-id='other-non-metal']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('other-non-metal');
+			});
+			document.querySelector("li[data-id='halogen']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('halogen');
+			});
+			document.querySelector("li[data-id='noble-gas']").addEventListener("mouseover",function(e){
+				dmitri.table.highlightElements('noble-gas');
+			});
+			//mouseout
+			var els = document.querySelectorAll("#key-wrapper ul li");
+
+			for (var i = 0 ; i < els.length;i++)
+			{
+				var el = els[i];
+				el.addEventListener('mouseout',function(e)
+				{
+					dmitri.table.unhighlightElements();
+				});
+			}
 
 			/* sound stuff */
 
