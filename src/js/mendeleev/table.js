@@ -2,6 +2,18 @@
 var dmitri = dmitri || {};
 
 dmitri.table = {
+	//constants
+	TABLE_COLORS:{
+		"alkali-metal":"#EDCC68",
+		"alkaline-earth-metal":"#EDEB68",
+		"transition-metal":"#EDAC8A",
+		"post-transition-metal":"#B18AED",
+		"metalloid":"#8DE09B",
+		"other-non-metal":"#A7EBD3",
+		"halogen":"#747BE3",
+		"noble-gas":"#96A1E3"
+	},
+	//properties
 	scene:undefined,
 	elements:undefined,
 	tableWidth:960,
@@ -49,6 +61,33 @@ dmitri.table = {
 		sprite.atomicNumber = atomicNumber;
 
 		this.scene.add(sprite);
+	},
+	highlightElements:function(eltype)
+	{
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var type = self.elements[e.atomicNumber].type;
+
+             	if (type == eltype)
+                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+             	else
+             	 e.material = self.createBlankMaterial(e.atomicNumber,true);
+             } 
+        }); 
+
+       // console.log(eltype);
+	},
+	unhighlightElements:function()
+	{
+		//console.log('unhighlight');
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+             } 
+        }); 
 	},
 	update:function()
 	{
@@ -157,6 +196,8 @@ dmitri.table = {
 		var canvas = document.createElement("canvas");
 		var ctx = canvas.getContext("2d");
 
+		var color = this.TABLE_COLORS[e.type];
+
 		canvas.width = 350;
 		canvas.height = 500;
 
@@ -165,9 +206,57 @@ dmitri.table = {
 		ctx.fillRect(0,0,canvas.width,canvas.height);
 		ctx.globalAlpha = 1;
 
-		ctx.strokeStyle = "#62CF6E";
+		ctx.strokeStyle = color;
 		ctx.font         = '200px RobotoLight';
-		ctx.fillStyle = '#62CF6E';
+		ctx.fillStyle = color;
+		ctx.textBaseline = 'middle';
+		ctx.textAlign = "center";
+		ctx.fillText  (symbol, canvas.width/2,canvas.height/2 - 20);
+
+		ctx.lineWidth = 10;
+		ctx.strokeRect(0,0,canvas.width,canvas.height);
+
+
+		ctx.font = '24px RobotoLight';
+		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
+
+		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+
+		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
+
+		var texture = new THREE.Texture(canvas) 
+		texture.needsUpdate = true;
+
+		return new THREE.SpriteMaterial( 
+			{ map: texture, useScreenCoordinates: false} );
+	},
+	createBlankMaterial:function(atomicNumber,raw)
+	{
+		var e = this.elements[atomicNumber - 1];
+		if (raw) e = this.elements[atomicNumber];
+
+		//get element info
+		var name = e.name;
+		var number = atomicNumber;
+		var symbol = e.symbol;
+		var weight = e.weight;
+
+		var canvas = document.createElement("canvas");
+		var ctx = canvas.getContext("2d");
+
+		var color = "#eee";
+
+		canvas.width = 350;
+		canvas.height = 500;
+
+		ctx.fillStyle = "rgb(255,255,255)";
+		ctx.globalAlpha = .1;
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		ctx.globalAlpha = 1;
+
+		ctx.strokeStyle = color;
+		ctx.font         = '200px RobotoLight';
+		ctx.fillStyle = color;
 		ctx.textBaseline = 'middle';
 		ctx.textAlign = "center";
 		ctx.fillText  (symbol, canvas.width/2,canvas.height/2 - 20);

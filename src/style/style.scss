@@ -163,10 +163,10 @@ p, input {
 #key-wrapper
 {
 	position:absolute;
-	width:650px;
+	width:920px;
 	/*border:1px solid #fff;*/
 	left:50%;
-	margin-left:-325px;
+	margin-left:-410px;
 	z-index:10;
 	top:10px
 }
@@ -178,21 +178,54 @@ p, input {
 {
 	float:left;
 	padding:5px 10px 5px 10px;
+	cursor:pointer;
 }
 #key-wrapper ul li div
 {
 	float:left;
+	font-size:12px;
 }
 .color-box
 {
-	width:20px;
-	height:20px;
+	width:10px;
+	height:10px;
 	background-color:#fff;
+	margin-top:2px;
 }
 .color-label
 {
 	margin-left:10px;	
 }
 
+/*colors for each type*/
+#alkali-metals
+{
+	background-color:#EDCC68;	
+}
+#alkaline-earth-metals{
+	background-color:#EDEB68;
+}
+#transition-metals{
+	background-color:#EDAC8A;
+}	
+#post-transition-metals{
+	background-color:#B18AED;
+}
+#metalloids
+{
+	background-color:#8DE09B;
+}
+#other-non-metals
+{
+	background-color:#A7EBD3;	
+}
+#halogens
+{
+	background-color:#747BE3;
+}
+#noble-gases
+{
+	background-color:#96A1E3;
+}
 
 

@@ -15,7 +15,8 @@ var elements = [
 		"position":{
 			"row":1,
 			"col":1
-		}
+		},
+		"type":"other-non-metal"
 	},
 	{
 		"number": 2,
@@ -36,7 +37,8 @@ var elements = [
 		"position":{
 			"row":1,
 			"col":19
-		}
+		},
+		"type":"noble-gas"
 	},
 	{
 		"number": 3,
@@ -60,7 +62,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":1
-		}
+		},
+		"type":"alkali-metal"
 	},
 	{
 		"number": 4,
@@ -86,7 +89,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":2
-		}
+		},
+		"type":"alkaline-earth-metal"
 	},
 	{
 		"number": 5,
@@ -114,7 +118,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":14
-		}
+		},
+		"type":"metalloid"
 	},
 	{
 		"number": 6,
@@ -143,7 +148,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":15
-		}
+		},
+		"type":"other-non-metal"
 	},
 	{
 		"number": 7,
@@ -174,7 +180,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":16
-		}
+		},
+		"type":"other-non-metal"
 	},
 	{
 		"number": 8,
@@ -207,7 +214,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":17
-		}
+		},
+		"type":"other-non-metal"
 	},
 	{
 		"number": 9,
@@ -243,7 +251,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":18
-		}
+		},
+		"type":"halogen"
 	},
 	{
 		"number": 10,
@@ -280,7 +289,8 @@ var elements = [
 		"position":{
 			"row":2,
 			"col":19
-		}
+		},
+		"type":"noble-gas"
 	},
 	{
 		"number": 11,
@@ -320,7 +330,8 @@ var elements = [
 		"position":{
 			"row":3,
 			"col":1
-		}
+		},
+		"type":"alkali-metal"
 	},
 	{
 		"number": 12,
@@ -361,7 +372,8 @@ var elements = [
 		"position":{
 			"row":3,
 			"col":2
-		}
+		},
+		"type":"alkaline-earth-metal"
 	}
 
 ]
