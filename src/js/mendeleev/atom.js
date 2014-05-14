@@ -131,9 +131,10 @@ dmitri.atom = {
 
 		// position the protons + neutrons
 		for (var i = 0; i < nucleusGroup.length; i++) {
-			nucleusGroup[i].position.x = e.nucleus[i].x;
-			nucleusGroup[i].position.y = e.nucleus[i].y;
-			nucleusGroup[i].position.z = e.nucleus[i].z;
+			var model = dmitri.models.nucleus[i];
+			nucleusGroup[i].position.x = model.x;
+			nucleusGroup[i].position.y = model.y;
+			nucleusGroup[i].position.z = model.z;
 		};
 
 

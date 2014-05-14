@@ -1,15 +1,9 @@
-√ electrons should have a trail
-√ protons + neutrons should "vibrate"
+
+
+back button to table
+
+
 should have a subtle texture
-
-view options:
-Bohr diagram
-Animated
-List (when activated it lays out the atoms in rows)
-
-
-Highlight:
-protons
 
 
 zoom in and rotate around atom

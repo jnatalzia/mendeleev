@@ -174,8 +174,9 @@ dmitri.table = {
              	if (e.isHighlighted)
              	{
              		//call that function
+             		/* CHANGE THE STATE */
+             		dmitri.app.state = 1;
              		dmitri.app.updateAtom(e.atomicNumber,true);
-
              		document.querySelector(".front-canvas").className = "";
              		document.querySelector("#model").className = "front-canvas";
 

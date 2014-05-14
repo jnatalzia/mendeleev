@@ -14,6 +14,32 @@ dmitri.models = {
 		geometry: new THREE.SphereGeometry( 0.3, 32, 32 ),
 		material: new THREE.MeshLambertMaterial( {color: 0xaaaaff} )
 	},
+	nucleus: [
+			{x: 0, y: 1, z: 0},
+			{x: 1, y: 0, z: 0},
+			{x: 0, y: -1, z: 0},
+			{x: -1, y: 0, z: 0},
+			{x: 0, y: 0, z: 1},
+			{x: 0, y: 0, z : 0},
+			{x: 0, y: 0, z: -1}, // -end 1st full set
+			{x: -1, y: 1, z: 0},
+			{x: 1, y: -1, z: 0},
+			{x: -1, y: -1, z: 0},
+			{x: 1, y: 1, z: 0}, 
+			{x: -1, y: 1, z: -1},
+			{x: 1, y: -1, z: 1},
+			{x: -1, y: 1, z: 1},
+			{x: 1, y: -1, z: -1},
+			{x: -1, y: -1, z: -1},
+			{x: 1, y:1, z: 1},
+			{x: -1, y: -1, z: 1},
+			{x: 1, y: 1, z: -1}, // -end 2nd set (19)
+			{x: 0, y: 2, z: 0}, 
+			{x: 0, y: -2, z: 0}, 
+			{x: 2, y: 0, z: 0}, 
+			{x: -2, y: 0, z: 0}, 
+			{x: 0, y: 0, z: 2}, 
+	],
 	shells: [
 		{x: 0,		y: 10,		z: 0}, // 1st shell
 		{x: 0,		y: -10,		z: 0},
