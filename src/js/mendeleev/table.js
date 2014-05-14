@@ -58,7 +58,12 @@ dmitri.table = {
 		var randY = Math.floor(Math.random() * 100) + 0;
 
 		sprite.position.set(randX,randY,0);
+
+		//custom properties
 		sprite.atomicNumber = atomicNumber;
+		sprite.normalMaterial = this.createNormalMaterial(atomicNumber,raw);
+		sprite.highlightedMaterial = this.createHighlightedMaterial(atomicNumber,raw);
+		sprite.blankMaterial = this.createBlankMaterial(atomicNumber,raw);
 
 		this.scene.add(sprite);
 	},
@@ -76,7 +81,8 @@ dmitri.table = {
              	}
                  
              	else
-             	 e.material = self.createBlankMaterial(e.atomicNumber,true);
+             	 //e.material = self.createBlankMaterial(e.atomicNumber,true);
+             	e.material = e.blankMaterial;
              } 
         }); 
 
@@ -88,7 +94,7 @@ dmitri.table = {
 		var self = this;
 		this.scene.traverse(function(e) { 
              if (e instanceof THREE.Sprite ) { 
-                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+                 e.material = e.normalMaterial;
              } 
         }); 
 	},
@@ -161,7 +167,7 @@ dmitri.table = {
 
             //console.log(o.atomicNumber);
 
-            o.material = this.createHighlightedMaterial(o.atomicNumber,true);
+            o.material = o.highlightedMaterial;
 
             o.isHighlighted = true;
         }
@@ -180,8 +186,9 @@ dmitri.table = {
              		document.querySelector("#model").className = "front-canvas";
 
              		e.isHighlighted = false;
+             		e.material = e.normalMaterial;
              	}
-                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+                 
              } 
         }); 
 	},
