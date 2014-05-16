@@ -48,10 +48,9 @@ body#mendeleev
 								input#vibrate-nucleus(type="checkbox", name="view", value="vibrate", checked)
 								span Vibrate nucleus
 					div
-						ul
-							li Rotate around the camera with the mouse or swipes on mobile
-							li pinch to zoom
-							li tap to fade out GUI
+						ul#instructions
+							li Use the arrow keys to pan around the table
+							li Use 'W' and 'S' to zoom in and out of the table
 						form#got-it
 							label
 								span Got it
@@ -59,6 +58,7 @@ body#mendeleev
 
 				form#search
 					input(type="text", placeholder="Search element...")
+				button#atom-back.hide Back
 
 			div#key-wrapper
 				ul#element-types

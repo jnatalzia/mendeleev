@@ -67,6 +67,44 @@ dmitri.table = {
 
 		this.scene.add(sprite);
 	},
+	highlightSingleElement:function(atomicNumber,raw)
+	{
+		//console.log('firing');
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var number = raw ?  atomicNumber+1: atomicNumber;
+
+             	//console.log(e.atomicNumber)
+
+             	if (e.atomicNumber == number)
+             		e.material = e.normalMaterial;
+             } 
+        }); 
+	},
+	blankSingleElement:function(atomicNumber,raw)
+	{
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var number = raw ?  atomicNumber+1: atomicNumber;
+
+             	if (e.atomicNumber == number)
+             		e.material = e.blankMaterial;
+             } 
+        }); 
+	},
+	blankElements:function()
+	{
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+                 e.material = e.blankMaterial;
+             } 
+        }); 
+	},
 	highlightElements:function(eltype)
 	{
 		var self = this;
@@ -128,7 +166,7 @@ dmitri.table = {
              	e.position.set(e.position.x+idealVec.x,e.position.y+idealVec.y,e.position.z);
              }
          } 
-        }); 
+        });
 
 	},
 	doMousedown:function(e)
@@ -184,6 +222,11 @@ dmitri.table = {
 
              		document.querySelector(".front-canvas").className = "";
              		document.querySelector("#model").className = "front-canvas";
+             		document.querySelector("#key-wrapper").className = "hide";
+
+             		document.querySelector("#atom-back").className = "";
+
+             		dmitri.app.state = dmitri.app.STATE_ATOM_VIEW;
 
              		e.isHighlighted = false;
              		e.material = e.normalMaterial;
@@ -199,7 +242,7 @@ dmitri.table = {
 
 		//get element info
 		var name = e.name;
-		var number = atomicNumber;
+		var number = raw ? atomicNumber + 1 : atomicNumber;
 		var symbol = e.symbol;
 		var weight = e.weight;
 
@@ -230,7 +273,7 @@ dmitri.table = {
 		ctx.font = '24px RobotoLight';
 		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+		ctx.fillText  (number, canvas.width - 30, 30);
 
 		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 
@@ -247,7 +290,7 @@ dmitri.table = {
 
 		//get element info
 		var name = e.name;
-		var number = atomicNumber;
+		var number = raw ? atomicNumber + 1 : atomicNumber;
 		var symbol = e.symbol;
 		var weight = e.weight;
 
@@ -278,7 +321,7 @@ dmitri.table = {
 		ctx.font = '24px RobotoLight';
 		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+		ctx.fillText  (number, canvas.width - 30, 30);
 
 		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 
@@ -295,7 +338,7 @@ dmitri.table = {
 
 		//get element info
 		var name = e.name;
-		var number = atomicNumber;
+		var number = raw ? atomicNumber + 1 : atomicNumber;
 		var symbol = e.symbol;
 		var weight = e.weight;
 
@@ -324,7 +367,7 @@ dmitri.table = {
 		ctx.font = '24px RobotoLight';
 		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+		ctx.fillText  (number, canvas.width - 30, 30);
 
 		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 

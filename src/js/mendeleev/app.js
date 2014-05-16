@@ -2,7 +2,8 @@
 var dmitri = dmitri || {};
 
 dmitri.app = {
-
+	//constants
+	TABLE_CAMERA_SPEED:.3,
 	// variable properties
 	atomRenderer: undefined,
 	tableRenderer:undefined,
@@ -116,7 +117,7 @@ dmitri.app = {
 		// this.camera.position.z = 0;
 
 		// this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector("#atom-wrapper"));
-		this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
+		//this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
 		
 		/*this.cameraControls.target.x = this.tableCamera.position.x;
 		this.cameraControls.target.y = this.tableCamera.position.y;
@@ -170,6 +171,11 @@ dmitri.app = {
 		this.atom.animate();
 		this.table.update();
 
+
+		//console.log();
+		//update table camera
+		if (this.state == this.STATE_PERIODIC_TABLE)
+			this.updateTableCamera();
 		// DRAW	
 		this.atomRenderer.render(this.atomScene, this.camera);
 		this.tableRenderer.render(this.tableScene, this.tableCamera)
@@ -184,12 +190,42 @@ dmitri.app = {
 	},
 
 	search: function(e) {
-		var search = dmitri.search.value;
+		var search = dmitri.search.value.toLowerCase();
+		//console.log();
+
+		//dmitri.table.blankElements();
 
 		for (var i = 0; i < dmitri.elements.length; i++) {
+			var el = dmitri.elements[i];
+			var name = dmitri.elements[i].name.toLowerCase();
+
+			var sub = name.substring(0,search.length);
+
+			//console.log(sub);
+
+			//console.log('hi');
 			/* should probably do some regex here */
-			if (search == dmitri.elements[i].name.toLowerCase()) {
-				dmitri.app.atom.build(i, true);
+
+
+			if (dmitri.app.state == dmitri.app.STATE_ATOM_VIEW)
+			{
+				//
+				if (search == name) {
+					dmitri.app.atom.build(i, true);
+				}
+			}
+			else if (dmitri.app.state == dmitri.app.STATE_PERIODIC_TABLE)
+			{
+				//console.log('hi');
+				
+				/*if (search == sub)
+				{
+					dmitri.table.highlightSingleElement(i,false);
+				}
+				else
+				{
+					dmitri.table.blankSingleElement(i,false);
+				}*/
 			}
 		};
 	},
@@ -205,5 +241,43 @@ dmitri.app = {
 		{
 	 	this.table.doMouseup(e);
 	 	}
+  	},
+  	updateTableCamera:function()
+  	{
+  		if (dmitri.keydown[dmitri.KEYBOARD["KEY_LEFT"]])
+		{
+			this.tableCamera.position.x -= this.TABLE_CAMERA_SPEED;
+			//console.log(this.tableCamera);
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_RIGHT"]])
+		{
+			this.tableCamera.position.x += this.TABLE_CAMERA_SPEED;
+			//console.log(this.tableCamera);
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_W"]])
+		{
+			if (this.tableCamera.position.z > 8.6) this.tableCamera.position.z -= this.TABLE_CAMERA_SPEED;
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_S"]])
+		{
+			if (this.tableCamera.position.z <= 66.2)this.tableCamera.position.z += this.TABLE_CAMERA_SPEED;
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_UP"]])
+		{
+			this.tableCamera.position.y += this.TABLE_CAMERA_SPEED;
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_DOWN"]])
+		{
+			this.tableCamera.position.y -= this.TABLE_CAMERA_SPEED;
+		}
+  	},
+  	showTable:function()
+  	{
+  		this.state = this.STATE_PERIODIC_TABLE;
+
+  		document.querySelector(".front-canvas").className = "";
+        document.querySelector("#table").className = "front-canvas";
+        document.querySelector("#key-wrapper").className = "";
+        document.querySelector("#atom-back").className = "hide";
   	}
 };

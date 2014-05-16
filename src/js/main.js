@@ -19,7 +19,9 @@ dmitri.KEYBOARD = {
 	"KEY_UP": 38, 
 	"KEY_RIGHT": 39, 
 	"KEY_DOWN": 40,
-	"KEY_SPACE": 32
+	"KEY_SPACE": 32,
+	"KEY_W": 87,
+	"KEY_S": 83
 };
 
 // key daemon array
@@ -137,6 +139,14 @@ document.onload = function() {
 				});
 			}
 
+			document.querySelector("#atom-back").onclick = function(e)
+			{
+				//console.log(dmitri.app.state +", " +dmitri.app.STATE_ATOM_VIEW);
+				if (dmitri.app.state == dmitri.app.STATE_ATOM_VIEW)
+				{
+					dmitri.app.showTable();
+				}
+			}
 			/* sound stuff */
 
 			// createjs.Sound.alternateExtensions = ["mp3"];
