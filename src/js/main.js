@@ -37,9 +37,9 @@ dmitri.soundtrack = undefined;
 
 dmitri.current = 0;
 
-
+/* Method Purpose: Loads in all necessary scripts and sounds*/
 document.onload = function() {
-	console.log("hey man. you\'ll be alright. you\'ll go far kid.");
+	//console.log("hey man. you\'ll be alright. you\'ll go far kid.");
 
 	// load da things
 	Modernizr.load({
@@ -60,6 +60,7 @@ document.onload = function() {
 			// dmitri.IMAGES['smoke']	
 		],
 
+		/* Method Purpose: Sets up all event handlers */
 		complete: function() {
 			
 			/* event handlers */

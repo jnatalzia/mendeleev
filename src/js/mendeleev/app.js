@@ -25,6 +25,7 @@ dmitri.app = {
 	STATE_PERIODIC_TABLE:0,
 	STATE_ATOM_VIEW:1,
 
+	/* Method Purpose: Initializes all variables for the app object*/
 	init: function() {
 		// get data
 		dmitri.elements = elements;
@@ -67,7 +68,7 @@ dmitri.app = {
 
 
 
-
+  /* Method Purpose: Sets up the ThreeJS renderers and cameras*/
 	setupThreeJS: function() {
 
 
@@ -150,6 +151,7 @@ dmitri.app = {
 
 	},
 
+	/* Method Purpose: Builds the new atom for the atomview */
 	updateAtom: function(number,raw)
 	{
 		var atomicNumber = raw ? number + 1 : number;
@@ -157,7 +159,7 @@ dmitri.app = {
 		//this.state = this.STATE_ATOM_VIEW;
 	},
 				
-			
+	/* Method Purpose: Updates the canvas elements*/
 	update: function(){
 		// schedule next animation frame
 		dmitri.animationID = requestAnimationFrame(this.update.bind(this));
@@ -184,11 +186,12 @@ dmitri.app = {
 
 			
 
-	
+	/* Method Purpose: Draws whatever is necessary for the pause screen*/
 	drawPauseScreen: function(){
 		// do something pause-like if you want
 	},
 
+	/* Method Purpose: Searches for an elements and if it's found switches to that element*/
 	search: function(e) {
 		var search = dmitri.search.value.toLowerCase();
 		//console.log();
@@ -229,12 +232,14 @@ dmitri.app = {
 			}
 		};
 	},
+	/* Method Purpose: Handles a mouse down event*/
 	 doMousedown: function(event) {
 	 	if (this.state == this.STATE_PERIODIC_TABLE)
 	 	{
 			this.table.doMousedown(event);
 	 	}
    },
+   /* Method Purpose: Handles a mouse up event*/
    doMouseup: function(e)
    {
    	if (this.state == this.STATE_PERIODIC_TABLE)
@@ -242,6 +247,7 @@ dmitri.app = {
 	 	this.table.doMouseup(e);
 	 	}
   	},
+  	/* Method Purpose: Handles the keyboard controls for the tableview*/
   	updateTableCamera:function()
   	{
   		if (dmitri.keydown[dmitri.KEYBOARD["KEY_LEFT"]])
@@ -271,6 +277,7 @@ dmitri.app = {
 			this.tableCamera.position.y -= this.TABLE_CAMERA_SPEED;
 		}
   	},
+  	/* Method Purpose: Displays the table and hides the appropriate UI elements*/
   	showTable:function()
   	{
   		this.state = this.STATE_PERIODIC_TABLE;
@@ -281,6 +288,7 @@ dmitri.app = {
         document.querySelector("#atom-back").className = "hide";
         document.querySelector("#shuffle-elements").className="";
   	},
+  	/* Method Purpose: Starts the background music*/
   	startSoundtrack:function()
   	{
   		createjs.Sound.stop();

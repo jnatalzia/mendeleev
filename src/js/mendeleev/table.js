@@ -18,9 +18,10 @@ dmitri.table = {
 	elements:undefined,
 	tableWidth:960,
 	numCols:6,
+	/* Method Purpose: Initializes the table object */
 	init:function(_scene)
 	{
-		console.log('testing something');
+		//console.log('testing something');
 		this.scene = _scene;
 		this.elements = dmitri.elements;
 
@@ -43,6 +44,7 @@ dmitri.table = {
 		}
 		
 	},
+	/* Method Purpose: Creates all materials and positioning for a sprite element*/
 	makeElement:function(atomicNumber, raw, position)
 	{
 		//var spriteAlignment = THREE.SpriteAlignment.topLeft;
@@ -67,6 +69,7 @@ dmitri.table = {
 
 		this.scene.add(sprite);
 	},
+	/* Method Purpose: Highlights a single element based on atomic number*/
 	highlightSingleElement:function(atomicNumber,raw)
 	{
 		//console.log('firing');
@@ -83,6 +86,7 @@ dmitri.table = {
              } 
         }); 
 	},
+	/* Method Purpose: Greys out a single element based on atomic number*/
 	blankSingleElement:function(atomicNumber,raw)
 	{
 		var self = this;
@@ -96,6 +100,7 @@ dmitri.table = {
              } 
         }); 
 	},
+	/* Method Purpose: Greys out all elements*/
 	blankElements:function()
 	{
 		var self = this;
@@ -105,6 +110,7 @@ dmitri.table = {
              } 
         }); 
 	},
+	/* Method Purpose: Highlights all elements of a certain type*/
 	highlightElements:function(eltype)
 	{
 		var self = this;
@@ -126,6 +132,7 @@ dmitri.table = {
 
        // console.log(eltype);
 	},
+	/* Method Purpose: Transitions all elements back to normal*/
 	unhighlightElements:function()
 	{
 		//console.log('unhighlight');
@@ -136,6 +143,7 @@ dmitri.table = {
              } 
         }); 
 	},
+	/* Method Purpose: Updates positioning of elements if necessary*/
 	update:function()
 	{
 		this.scene.traverse(function(e) { 
@@ -169,6 +177,7 @@ dmitri.table = {
         });
 
 	},
+	/* Method Purpose: Handles a mousedown event*/
 	doMousedown:function(e)
 	{
     	var projector = new THREE.Projector();
@@ -210,6 +219,7 @@ dmitri.table = {
             o.isHighlighted = true;
         }
 	},
+	/* Method Purpose: Handles a mouse up event as well as a switch to atom view*/
 	doMouseup: function(e)
 	{
 		var self = this;
@@ -238,6 +248,7 @@ dmitri.table = {
              } 
         }); 
 	},
+	/* Method Purpose: Uses a dynamic canvas element to create a normal material*/
 	createNormalMaterial:function(atomicNumber,raw)
 	{
 		var e = this.elements[atomicNumber - 1];
@@ -286,6 +297,7 @@ dmitri.table = {
 		return new THREE.SpriteMaterial( 
 			{ map: texture, useScreenCoordinates: false} );
 	},
+	/* Method Purpose: Uses a dynamic canvas to create a greyed out material*/
 	createBlankMaterial:function(atomicNumber,raw)
 	{
 		var e = this.elements[atomicNumber - 1];
@@ -334,6 +346,7 @@ dmitri.table = {
 		return new THREE.SpriteMaterial( 
 			{ map: texture, useScreenCoordinates: false} );
 	},
+	/* Method Purpose: Uses a dynamic canvas to create a blue highlighted material*/
 	createHighlightedMaterial: function(atomicNumber, raw)
 	{
 		var e = this.elements[atomicNumber - 1];
@@ -382,6 +395,7 @@ dmitri.table = {
 
 		return spriteMaterial;
 	},
+	/* Method Purpose: Shuffles the position of all elements (for fun) */
 	shuffle:function(){
 		//console.log('works');
 		this.scene.traverse(function(e) { 
