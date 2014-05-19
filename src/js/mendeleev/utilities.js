@@ -1,7 +1,7 @@
 var dmitri = dmitri || {};
 
 dmitri.utilities = {
-
+	/* Method Purpose: Gets a normalized vector based on passed in vector*/
 	getNormalizedVector: function (v1){
 		var mag = this.getMagnitude(v1);
 		return{
@@ -9,13 +9,14 @@ dmitri.utilities = {
 			y:v1.y/mag
 		};
 	},
-	//from v1->v2 which means v2-v1
+	/* Method Purpose: Gets subtracted vector from v1 to v2*/
 	getSubtractedVector:function (v1,v2){
 		return {
 			x: v2.x-v1.x,
 			y: v2.y-v1.y
 		};
 	},
+	/* Method Purpose: Gets the angle between two points*/
 	angleFromPointToPoint:function (p1,p2)
 	{
 		var sub = this.getSubtractedVector(p1,p2);
@@ -32,26 +33,21 @@ dmitri.utilities = {
 
 		return angle;
 	},
+	/* Method Purpose: Gets a scaled vector*/
 	getScaledVector:function (v1,scalar){
 		return {
 			x:v1.x*scalar,
 			y:v1.y*scalar
 		};
 	},
-	vectorToString:function (vector, digits) {
-	  if (typeof digits === "undefined") {
-		digits = 1;
-	  }
-	  return "(" + vector[0].toFixed(digits) + ", "
-				 + vector[1].toFixed(digits) + ", "
-				 + vector[2].toFixed(digits) + ")";
-	},
+	/* Method Purpose: Maps a number across a certain ratio*/
 	map:function (value, start1, stop1, start2, stop2) {
 		if (value < start1) value = start1;
 		else if (value > stop1) value = stop1;
 	
 		return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
 	},
+	/* Method Purpose: Checks if a sprite is close to it's destination*/
 	isCloseToDestination:function (pos,dest)
 	{
 		//console.log(pos+ ", " + dest);
@@ -64,6 +60,7 @@ dmitri.utilities = {
 		}
 		else return false;
 	},
+	/* Method Purpose: Gets the magnitude of a vector*/
 	getMagnitude:function (v1){
 		return Math.sqrt((v1.x*v1.x)+(v1.y*v1.y));
 	}
