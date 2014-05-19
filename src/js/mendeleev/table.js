@@ -217,6 +217,7 @@ dmitri.table = {
              if (e instanceof THREE.Sprite ) { 
              	if (e.isHighlighted)
              	{
+             		createjs.Sound.play("click");
              		//call that function
              		dmitri.app.updateAtom(e.atomicNumber,true);
 
@@ -225,6 +226,8 @@ dmitri.table = {
              		document.querySelector("#key-wrapper").className = "hide";
 
              		document.querySelector("#atom-back").className = "";
+
+             		document.querySelector("#shuffle-elements").className="hide";
 
              		dmitri.app.state = dmitri.app.STATE_ATOM_VIEW;
 
@@ -378,5 +381,20 @@ dmitri.table = {
 			{ map: texture, useScreenCoordinates: false} );
 
 		return spriteMaterial;
+	},
+	shuffle:function(){
+		//console.log('works');
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var sprite = e;
+             	var randX = Math.floor(Math.random() * 100) + 0;
+				var randY = Math.floor(Math.random() * 100) + 0;
+
+				sprite.position.set(randX,randY,0);
+				sprite.isMoving = true;
+             } 
+        }); 
+
 	}
 };

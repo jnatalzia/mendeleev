@@ -279,5 +279,11 @@ dmitri.app = {
         document.querySelector("#table").className = "front-canvas";
         document.querySelector("#key-wrapper").className = "";
         document.querySelector("#atom-back").className = "hide";
-  	}
+        document.querySelector("#shuffle-elements").className="";
+  	},
+  	startSoundtrack:function()
+  	{
+  		createjs.Sound.stop();
+		createjs.Sound.play("soundtrack",{loop:-1,volume:0.5});
+  	},
 };

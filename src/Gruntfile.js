@@ -75,6 +75,9 @@ module.exports = function(grunt) {
       },
       fonts:{
         files : [{expand: true, cwd: 'fonts', src: ['**'], dest: buildFolder+'fonts'}]
+      },
+      sounds:{
+        files : [{expand: true, cwd: 'sounds', src: ['**'], dest: buildFolder+'sounds'}]
       }
     },
 
@@ -109,6 +112,16 @@ module.exports = function(grunt) {
       js:{
         files: ['js/*.js', 'js/**/*.js'],
         tasks: ['copy:js']
+      },
+      fonts:
+      {
+        files: ['fonts/*.ttf'],
+        tasks: ['copy:fonts']
+      },
+      sounds:
+      {
+        files: ['sounds/*.mp3'],
+        tasks: ['copy:sounds']
       }
     }
 
@@ -152,6 +165,7 @@ module.exports = function(grunt) {
       'copy:data',
       'copy:js',
       'copy:fonts',
+      'copy:sounds',
       'jade:index',
     ]);
   });

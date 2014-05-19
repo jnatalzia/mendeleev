@@ -67,6 +67,7 @@ document.onload = function() {
 				// dmitri.paused = true;
 				// cancelAnimationFrame(dmitri.animationID);
 				dmitri.keydown = [];
+				createjs.Sound.stop();
 				// dmitri.soundtrack.volume = 0.15;
 				// dmitri.app.update();
 			}
@@ -75,6 +76,7 @@ document.onload = function() {
 				// cancelAnimationFrame(dmitri.animationID);
 				// dmitri.soundtrack.volume = 0.8;
 				// dmitri.app.update();
+				dmitri.app.startSoundtrack();
 			}
 
 			// keyup/down
@@ -91,6 +93,18 @@ document.onload = function() {
 			window.onmouseup = function(e)
 			{
 				dmitri.app.doMouseup(e);
+			}
+
+			//create all sounds
+			createjs.Sound.registerSound({id:"soundtrack",src:"sounds/background.mp3"});
+			createjs.Sound.registerSound({id:"click",src:"sounds/click.mp3"});
+
+			createjs.Sound.addEventListener("fileload",handleFileLoad);
+
+			//Method Purpose: starts the background music
+			function handleFileLoad(e){
+				//console.log("Preloaded sound:",e.id,e.src);
+				if (e.src == "sounds/background.mp3") dmitri.app.startSoundtrack();
 			}
 
 			//mouseover for top bar
@@ -145,6 +159,13 @@ document.onload = function() {
 				if (dmitri.app.state == dmitri.app.STATE_ATOM_VIEW)
 				{
 					dmitri.app.showTable();
+				}
+			}
+			document.querySelector("#shuffle-elements").onclick = function(e)
+			{
+				if (dmitri.app.state == dmitri.app.STATE_PERIODIC_TABLE)
+				{
+					dmitri.app.table.shuffle();
 				}
 			}
 			/* sound stuff */

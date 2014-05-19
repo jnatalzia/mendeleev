@@ -240,7 +240,7 @@ ul#instructions
 {
 	list-style-type:none;
 }
-#atom-back
+#atom-back, #shuffle-elements
 {
 	width:100px;
 	display:block;
@@ -251,8 +251,9 @@ ul#instructions
 	text-align:center;
 	padding:10px 0;	
 	cursor:pointer;
+	margin-left:25px;
 }
-#atom-back.hide
+#atom-back.hide, #shuffle-elements.hide
 {
 	display:none;
 }
