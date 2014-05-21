@@ -196,9 +196,10 @@ var elements = [
       "name":"Aluminum",
       "symbol":"Al",
       "weight":26.981539,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":13,
+      "neutrons":14,
+      "electrons":13,
+      "shells": [2, 8, 3],
       "position":{
          "row":3,
          "col":13
@@ -210,9 +211,10 @@ var elements = [
       "name":"Silicon",
       "symbol":"Si",
       "weight":28.0855,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":14,
+      "neutrons":14,
+      "electrons":14,
+      "shells": [2, 8, 4],
       "position":{
          "row":3,
          "col":14
@@ -224,9 +226,10 @@ var elements = [
       "name":"Phosphorus",
       "symbol":"P",
       "weight":30.973762,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":15,
+      "neutrons":16,
+      "electrons":15,
+      "shells": [2, 8, 5],
       "position":{
         "row":3,
          "col":15
@@ -238,9 +241,10 @@ var elements = [
       "name":"Sulfur",
       "symbol":"S",
       "weight":32.066,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":16,
+      "neutrons":16,
+      "electrons":16,
+      "shells": [2, 8, 6],
       "position":{
          "row":3,
          "col":16
@@ -252,9 +256,10 @@ var elements = [
       "name":"Chlorine",
       "symbol":"Cl",
       "weight":35.4527,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":17,
+      "neutrons":18,
+      "electrons":17,
+      "shells": [2, 8, 7],
       "position":{
          "row":3,
          "col":17
@@ -266,9 +271,10 @@ var elements = [
       "name":"Argon",
       "symbol":"Ar",
       "weight":39.948,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":18,
+      "neutrons":22,
+      "electrons":18,
+      "shells": [2, 8, 8],
       "position":{
          "row":3,
          "col":18
@@ -280,9 +286,10 @@ var elements = [
       "name":"Potassium",
       "symbol":"K",
       "weight":39.0983,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":19,
+      "neutrons":20,
+      "electrons":19,
+      "shells": [2, 8, 8, 1],
       "position":{
          "row":4,
          "col":1
@@ -294,9 +301,10 @@ var elements = [
       "name":"Calcium",
       "symbol":"Ca",
       "weight":40.078,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":20,
+      "neutrons":20,
+      "electrons":20,
+      "shells": [2, 8, 8, 2],
       "position":{
          "row":4,
          "col":2
@@ -308,9 +316,10 @@ var elements = [
       "name":"Scandium",
       "symbol":"Sc",
       "weight":44.95591,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":21,
+      "neutrons":24,
+      "electrons":21,
+      "shells": [2, 8, 9, 2],
       "position":{
          "row":4,
          "col":3
@@ -322,9 +331,10 @@ var elements = [
       "name":"Titanium",
       "symbol":"Ti",
       "weight":47.88,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":22,
+      "neutrons":26,
+      "electrons":22,
+      "shells": [2, 8, 10, 2],
       "position":{
          "row":4,
          "col":4
@@ -336,9 +346,10 @@ var elements = [
       "name":"Vanadium",
       "symbol":"V",
       "weight":50.9415,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":23,
+      "neutrons":28,
+      "electrons":23,
+      "shells": [2, 8, 11, 2],
       "position":{
          "row":4,
          "col":5
@@ -350,9 +361,10 @@ var elements = [
       "name":"Chromium",
       "symbol":"Cr",
       "weight":51.9961,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":24,
+      "neutrons":28,
+      "electrons":24,
+      "shells": [2, 8, 13, 1],
       "position":{
          "row":4,
          "col":6
@@ -364,9 +376,10 @@ var elements = [
       "name":"Manganese",
       "symbol":"Mn",
       "weight":54.93805,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":25,
+      "neutrons":30,
+      "electrons":25,
+      "shells": [2, 8, 13, 2],
       "position":{
          "row":4,
          "col":7
@@ -378,9 +391,10 @@ var elements = [
       "name":"Iron",
       "symbol":"Fe",
       "weight":55.847,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":26,
+      "neutrons":30,
+      "electrons":26,
+      "shells": [2, 8, 14, 2],
       "position":{
          "row":4,
          "col":8
@@ -392,9 +406,10 @@ var elements = [
       "name":"Cobalt",
       "symbol":"Co",
       "weight":58.9332,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":27,
+      "neutrons":32,
+      "electrons":27,
+      "shells": [2, 8, 15, 2],
       "position":{
          "row":4,
          "col":9
@@ -406,9 +421,10 @@ var elements = [
       "name":"Nickel",
       "symbol":"Ni",
       "weight":58.6934,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":28,
+      "neutrons":31,
+      "electrons":28,
+      "shells": [2, 8, 16, 2],
       "position":{
          "row":4,
          "col":10
@@ -420,9 +436,10 @@ var elements = [
       "name":"Copper",
       "symbol":"Cu",
       "weight":63.546,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":29,
+      "neutrons":35,
+      "electrons":29,
+      "shells": [2, 8, 18, 1],
       "position":{
          "row":4,
          "col":11
@@ -434,9 +451,10 @@ var elements = [
       "name":"Zinc",
       "symbol":"Zn",
       "weight":65.39,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":30,
+      "neutrons":35,
+      "electrons":30,
+      "shells": [2, 8, 18, 2],
       "position":{
          "row":4,
          "col":12
@@ -448,9 +466,10 @@ var elements = [
       "name":"Gallium",
       "symbol":"Ga",
       "weight":69.723,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":31,
+      "neutrons":39,
+      "electrons":31,
+      "shells": [2, 8, 18, 3],
       "position":{
          "row":4,
          "col":13
@@ -462,9 +481,10 @@ var elements = [
       "name":"Germanium",
       "symbol":"Ge",
       "weight":72.61,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":32,
+      "neutrons":41,
+      "electrons":32,
+      "shells": [2, 8, 18, 4],
       "position":{
          "row":4,
          "col":14
@@ -476,9 +496,10 @@ var elements = [
       "name":"Arsenic",
       "symbol":"As",
       "weight":74.92159,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":33,
+      "neutrons":42,
+      "electrons":33,
+      "shells": [2, 8, 18, 5],
       "position":{
          "row":4,
          "col":15
@@ -490,9 +511,10 @@ var elements = [
       "name":"Selenium",
       "symbol":"Se",
       "weight":78.96,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":34,
+      "neutrons":45,
+      "electrons":34,
+      "shells": [2, 8, 18, 6],
       "position":{
          "row":4,
          "col":16
@@ -504,9 +526,10 @@ var elements = [
       "name":"Bromine",
       "symbol":"Br",
       "weight":79.904,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":35,
+      "neutrons":45,
+      "electrons":35,
+      "shells": [2, 8, 18, 7],
       "position":{
          "row":4,
          "col":17
@@ -518,9 +541,10 @@ var elements = [
       "name":"Krypton",
       "symbol":"Kr",
       "weight":83.8,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":36,
+      "neutrons":48,
+      "electrons":36,
+      "shells": [2, 8, 18, 8],
       "position":{
          "row":4,
          "col":18
@@ -532,9 +556,10 @@ var elements = [
       "name":"Rubidium",
       "symbol":"Rb",
       "weight":85.4678,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":37,
+      "neutrons":48,
+      "electrons":37,
+      "shells": [2, 8, 18, 8, 1],
       "position":{
          "row":5,
          "col":1
@@ -546,9 +571,10 @@ var elements = [
       "name":"Strontium",
       "symbol":"Sr",
       "weight":87.62,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":38,
+      "neutrons":50,
+      "electrons":38,
+      "shells": [2, 8, 18, 8, 2],
       "position":{
          "row":5,
          "col":2
@@ -560,9 +586,10 @@ var elements = [
       "name":"Yttrium",
       "symbol":"Y",
       "weight":88.90585,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":39,
+      "neutrons":50,
+      "electrons":39,
+      "shells": [2, 8, 18, 9, 2],
       "position":{
          "row":5,
          "col":3
@@ -574,9 +601,10 @@ var elements = [
       "name":"Zirconium",
       "symbol":"Zr",
       "weight":91.224,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":40,
+      "neutrons":51,
+      "electrons":40,
+      "shells": [2, 8, 18, 10, 2],
       "position":{
          "row":5,
          "col":4
@@ -588,9 +616,10 @@ var elements = [
       "name":"Niobium",
       "symbol":"Nb",
       "weight":92.90638,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":41,
+      "neutrons":52,
+      "electrons":41,
+      "shells": [2, 8, 18, 12, 1],
       "position":{
          "row":5,
          "col":5
@@ -602,9 +631,10 @@ var elements = [
       "name":"Molybdenum",
       "symbol":"Mo",
       "weight":95.94,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":42,
+      "neutrons":54,
+      "electrons":42,
+      "shells": [2, 8, 18, 13, 1],
       "position":{
          "row":5,
          "col":6
@@ -616,9 +646,10 @@ var elements = [
       "name":"Technetium",
       "symbol":"Tc",
       "weight":97.9072,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":43,
+      "neutrons":55,
+      "electrons":43,
+      "shells": [2, 8, 18, 14, 1],
       "position":{
          "row":5,
          "col":7
@@ -630,9 +661,10 @@ var elements = [
       "name":"Ruthenium",
       "symbol":"Ru",
       "weight":101.07,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":44,
+      "neutrons":57,
+      "electrons":44,
+      "shells": [2, 8, 18, 15, 1],
       "position":{
          "row":5,
          "col":8
@@ -644,9 +676,10 @@ var elements = [
       "name":"Rhodium",
       "symbol":"Rh",
       "weight":102.9055,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":45,
+      "neutrons":58,
+      "electrons":45,
+      "shells": [2, 8, 18, 16, 1],
       "position":{
         "row":5,
          "col":9
@@ -658,9 +691,10 @@ var elements = [
       "name":"Palladium",
       "symbol":"Pd",
       "weight":106.42,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":46,
+      "neutrons":60,
+      "electrons":46,
+      "shells": [2, 8, 18, 18, 0],
       "position":{
          "row":5,
          "col":10
@@ -672,9 +706,10 @@ var elements = [
       "name":"Silver",
       "symbol":"Ag",
       "weight":107.8682,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":47,
+      "neutrons":61,
+      "electrons":47,
+      "shells": [2, 8, 18, 18, 1],
       "position":{
          "row":5,
          "col":11
@@ -686,9 +721,10 @@ var elements = [
       "name":"Cadmium",
       "symbol":"Cd",
       "weight":112.411,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":48,
+      "neutrons":64,
+      "electrons":48,
+      "shells": [2, 8, 18, 18, 2],
       "position":{
          "row":5,
          "col":12
@@ -700,9 +736,10 @@ var elements = [
       "name":"Indium",
       "symbol":"In",
       "weight":114.818,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":49,
+      "neutrons":66,
+      "electrons":49,
+      "shells": [2, 8, 18, 8, 3],
       "position":{
          "row":5,
          "col":13
@@ -714,9 +751,10 @@ var elements = [
       "name":"Tin",
       "symbol":"Sn",
       "weight":118.71,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":50,
+      "neutrons":69,
+      "electrons":50,
+      "shells": [2, 8, 18, 18, 4],
       "position":{
          "row":5,
          "col":14
@@ -728,9 +766,10 @@ var elements = [
       "name":"Antimony",
       "symbol":"Sb",
       "weight":121.76,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":51,
+      "neutrons":71,
+      "electrons":51,
+      "shells": [2, 8, 18, 18, 5],
       "position":{
          "row":5,
          "col":15
@@ -742,9 +781,10 @@ var elements = [
       "name":"Tellurium",
       "symbol":"Te",
       "weight":127.6,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":52,
+      "neutrons":76,
+      "electrons":52,
+      "shells": [2, 8, 18, 18, 6],
       "position":{
          "row":5,
          "col":16
@@ -756,9 +796,10 @@ var elements = [
       "name":"Iodine",
       "symbol":"I",
       "weight":126.90447,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":53,
+      "neutrons":74,
+      "electrons":53,
+      "shells": [2, 8, 18, 18, 7],
       "position":{
          "row":5,
          "col":17
@@ -770,9 +811,10 @@ var elements = [
       "name":"Xenon",
       "symbol":"Xe",
       "weight":131.29,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":54,
+      "neutrons":77,
+      "electrons":54,
+      "shells": [2, 8, 18, 18, 8],
       "position":{
          "row":5,
          "col":18
@@ -784,9 +826,10 @@ var elements = [
       "name":"Cesium",
       "symbol":"Cs",
       "weight":132.90543,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":55,
+      "neutrons":78,
+      "electrons":55,
+      "shells": [2, 8, 18, 18, 8, 1],
       "position":{
          "row":6,
          "col":1
@@ -798,9 +841,10 @@ var elements = [
       "name":"Barium",
       "symbol":"Ba",
       "weight":137.327,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":56,
+      "neutrons":81,
+      "electrons":56,
+      "shells": [2, 8, 18, 18, 8, 2],
       "position":{
          "row":6,
          "col":2
@@ -812,9 +856,10 @@ var elements = [
       "name":"Hafnium",
       "symbol":"Hf",
       "weight":178.49,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":72,
+      "neutrons":106,
+      "electrons":72,
+      "shells": [2, 8, 18, 32, 10, 2],
       "position":{
          "row":6,
          "col":4
@@ -826,9 +871,10 @@ var elements = [
       "name":"Tantalum",
       "symbol":"Ta",
       "weight":180.9479,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":73,
+      "neutrons":108,
+      "electrons":73,
+      "shells": [2, 8, 18, 32, 11, 2],
       "position":{
          "row":6,
          "col":5
@@ -840,9 +886,10 @@ var elements = [
       "name":"Tungsten",
       "symbol":"W",
       "weight":183.84,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":74,
+      "neutrons":110,
+      "electrons":74,
+      "shells": [2, 8, 18, 32, 12, 2],
       "position":{
          "row":6,
          "col":6
@@ -854,9 +901,10 @@ var elements = [
       "name":"Rhenium",
       "symbol":"Re",
       "weight":186.207,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":75,
+      "neutrons":111,
+      "electrons":75,
+      "shells": [2, 8, 18, 32, 13, 2],
       "position":{
          "row":6,
          "col":7
@@ -868,9 +916,10 @@ var elements = [
       "name":"Osmium",
       "symbol":"Os",
       "weight":190.23,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":76,
+      "neutrons":114,
+      "electrons":76,
+      "shells": [2, 8, 18, 32, 14, 2],
       "position":{
          "row":6,
          "col":8
@@ -882,9 +931,10 @@ var elements = [
       "name":"Iridium",
       "symbol":"Ir",
       "weight":192.22,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":77,
+      "neutrons":115,
+      "electrons":77,
+      "shells": [2, 8, 18, 32, 15, 2],
       "position":{
          "row":6,
          "col":9
@@ -896,9 +946,10 @@ var elements = [
       "name":"Platinum",
       "symbol":"Pt",
       "weight":195.08,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":78,
+      "neutrons":117,
+      "electrons":78,
+      "shells": [2, 8, 18, 32, 17, 1],
       "position":{
          "row":6,
          "col":10
@@ -910,9 +961,10 @@ var elements = [
       "name":"Gold",
       "symbol":"Au",
       "weight":196.96654,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":79,
+      "neutrons":118,
+      "electrons":79,
+      "shells": [2, 8, 18, 32, 18, 1],
       "position":{
          "row":6,
          "col":11
@@ -924,9 +976,10 @@ var elements = [
       "name":"Mercury",
       "symbol":"Hg",
       "weight":200.59,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":80,
+      "neutrons":121,
+      "electrons":80,
+      "shells": [2, 8, 18, 32, 18, 2],
       "position":{
          "row":6,
          "col":12
@@ -938,9 +991,10 @@ var elements = [
       "name":"Thallium",
       "symbol":"Tl",
       "weight":204.3833,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":81,
+      "neutrons":123,
+      "electrons":81,
+      "shells": [2, 8, 18, 32, 18, 3],
       "position":{
          "row":6,
          "col":13
@@ -952,9 +1006,10 @@ var elements = [
       "name":"Lead",
       "symbol":"Pb",
       "weight":207.2,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":82,
+      "neutrons":126,
+      "electrons":82,
+      "shells": [2, 8, 18, 32, 18, 4],
       "position":{
          "row":6,
          "col":14
@@ -966,9 +1021,10 @@ var elements = [
       "name":"Bismuth",
       "symbol":"Bi",
       "weight":208.98037,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":83,
+      "neutrons":126,
+      "electrons":83,
+      "shells": [2, 8, 18, 32, 18, 5],
       "position":{
          "row":6,
          "col":15
@@ -980,9 +1036,10 @@ var elements = [
       "name":"Polonium",
       "symbol":"Po",
       "weight":208.9824,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":84,
+      "neutrons":125,
+      "electrons":84,
+      "shells": [2, 8, 18, 32, 18, 6],
       "position":{
          "row":6,
          "col":16
@@ -994,9 +1051,10 @@ var elements = [
       "name":"Astatine",
       "symbol":"At",
       "weight":209.9871,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":85,
+      "neutrons":125,
+      "electrons":85,
+      "shells": [2, 8, 18, 32, 18, 7],
       "position":{
          "row":6,
          "col":17
@@ -1008,9 +1066,10 @@ var elements = [
       "name":"Radon",
       "symbol":"Rn",
       "weight":222.0176,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":86,
+      "neutrons":136,
+      "electrons":86,
+      "shells": [2, 8, 18, 32, 18, 8],
       "position":{
          "row":6,
          "col":18
@@ -1022,9 +1081,10 @@ var elements = [
       "name":"Francium",
       "symbol":"Fr",
       "weight":223.0197,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":87,
+      "neutrons":136,
+      "electrons":87,
+      "shells": [2, 8, 18, 32, 18, 8, 1],
       "position":{
          "row":7,
          "col":1
@@ -1036,9 +1096,10 @@ var elements = [
       "name":"Radium",
       "symbol":"Ra",
       "weight":226.0254,
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "protons":88,
+      "neutrons":138,
+      "electrons":88,
+      "shells": [2, 8, 18, 32, 18, 8, 2],
       "position":{
          "row":7,
          "col":2
@@ -1049,12 +1110,11 @@ var elements = [
       "number":104,
       "name":"Rutherfordium",
       "symbol":"Rf",
-      "weight":[
-         261
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 261,
+      "protons":104,
+      "neutrons":157,
+      "electrons":104,
+      "shells": [2, 8, 18, 32, 32, 10, 2],
       "position":{
          "row":7,
          "col":4
@@ -1065,12 +1125,11 @@ var elements = [
       "number":105,
       "name":"Dubnium",
       "symbol":"Db",
-      "weight":[
-         262
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 262,
+      "protons":105,
+      "neutrons":157,
+      "electrons":105,
+      "shells": [2, 8, 18, 32, 32, 11, 2],
       "position":{
          "row":7,
          "col":5
@@ -1081,12 +1140,11 @@ var elements = [
       "number":106,
       "name":"Seaborgium",
       "symbol":"Sg",
-      "weight":[
-         266
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 266,
+      "protons":106,
+      "neutrons":157,
+      "electrons":106,
+      "shells": [2, 8, 18, 32, 32, 12, 2],
       "position":{
          "row":7,
          "col":6
@@ -1097,12 +1155,11 @@ var elements = [
       "number":107,
       "name":"Bohrium",
       "symbol":"Bh",
-      "weight":[
-         264
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 264,
+      "protons":107,
+      "neutrons":155,
+      "electrons":107,
+      "shells": [2, 8, 18, 32, 32, 13, 2],
       "position":{
          "row":7,
          "col":7
@@ -1113,12 +1170,11 @@ var elements = [
       "number":108,
       "name":"Hassium",
       "symbol":"Hs",
-      "weight":[
-         269
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 269,
+      "protons":108,
+      "neutrons":157,
+      "electrons":108,
+      "shells": [2, 8, 18, 32, 32, 14, 2],
       "position":{
          "row":7,
          "col":8
@@ -1129,12 +1185,11 @@ var elements = [
       "number":109,
       "name":"Meitnerium",
       "symbol":"Mt",
-      "weight":[
-         268
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 268,
+      "protons":109,
+      "neutrons":157,
+      "electrons":109,
+      "shells": [2, 8, 18, 32, 32, 15, 2],
       "position":{
          "row":7,
          "col":9
@@ -1145,12 +1200,11 @@ var elements = [
       "number":110,
       "name":"Ununnilium",
       "symbol":"Uun",
-      "weight":[
-         269
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 269,
+      "protons":110,
+      "neutrons":159,
+      "electrons":110,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":10
@@ -1161,12 +1215,11 @@ var elements = [
       "number":111,
       "name":"Unununium",
       "symbol":"Uuu",
-      "weight":[
-         272
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 272,
+      "protons":111,
+      "neutrons":161,
+      "electrons":111,
+      "shells": [2, 8, 18, 32, 32, 18, 1],
       "position":{
          "row":7,
          "col":11
@@ -1177,12 +1230,11 @@ var elements = [
       "number":112,
       "name":"Ununbium",
       "symbol":"Uub",
-      "weight":[
-         277
-      ],
-      "protons":1,
-      "neutrons":1,
-      "electrons":1,
+      "weight": 277,
+      "protons":112,
+      "neutrons":165,
+      "electrons":112,
+      "shells": [2, 8, 18, 32, 32, 18, 2],
       "position":{
          "row":7,
          "col":12
@@ -1197,6 +1249,7 @@ var elements = [
       "protons":1,
       "neutrons":1,
       "electrons":1,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":13
@@ -1207,12 +1260,11 @@ var elements = [
       "number":114,
       "name":"Ununquadium",
       "symbol":"Uuq",
-      "weight":[
-         289
-      ],
+      "weight": 289,
       "protons":1,
       "neutrons":1,
       "electrons":1,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":14
@@ -1227,6 +1279,7 @@ var elements = [
       "protons":1,
       "neutrons":1,
       "electrons":1,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":15
@@ -1241,6 +1294,7 @@ var elements = [
       "protons":1,
       "neutrons":1,
       "electrons":1,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":16
@@ -1255,6 +1309,7 @@ var elements = [
       "protons":1,
       "neutrons":1,
       "electrons":1,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":17
@@ -1269,6 +1324,7 @@ var elements = [
       "protons":1,
       "neutrons":1,
       "electrons":1,
+      "shells": [2, 8, 18, 32, 32, 17, 1],
       "position":{
          "row":7,
          "col":18
