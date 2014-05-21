@@ -110,8 +110,8 @@ dmitri.app = {
 		this.camera.position.z = window.innerWidth/20;
 
 		this.tableCamera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-		this.tableCamera.position.x = 50;
-		this.tableCamera.position.z = 50;
+		this.tableCamera.position.x = 38;
+		this.tableCamera.position.z = 55;
 		this.tableCamera.position.y = -25;
 
 		//this.tableCamera.position.z = window.innerWidth*0.1;
