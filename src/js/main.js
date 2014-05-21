@@ -21,7 +21,8 @@ dmitri.KEYBOARD = {
 	"KEY_DOWN": 40,
 	"KEY_SPACE": 32,
 	"KEY_W": 87,
-	"KEY_S": 83
+	"KEY_S": 83,
+	"KEY_R": 82
 };
 
 // key daemon array

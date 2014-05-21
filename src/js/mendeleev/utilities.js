@@ -40,13 +40,6 @@ dmitri.utilities = {
 			y:v1.y*scalar
 		};
 	},
-	/* Method Purpose: Maps a number across a certain ratio*/
-	map:function (value, start1, stop1, start2, stop2) {
-		if (value < start1) value = start1;
-		else if (value > stop1) value = stop1;
-	
-		return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
-	},
 	/* Method Purpose: Checks if a sprite is close to it's destination*/
 	isCloseToDestination:function (pos,dest)
 	{

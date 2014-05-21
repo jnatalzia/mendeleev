@@ -276,6 +276,13 @@ dmitri.app = {
 		{
 			this.tableCamera.position.y -= this.TABLE_CAMERA_SPEED;
 		}
+
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_R"]])
+		{
+			this.tableCamera.position.x = 50;
+			this.tableCamera.position.z = 50;
+			this.tableCamera.position.y = -25;
+		}
   	},
   	/* Method Purpose: Displays the table and hides the appropriate UI elements*/
   	showTable:function()
