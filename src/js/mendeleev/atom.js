@@ -35,7 +35,7 @@ dmitri.atom = {
 
 
 
-
+	/* Method Purpose: Initializes the atom object */
 	init: function(_elements, _DOM, _scene) {
 		// get the Periodic table
 		this.elements = _elements;
@@ -50,7 +50,7 @@ dmitri.atom = {
 		// set scene
 		this.scene = _scene;
 	},
-
+	/* Method Purpose:  Builds a new atom model*/
 	build: function(atomicNumber, raw) {
 		
 		var e = this.elements[atomicNumber - 1];		// adjust for actual array number
@@ -63,7 +63,7 @@ dmitri.atom = {
 		this.makeHUD(e);
 	},
 
-
+	/* Method Purpose:  Resets the atom model*/
 	reset: function() {
 		this.scene.remove(this.atom);
 		this.protons = [];
@@ -72,7 +72,7 @@ dmitri.atom = {
 		this.bohrTweenReady = false;	
 	},
 
-
+	/* Method Purpose:  Makes a new atom model*/
 	makeModel: function(e) {
 		// reset things
 		this.reset();
@@ -87,6 +87,7 @@ dmitri.atom = {
 		this.scene.add(this.atom);
 	},
 
+	/* Method Purpose:  Creates a nucleus for the model*/
 	createNucleus: function(e) {
 
 		this.nucleus = new THREE.Object3D();
@@ -142,7 +143,7 @@ dmitri.atom = {
 		this.atom.add(this.nucleus);
 	},
 
-
+	/* Method Purpose: Creates the electrons for the atom model */
 	createElectrons: function(e) {
 
 		// create electrons
@@ -158,7 +159,7 @@ dmitri.atom = {
 		this.createOrbitals(e);
 	},
 
-
+	/* Method Purpose:  Creates the orbitals for the model*/
 	createOrbitals: function(e) {
 
 		// create circle for each shell
@@ -181,14 +182,16 @@ dmitri.atom = {
     };
 
 	},
+	/* Method Purpose:  Adds orbitals to the model*/
 	addOrbitals: function() {
 		for (var i = 0; i < this.orbitals.length; i++) this.atom.add(this.orbitals[i]);
 	},
+	/* Method Purpose:  Removes orbitals from the model*/
 	removeOrbitals: function() {
 		for (var i = 0; i < this.orbitals.length; i++) this.atom.remove(this.orbitals[i]);
 	},
 
-
+	/* Method Purpose:  Creates the HUD for the atom view*/
 	makeHUD: function(e) {
 
 		this.hud.number.innerHTML = e.number;
@@ -211,7 +214,7 @@ dmitri.atom = {
 
 	},
 
-
+	/* Method Purpose:  Prepares the tweens for the bohr config view*/
 	prepBohrTweens: function() {
 
 		for (var i = 0; i < this.electrons.length; i++) {
@@ -235,7 +238,7 @@ dmitri.atom = {
 		this.bohrTweenReady = true;
 	},
 
-
+	/* Method Purpose:  Animates to the bohr model if necessary*/
 
 	animate: function() {
 
