@@ -18,9 +18,10 @@ dmitri.table = {
 	elements:undefined,
 	tableWidth:960,
 	numCols:6,
+	/* Method Purpose: Initializes the table object */
 	init:function(_scene)
 	{
-		console.log('testing something');
+		//console.log('testing something');
 		this.scene = _scene;
 		this.elements = dmitri.elements;
 
@@ -43,6 +44,7 @@ dmitri.table = {
 		}
 		
 	},
+	/* Method Purpose: Creates all materials and positioning for a sprite element*/
 	makeElement:function(atomicNumber, raw, position)
 	{
 		//var spriteAlignment = THREE.SpriteAlignment.topLeft;
@@ -58,10 +60,57 @@ dmitri.table = {
 		var randY = Math.floor(Math.random() * 100) + 0;
 
 		sprite.position.set(randX,randY,0);
+
+		//custom properties
 		sprite.atomicNumber = atomicNumber;
+		sprite.normalMaterial = this.createNormalMaterial(atomicNumber,raw);
+		sprite.highlightedMaterial = this.createHighlightedMaterial(atomicNumber,raw);
+		sprite.blankMaterial = this.createBlankMaterial(atomicNumber,raw);
 
 		this.scene.add(sprite);
 	},
+	/* Method Purpose: Highlights a single element based on atomic number*/
+	highlightSingleElement:function(atomicNumber,raw)
+	{
+		//console.log('firing');
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var number = raw ?  atomicNumber+1: atomicNumber;
+
+             	//console.log(e.atomicNumber)
+
+             	if (e.atomicNumber == number)
+             		e.material = e.normalMaterial;
+             } 
+        }); 
+	},
+	/* Method Purpose: Greys out a single element based on atomic number*/
+	blankSingleElement:function(atomicNumber,raw)
+	{
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var number = raw ?  atomicNumber+1: atomicNumber;
+
+             	if (e.atomicNumber == number)
+             		e.material = e.blankMaterial;
+             } 
+        }); 
+	},
+	/* Method Purpose: Greys out all elements*/
+	blankElements:function()
+	{
+		var self = this;
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+                 e.material = e.blankMaterial;
+             } 
+        }); 
+	},
+	/* Method Purpose: Highlights all elements of a certain type*/
 	highlightElements:function(eltype)
 	{
 		var self = this;
@@ -76,22 +125,25 @@ dmitri.table = {
              	}
                  
              	else
-             	 e.material = self.createBlankMaterial(e.atomicNumber,true);
+             	 //e.material = self.createBlankMaterial(e.atomicNumber,true);
+             	e.material = e.blankMaterial;
              } 
         }); 
 
        // console.log(eltype);
 	},
+	/* Method Purpose: Transitions all elements back to normal*/
 	unhighlightElements:function()
 	{
 		//console.log('unhighlight');
 		var self = this;
 		this.scene.traverse(function(e) { 
              if (e instanceof THREE.Sprite ) { 
-                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+                 e.material = e.normalMaterial;
              } 
         }); 
 	},
+	/* Method Purpose: Updates positioning of elements if necessary*/
 	update:function()
 	{
 		this.scene.traverse(function(e) { 
@@ -122,9 +174,10 @@ dmitri.table = {
              	e.position.set(e.position.x+idealVec.x,e.position.y+idealVec.y,e.position.z);
              }
          } 
-        }); 
+        });
 
 	},
+	/* Method Purpose: Handles a mousedown event*/
 	doMousedown:function(e)
 	{
     	var projector = new THREE.Projector();
@@ -161,11 +214,12 @@ dmitri.table = {
 
             //console.log(o.atomicNumber);
 
-            o.material = this.createHighlightedMaterial(o.atomicNumber,true);
+            o.material = o.highlightedMaterial;
 
             o.isHighlighted = true;
         }
 	},
+	/* Method Purpose: Handles a mouse up event as well as a switch to atom view*/
 	doMouseup: function(e)
 	{
 		var self = this;
@@ -173,19 +227,29 @@ dmitri.table = {
              if (e instanceof THREE.Sprite ) { 
              	if (e.isHighlighted)
              	{
+             		createjs.Sound.play("click");
              		//call that function
              		/* CHANGE THE STATE */
              		dmitri.app.state = 1;
              		dmitri.app.updateAtom(e.atomicNumber,true);
              		document.querySelector(".front-canvas").className = "";
              		document.querySelector("#model").className = "front-canvas";
+             		document.querySelector("#key-wrapper").className = "hide";
+
+             		document.querySelector("#atom-back").className = "";
+
+             		document.querySelector("#shuffle-elements").className="hide";
+
+             		dmitri.app.state = dmitri.app.STATE_ATOM_VIEW;
 
              		e.isHighlighted = false;
+             		e.material = e.normalMaterial;
              	}
-                 e.material = self.createNormalMaterial(e.atomicNumber,true);
+                 
              } 
         }); 
 	},
+	/* Method Purpose: Uses a dynamic canvas element to create a normal material*/
 	createNormalMaterial:function(atomicNumber,raw)
 	{
 		var e = this.elements[atomicNumber - 1];
@@ -193,7 +257,7 @@ dmitri.table = {
 
 		//get element info
 		var name = e.name;
-		var number = atomicNumber;
+		var number = raw ? atomicNumber + 1 : atomicNumber;
 		var symbol = e.symbol;
 		var weight = e.weight;
 
@@ -224,7 +288,7 @@ dmitri.table = {
 		ctx.font = '24px RobotoLight';
 		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+		ctx.fillText  (number, canvas.width - 30, 30);
 
 		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 
@@ -234,6 +298,7 @@ dmitri.table = {
 		return new THREE.SpriteMaterial( 
 			{ map: texture, useScreenCoordinates: false} );
 	},
+	/* Method Purpose: Uses a dynamic canvas to create a greyed out material*/
 	createBlankMaterial:function(atomicNumber,raw)
 	{
 		var e = this.elements[atomicNumber - 1];
@@ -241,7 +306,7 @@ dmitri.table = {
 
 		//get element info
 		var name = e.name;
-		var number = atomicNumber;
+		var number = raw ? atomicNumber + 1 : atomicNumber;
 		var symbol = e.symbol;
 		var weight = e.weight;
 
@@ -272,7 +337,7 @@ dmitri.table = {
 		ctx.font = '24px RobotoLight';
 		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+		ctx.fillText  (number, canvas.width - 30, 30);
 
 		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 
@@ -282,6 +347,7 @@ dmitri.table = {
 		return new THREE.SpriteMaterial( 
 			{ map: texture, useScreenCoordinates: false} );
 	},
+	/* Method Purpose: Uses a dynamic canvas to create a blue highlighted material*/
 	createHighlightedMaterial: function(atomicNumber, raw)
 	{
 		var e = this.elements[atomicNumber - 1];
@@ -289,7 +355,7 @@ dmitri.table = {
 
 		//get element info
 		var name = e.name;
-		var number = atomicNumber;
+		var number = raw ? atomicNumber + 1 : atomicNumber;
 		var symbol = e.symbol;
 		var weight = e.weight;
 
@@ -318,7 +384,7 @@ dmitri.table = {
 		ctx.font = '24px RobotoLight';
 		ctx.fillText  (name, canvas.width/2,canvas.height/2 + 120);
 
-		ctx.fillText  (atomicNumber, canvas.width - 30, 30);
+		ctx.fillText  (number, canvas.width - 30, 30);
 
 		ctx.fillText(weight, canvas.width/2,canvas.height/2 + 150);
 
@@ -329,5 +395,21 @@ dmitri.table = {
 			{ map: texture, useScreenCoordinates: false} );
 
 		return spriteMaterial;
+	},
+	/* Method Purpose: Shuffles the position of all elements (for fun) */
+	shuffle:function(){
+		//console.log('works');
+		this.scene.traverse(function(e) { 
+             if (e instanceof THREE.Sprite ) { 
+             	//console.log(eltype + ", " + e.type);
+             	var sprite = e;
+             	var randX = Math.floor(Math.random() * 100) + 0;
+				var randY = Math.floor(Math.random() * 100) + 0;
+
+				sprite.position.set(randX,randY,0);
+				sprite.isMoving = true;
+             } 
+        }); 
+
 	}
 };

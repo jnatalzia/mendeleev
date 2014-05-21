@@ -19,7 +19,10 @@ dmitri.KEYBOARD = {
 	"KEY_UP": 38, 
 	"KEY_RIGHT": 39, 
 	"KEY_DOWN": 40,
-	"KEY_SPACE": 32
+	"KEY_SPACE": 32,
+	"KEY_W": 87,
+	"KEY_S": 83,
+	"KEY_R": 82
 };
 
 // key daemon array
@@ -35,9 +38,9 @@ dmitri.soundtrack = undefined;
 
 dmitri.current = 0;
 
-
+/* Method Purpose: Loads in all necessary scripts and sounds*/
 document.onload = function() {
-	console.log("hey man. you\'ll be alright. you\'ll go far kid.");
+	//console.log("hey man. you\'ll be alright. you\'ll go far kid.");
 
 	// load da things
 	Modernizr.load({
@@ -58,6 +61,7 @@ document.onload = function() {
 			// dmitri.IMAGES['smoke']	
 		],
 
+		/* Method Purpose: Sets up all event handlers */
 		complete: function() {
 			
 			/* event handlers */
@@ -65,6 +69,7 @@ document.onload = function() {
 				// dmitri.paused = true;
 				// cancelAnimationFrame(dmitri.animationID);
 				dmitri.keydown = [];
+				createjs.Sound.stop();
 				// dmitri.soundtrack.volume = 0.15;
 				// dmitri.app.update();
 			}
@@ -73,6 +78,7 @@ document.onload = function() {
 				// cancelAnimationFrame(dmitri.animationID);
 				// dmitri.soundtrack.volume = 0.8;
 				// dmitri.app.update();
+				dmitri.app.startSoundtrack();
 			}
 
 			// keyup/down
@@ -89,6 +95,18 @@ document.onload = function() {
 			window.onmouseup = function(e)
 			{
 				dmitri.app.doMouseup(e);
+			}
+
+			//create all sounds
+			createjs.Sound.registerSound({id:"soundtrack",src:"sounds/background.mp3"});
+			createjs.Sound.registerSound({id:"click",src:"sounds/click.mp3"});
+
+			createjs.Sound.addEventListener("fileload",handleFileLoad);
+
+			//Method Purpose: starts the background music
+			function handleFileLoad(e){
+				//console.log("Preloaded sound:",e.id,e.src);
+				if (e.src == "sounds/background.mp3") dmitri.app.startSoundtrack();
 			}
 
 			//mouseover for top bar
@@ -137,6 +155,21 @@ document.onload = function() {
 				});
 			}
 
+			document.querySelector("#atom-back").onclick = function(e)
+			{
+				//console.log(dmitri.app.state +", " +dmitri.app.STATE_ATOM_VIEW);
+				if (dmitri.app.state == dmitri.app.STATE_ATOM_VIEW)
+				{
+					dmitri.app.showTable();
+				}
+			}
+			document.querySelector("#shuffle-elements").onclick = function(e)
+			{
+				if (dmitri.app.state == dmitri.app.STATE_PERIODIC_TABLE)
+				{
+					dmitri.app.table.shuffle();
+				}
+			}
 			/* sound stuff */
 
 			// createjs.Sound.alternateExtensions = ["mp3"];

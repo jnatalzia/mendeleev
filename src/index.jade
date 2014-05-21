@@ -5,6 +5,7 @@ head
 	meta(charset="utf-8")
 	meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
 	meta(name="viewport", content="width=device-width, initial-scale=1")
+	script(src="http://code.createjs.com/soundjs-0.5.2.min.js")
 	script(src="js/libs/modernizr.js")
 	link(rel="stylesheet", href="style/style.css")
 
@@ -54,16 +55,17 @@ body#mendeleev
 							label
 								input#vibrate-nucleus(type="checkbox", name="view", value="vibrate", checked)
 								span Vibrate nucleus
-					//-div
-						ul
-							li Rotate around the camera with the mouse or swipes on mobile
-							li pinch to zoom
-							li tap to fade out GUI
-						form#got-it
-							label
-								span Got it
-								input(type="checkbox", value="got-it")
 
+					div
+						ul#instructions
+							li Use the arrow keys to pan around the table
+							li Use 'W' and 'S' to zoom in and out of the table
+							li Press 'R' to reset the camera
+
+				form#search
+					input(type="text", placeholder="Search element...")
+				button#atom-back.hide Back
+				button#shuffle-elements Shuffle Elements
 
 			div#key-wrapper
 				ul#element-types

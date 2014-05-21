@@ -40,7 +40,10 @@ dmitri.models = {
 			{x: -2, y: 0, z: 0}, 
 			{x: 0, y: 0, z: 2}, 
 	],
-	shells: [
+	orbits: [
+	
+	],
+	shells: [ // Bohr shells
 		{x: 0,		y: 10,		z: 0}, // 1st shell
 		{x: 0,		y: -10,		z: 0},
 

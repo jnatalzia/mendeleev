@@ -186,6 +186,10 @@ p, input {
 	z-index:10;
 	top:10px
 }
+#key-wrapper.hide
+{
+	display:none;
+}
 #key-wrapper ul
 {
 	list-style-type:none;
@@ -248,5 +252,25 @@ p, input {
 {
 	background-color:#96A1E3;
 }
+ul#instructions
+{
+	list-style-type:none;
+}
+#atom-back, #shuffle-elements
+{
+	width:100px;
+	display:block;
 
+	background-color:darken(#00f, 46%); 
+	border:1px solid #fff;
+	color:white;
+	text-align:center;
+	padding:10px 0;	
+	cursor:pointer;
+	margin-left:25px;
+}
+#atom-back.hide, #shuffle-elements.hide
+{
+	display:none;
+}
 

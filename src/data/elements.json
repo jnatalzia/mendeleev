@@ -22,12 +22,6 @@ var elements = [
 		"weight": 4.002,
 		"protons": 2,
 		"neutrons": 2,
-		// "nucleus": [
-		// 	{"x": 0, "y": 1, "z": 0},
-		// 	{"x": 1, "y": 0, "z": 0},
-		// 	{"x": 0, "y": -1, "z": 0},
-		// 	{"x": -1, "y": 0, "z": 0},
-		// ],
 		"electrons": 2,
 		"shells": [2],
 		"electrons": 2,
@@ -44,15 +38,6 @@ var elements = [
 		"weight": 6.941,
 		"protons": 3,
 		"neutrons": 4,
-		// "nucleus": [
-		// 	{"x": 0, "y": 1, "z": 0},
-		// 	{"x": 1, "y": 0, "z": 0},
-		// 	{"x": 0, "y": -1, "z": 0},
-		// 	{"x": -1, "y": 0, "z": 0},
-		// 	{"x": 0, "y": 0, "z": 1},
-		// 	{"x": 0, "y": 0, "z": 0},
-		// 	{"x": 0, "y": 0, "z": -1},
-		// ],
 		"electrons": 3,
 		"shells": [2, 1],
 		"electrons": 3,
@@ -69,17 +54,6 @@ var elements = [
 		"weight": 9.012,
 		"protons": 4,
 		"neutrons": 5,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // full set
-			{"x": 0, "y": 1, "z": -1},
-			{"x": -1, "y": -1, "z": 0},
-		],
 		"electrons": 4,
 		"shells": [2, 2],
 		"electrons": 4,
@@ -96,19 +70,6 @@ var elements = [
 		"weight": 10.811,
 		"protons": 5,
 		"neutrons": 5,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // full set
-			{"x": 0, "y": 1, "z": -1},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 0, "y": 1, "z": 1},
-			{"x": 1, "y": -1, "z": 0},
-		],
 		"electrons": 5,
 		"shells": [2, 3],
 		"electrons": 5,
@@ -125,20 +86,6 @@ var elements = [
 		"weight": 12.010,
 		"protons": 6,
 		"neutrons": 6,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0},
-			{"x": 0, "y": 1, "z": 1},
-		],
 		"electrons": 6,
 		"shells": [2, 4],
 		"electrons": 6,
@@ -155,22 +102,6 @@ var elements = [
 		"weight": 14.006,
 		"protons": 7,
 		"neutrons": 7,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // -end 1st full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0}, // -end 2 set
-			{"x": -1, "y": 1, "z": -1},
-			{"x": 1, "y": -1, "z": 1},
-			{"x": 1, "y": 1, "z": 1},
-		],
 		"electrons": 7,
 		"shells": [2, 5],
 		"electrons": 7,
@@ -187,24 +118,6 @@ var elements = [
 		"weight": 15.999,
 		"protons": 8,
 		"neutrons": 7,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // -end 1st full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0}, // -end 2 set
-			{"x": -1, "y": 1, "z": -1},
-			{"x": 1, "y": -1, "z": 1},
-			{"x": -1, "y": 1, "z": 1},
-			{"x": 1, "y": -1, "z": -1},
-			{"x": -1, "y": -1, "z": -1},
-		],
 		"electrons": 8,
 		"shells": [2, 6],
 		"electrons": 8,
@@ -221,27 +134,6 @@ var elements = [
 		"weight": 18.998,
 		"protons": 9,
 		"neutrons": 9,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // -end 1st full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0}, // -end 2 set
-			{"x": -1, "y": 1, "z": -1},
-			{"x": 1, "y": -1, "z": 1},
-			{"x": -1, "y": 1, "z": 1},
-			{"x": 1, "y": -1, "z": -1},
-			{"x": -1, "y": -1, "z": -1},
-			{"x": 1, "y":1, "z": 1},
-			{"x": -1, "y": -1, "z": 1},
-			{"x": 1, "y": 1, "z": -1},
-		],
 		"electrons": 9,
 		"shells": [2, 7],
 		"electrons": 9,
@@ -258,28 +150,6 @@ var elements = [
 		"weight": 20.179,
 		"protons": 10,
 		"neutrons": 10,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // -end 1st full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0}, 
-			{"x": -1, "y": 1, "z": -1},
-			{"x": 1, "y": -1, "z": 1},
-			{"x": -1, "y": 1, "z": 1},
-			{"x": 1, "y": -1, "z": -1},
-			{"x": -1, "y": -1, "z": -1},
-			{"x": 1, "y":1, "z": 1},
-			{"x": -1, "y": -1, "z": 1},
-			{"x": 1, "y": 1, "z": -1}, // -end 2nd set
-			{"x": 0, "y": 2, "z": 0}, 
-		],
 		"electrons": 10,
 		"shells": [2, 8],
 		"electrons": 10,
@@ -296,31 +166,6 @@ var elements = [
 		"weight": 22.989,
 		"protons": 11,
 		"neutrons": 11,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // -end 1st full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0}, 
-			{"x": -1, "y": 1, "z": -1},
-			{"x": 1, "y": -1, "z": 1},
-			{"x": -1, "y": 1, "z": 1},
-			{"x": 1, "y": -1, "z": -1},
-			{"x": -1, "y": -1, "z": -1},
-			{"x": 1, "y":1, "z": 1},
-			{"x": -1, "y": -1, "z": 1},
-			{"x": 1, "y": 1, "z": -1}, // -end 2nd set (19)
-			{"x": 0, "y": 2, "z": 0}, 
-			{"x": 0, "y": -2, "z": 0}, 
-			{"x": 2, "y": 0, "z": 0}, 
-			{"x": -2, "y": 0, "z": 0}, 
-		],
 		"electrons": 11,
 		"shells": [2, 8, 1],
 		"electrons": 11,
@@ -337,32 +182,6 @@ var elements = [
 		"weight": 24.305,
 		"protons": 12,
 		"neutrons": 12,
-		"nucleus": [
-			{"x": 0, "y": 1, "z": 0},
-			{"x": 1, "y": 0, "z": 0},
-			{"x": 0, "y": -1, "z": 0},
-			{"x": -1, "y": 0, "z": 0},
-			{"x": 0, "y": 0, "z": 1},
-			{"x": 0, "y": 0, "z" : 0},
-			{"x": 0, "y": 0, "z": -1}, // -end 1st full set
-			{"x": -1, "y": 1, "z": 0},
-			{"x": 1, "y": -1, "z": 0},
-			{"x": -1, "y": -1, "z": 0},
-			{"x": 1, "y": 1, "z": 0}, 
-			{"x": -1, "y": 1, "z": -1},
-			{"x": 1, "y": -1, "z": 1},
-			{"x": -1, "y": 1, "z": 1},
-			{"x": 1, "y": -1, "z": -1},
-			{"x": -1, "y": -1, "z": -1},
-			{"x": 1, "y":1, "z": 1},
-			{"x": -1, "y": -1, "z": 1},
-			{"x": 1, "y": 1, "z": -1}, // -end 2nd set (19)
-			{"x": 0, "y": 2, "z": 0}, 
-			{"x": 0, "y": -2, "z": 0}, 
-			{"x": 2, "y": 0, "z": 0}, 
-			{"x": -2, "y": 0, "z": 0}, 
-			{"x": 0, "y": 0, "z": 2}, 
-		],
 		"electrons": 12,
 		"shells": [2, 8, 2],
 		"electrons": 12,
@@ -379,13 +198,6 @@ var elements = [
       "weight":26.981539,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":3,
@@ -400,13 +212,6 @@ var elements = [
       "weight":28.0855,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":3,
@@ -421,13 +226,6 @@ var elements = [
       "weight":30.973762,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
         "row":3,
@@ -442,13 +240,6 @@ var elements = [
       "weight":32.066,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":3,
@@ -463,13 +254,6 @@ var elements = [
       "weight":35.4527,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":3,
@@ -484,13 +268,6 @@ var elements = [
       "weight":39.948,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":3,
@@ -505,13 +282,6 @@ var elements = [
       "weight":39.0983,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -526,13 +296,6 @@ var elements = [
       "weight":40.078,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -547,13 +310,6 @@ var elements = [
       "weight":44.95591,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -568,13 +324,6 @@ var elements = [
       "weight":47.88,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -589,13 +338,6 @@ var elements = [
       "weight":50.9415,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -610,13 +352,6 @@ var elements = [
       "weight":51.9961,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -631,13 +366,6 @@ var elements = [
       "weight":54.93805,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -652,13 +380,6 @@ var elements = [
       "weight":55.847,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -673,13 +394,6 @@ var elements = [
       "weight":58.9332,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -694,13 +408,6 @@ var elements = [
       "weight":58.6934,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -715,13 +422,6 @@ var elements = [
       "weight":63.546,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -736,13 +436,6 @@ var elements = [
       "weight":65.39,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -757,13 +450,6 @@ var elements = [
       "weight":69.723,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -778,13 +464,6 @@ var elements = [
       "weight":72.61,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -799,13 +478,6 @@ var elements = [
       "weight":74.92159,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -820,13 +492,6 @@ var elements = [
       "weight":78.96,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -841,13 +506,6 @@ var elements = [
       "weight":79.904,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -862,13 +520,6 @@ var elements = [
       "weight":83.8,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":4,
@@ -883,13 +534,6 @@ var elements = [
       "weight":85.4678,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -904,13 +548,6 @@ var elements = [
       "weight":87.62,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -925,13 +562,6 @@ var elements = [
       "weight":88.90585,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -946,13 +576,6 @@ var elements = [
       "weight":91.224,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -967,13 +590,6 @@ var elements = [
       "weight":92.90638,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -988,13 +604,6 @@ var elements = [
       "weight":95.94,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1009,13 +618,6 @@ var elements = [
       "weight":97.9072,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1030,13 +632,6 @@ var elements = [
       "weight":101.07,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1051,13 +646,6 @@ var elements = [
       "weight":102.9055,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
         "row":5,
@@ -1072,13 +660,6 @@ var elements = [
       "weight":106.42,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1093,13 +674,6 @@ var elements = [
       "weight":107.8682,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1114,13 +688,6 @@ var elements = [
       "weight":112.411,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1135,13 +702,6 @@ var elements = [
       "weight":114.818,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1156,13 +716,6 @@ var elements = [
       "weight":118.71,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1177,13 +730,6 @@ var elements = [
       "weight":121.76,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1198,13 +744,6 @@ var elements = [
       "weight":127.6,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1219,13 +758,6 @@ var elements = [
       "weight":126.90447,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1240,13 +772,6 @@ var elements = [
       "weight":131.29,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":5,
@@ -1261,13 +786,6 @@ var elements = [
       "weight":132.90543,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1282,13 +800,6 @@ var elements = [
       "weight":137.327,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1303,13 +814,6 @@ var elements = [
       "weight":178.49,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1324,13 +828,6 @@ var elements = [
       "weight":180.9479,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1345,13 +842,6 @@ var elements = [
       "weight":183.84,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1366,13 +856,6 @@ var elements = [
       "weight":186.207,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1387,13 +870,6 @@ var elements = [
       "weight":190.23,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1408,13 +884,6 @@ var elements = [
       "weight":192.22,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1429,13 +898,6 @@ var elements = [
       "weight":195.08,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1450,13 +912,6 @@ var elements = [
       "weight":196.96654,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1471,13 +926,6 @@ var elements = [
       "weight":200.59,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1492,13 +940,6 @@ var elements = [
       "weight":204.3833,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1513,13 +954,6 @@ var elements = [
       "weight":207.2,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1534,13 +968,6 @@ var elements = [
       "weight":208.98037,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1555,13 +982,6 @@ var elements = [
       "weight":208.9824,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1576,13 +996,6 @@ var elements = [
       "weight":209.9871,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1597,13 +1010,6 @@ var elements = [
       "weight":222.0176,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":6,
@@ -1618,13 +1024,6 @@ var elements = [
       "weight":223.0197,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1639,13 +1038,6 @@ var elements = [
       "weight":226.0254,
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1662,13 +1054,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1685,13 +1070,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1708,13 +1086,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1731,13 +1102,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1754,13 +1118,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1777,13 +1134,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1800,13 +1150,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1823,13 +1166,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1846,13 +1182,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1867,13 +1196,6 @@ var elements = [
       "weight":"n/a",
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1890,13 +1212,6 @@ var elements = [
       ],
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1911,13 +1226,6 @@ var elements = [
       "weight":"n/a",
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1932,13 +1240,6 @@ var elements = [
       "weight":"n/a",
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1953,13 +1254,6 @@ var elements = [
       "weight":"n/a",
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1974,13 +1268,6 @@ var elements = [
       "weight":"n/a",
       "protons":1,
       "neutrons":1,
-      "nucleus":[
-         {
-            "x":0,
-            "y":0,
-            "z":0
-         }
-      ],
       "electrons":1,
       "position":{
          "row":7,
@@ -1988,5 +1275,4 @@ var elements = [
       },
       "type":"noble-gas"
    }
-
 ]

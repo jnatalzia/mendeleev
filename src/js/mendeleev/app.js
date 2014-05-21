@@ -2,7 +2,8 @@
 var dmitri = dmitri || {};
 
 dmitri.app = {
-
+	//constants
+	TABLE_CAMERA_SPEED:.3,
 	// variable properties
 	atomRenderer: undefined,
 	tableRenderer:undefined,
@@ -24,6 +25,7 @@ dmitri.app = {
 	STATE_PERIODIC_TABLE:0,
 	STATE_ATOM_VIEW:1,
 
+	/* Method Purpose: Initializes all variables for the app object*/
 	init: function() {
 		// get data
 		dmitri.elements = elements;
@@ -66,7 +68,7 @@ dmitri.app = {
 
 
 
-
+  /* Method Purpose: Sets up the ThreeJS renderers and cameras*/
 	setupThreeJS: function() {
 
 
@@ -116,7 +118,7 @@ dmitri.app = {
 		// this.camera.position.z = 0;
 
 		// this.cameraControls = new THREE.OrbitControls(this.camera, document.querySelector("#atom-wrapper"));
-		this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
+		//this.cameraControls = new THREE.OrbitControls(this.tableCamera, document.querySelector("#table-wrapper"));
 		
 		/*this.cameraControls.target.x = this.tableCamera.position.x;
 		this.cameraControls.target.y = this.tableCamera.position.y;
@@ -149,6 +151,7 @@ dmitri.app = {
 
 	},
 
+	/* Method Purpose: Builds the new atom for the atomview */
 	updateAtom: function(number,raw)
 	{
 		var atomicNumber = raw ? number + 1 : number;
@@ -156,7 +159,7 @@ dmitri.app = {
 		//this.state = this.STATE_ATOM_VIEW;
 	},
 				
-			
+	/* Method Purpose: Updates the canvas elements*/
 	update: function(){
 		// schedule next animation frame
 		dmitri.animationID = requestAnimationFrame(this.update.bind(this));
@@ -170,6 +173,11 @@ dmitri.app = {
 		this.atom.animate();
 		this.table.update();
 
+
+		//console.log();
+		//update table camera
+		if (this.state == this.STATE_PERIODIC_TABLE)
+			this.updateTableCamera();
 		// DRAW	
 		this.atomRenderer.render(this.atomScene, this.camera);
 		this.tableRenderer.render(this.tableScene, this.tableCamera)
@@ -178,32 +186,119 @@ dmitri.app = {
 
 			
 
-	
+	/* Method Purpose: Draws whatever is necessary for the pause screen*/
 	drawPauseScreen: function(){
 		// do something pause-like if you want
 	},
 
+	/* Method Purpose: Searches for an elements and if it's found switches to that element*/
 	search: function(e) {
-		var search = dmitri.search.value;
+		var search = dmitri.search.value.toLowerCase();
+		//console.log();
+
+		//dmitri.table.blankElements();
 
 		for (var i = 0; i < dmitri.elements.length; i++) {
+			var el = dmitri.elements[i];
+			var name = dmitri.elements[i].name.toLowerCase();
+
+			var sub = name.substring(0,search.length);
+
+			//console.log(sub);
+
+			//console.log('hi');
 			/* should probably do some regex here */
-			if (search == dmitri.elements[i].name.toLowerCase()) {
-				dmitri.app.atom.build(i, true);
+
+
+			if (dmitri.app.state == dmitri.app.STATE_ATOM_VIEW)
+			{
+				//
+				if (search == name) {
+					dmitri.app.atom.build(i, true);
+				}
+			}
+			else if (dmitri.app.state == dmitri.app.STATE_PERIODIC_TABLE)
+			{
+				//console.log('hi');
+				
+				/*if (search == sub)
+				{
+					dmitri.table.highlightSingleElement(i,false);
+				}
+				else
+				{
+					dmitri.table.blankSingleElement(i,false);
+				}*/
 			}
 		};
 	},
+	/* Method Purpose: Handles a mouse down event*/
 	 doMousedown: function(event) {
 	 	if (this.state == this.STATE_PERIODIC_TABLE)
 	 	{
 			this.table.doMousedown(event);
 	 	}
    },
+   /* Method Purpose: Handles a mouse up event*/
    doMouseup: function(e)
    {
    	if (this.state == this.STATE_PERIODIC_TABLE)
 		{
 	 	this.table.doMouseup(e);
 	 	}
-  	}
+  	},
+  	/* Method Purpose: Handles the keyboard controls for the tableview*/
+  	updateTableCamera:function()
+  	{
+  		if (dmitri.keydown[dmitri.KEYBOARD["KEY_LEFT"]])
+		{
+			this.tableCamera.position.x -= this.TABLE_CAMERA_SPEED;
+			//console.log(this.tableCamera);
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_RIGHT"]])
+		{
+			this.tableCamera.position.x += this.TABLE_CAMERA_SPEED;
+			//console.log(this.tableCamera);
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_W"]])
+		{
+			if (this.tableCamera.position.z > 8.6) this.tableCamera.position.z -= this.TABLE_CAMERA_SPEED;
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_S"]])
+		{
+			if (this.tableCamera.position.z <= 66.2)this.tableCamera.position.z += this.TABLE_CAMERA_SPEED;
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_UP"]])
+		{
+			this.tableCamera.position.y += this.TABLE_CAMERA_SPEED;
+		}
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_DOWN"]])
+		{
+			this.tableCamera.position.y -= this.TABLE_CAMERA_SPEED;
+		}
+
+		if (dmitri.keydown[dmitri.KEYBOARD["KEY_R"]])
+		{
+			this.tableCamera.position.x = 50;
+			this.tableCamera.position.z = 50;
+			this.tableCamera.position.y = -25;
+		}
+  	},
+  	/* Method Purpose: Displays the table and hides the appropriate UI elements*/
+  	showTable:function()
+  	{
+  		this.state = this.STATE_PERIODIC_TABLE;
+
+  		document.querySelector(".front-canvas").className = "";
+        document.querySelector("#table").className = "front-canvas";
+        document.querySelector("#key-wrapper").className = "";
+        document.querySelector("#atom-back").className = "hide";
+        document.querySelector("#shuffle-elements").className="";
+  	},
+  	/* Method Purpose: Starts the background music*/
+  	startSoundtrack:function()
+  	{
+  		createjs.Sound.stop();
+		createjs.Sound.play("soundtrack",{loop:-1,volume:0.5});
+  	},
 };
