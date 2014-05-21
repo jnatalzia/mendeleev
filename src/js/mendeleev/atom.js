@@ -203,28 +203,9 @@ dmitri.atom = {
 	  }
 
 	  // make and append <li>s
-	  var configs = 1;
-	  var text = [];
-
-	  if (e.electrons <= 2) {
-	  	configs = 1;
-	  	text[0] = e.electrons; 
-	  }
-	  if (e.electrons <= 10 && e.electrons > 2) {
-	  	configs = 2;
-	  	text[0] = '2';
-	  	text[1] = e.electrons - 2;
-	  }
-	  if (e.electrons <= 18 && e.electrons > 10) {
-	  	configs = 3;
-	  	text[0] = '2';
-	  	text[1] = '8';
-	  	text[2] = e.electrons - 10;
-	  }
-
-	  for (var i = 0; i < configs; i++) {
+	  for (var i = 0; i < e.shells.length; i++) {
 			var li = document.createElement('li');
-			li.innerHTML = text[i];
+			li.innerHTML = e.shells[i];
 			this.hud.electrons.appendChild(li);  	
 	  };
 
